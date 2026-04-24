@@ -21,7 +21,7 @@ public class DataBase {
 				+ "nume TEXT NOT NULL UNIQUE,"
 				+ "parola TEXT NOT NULL)";
 
-		String s_listings = "CREATE TABLE IF NOT EXISTS listings("
+		String s_Rezervari= "CREATE TABLE IF NOT EXISTS listings("
 				+ "id INTEGER PRIMARY KEY AUTOINCREMENT,"
 				+ "cazare TEXT NOT NULL,"
 				+ "disponibilitate INTEGER NOT NULL,"
@@ -46,7 +46,7 @@ public class DataBase {
 		try (Connection conn = DriverManager.getConnection(url);
 				Statement stmt = conn.createStatement()) {
 			stmt.execute(s_utilizatori);
-			stmt.execute(s_listings);
+			stmt.execute(s_Rezervari);
 			stmt.execute(s_airbnb);
 		} catch (Exception e) {
 			System.out.println(e);
