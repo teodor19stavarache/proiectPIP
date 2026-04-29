@@ -1,0 +1,102 @@
+[
+  {
+    "name": "Hilton Vienna Waterfront",
+    "rate_per_night": "242 EUR",
+    "total_rate": "485 EUR",
+    "link": "https://www.hilton.com/en/hotels/viehahi-hilton-vienna-waterfront/?SEO_id=GMB-EMEA-HI-VIEHAHI",
+    "rating": 4.4,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Viennese Giant Ferris Wheel",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Wien Praterstern",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "8 min"
+          }
+        ]
+      },
+      {
+        "name": "Vienna International Airport",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "26 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "28 min"
+          }
+        ]
+      },
+      {
+        "name": "Fat Monk - Biz Zwei",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "5 min"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Citadines Danube Vienna",
+    "rate_per_night": "174 EUR",
+    "total_rate": "348 EUR",
+    "link": "https://www.discoverasr.com/citadines/austria/citadines-danube-vienna?utm_source=google&utm_medium=maps&utm_campaign=hq-google-maps-alwayson-20240531-all-all-eu-at-citadinesdanubevienna-yext-gbp",
+    "rating": 4.5,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Viennese Giant Ferris Wheel",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "10 min"
+          }
+        ]
+      },
+      {
+        "name": "Kagran",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      },
+      {
+        "name": "Vienna International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "29 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "43 min"
+          }
+        ]
+      },
+      {
+        "name": "Sha Guo 22",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ]
+  }
+]
