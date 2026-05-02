@@ -34,19 +34,16 @@ public class DataBase_Utilizator {
 
 	/**
 	 * * Adauga un utilizator in baza de date * 
-	 * @param email * 
-	 * @param nume * 
-	 * @param parola 
-	 * @param nr_telefon
+	 * @param util - Utilizator
 	 */
-	public void adauga_utilizator(String db_email, String db_nume, String db_parola, String db_nr_telefon) {
+	public void adauga_utilizator(Utilizator util) {
 		String s_adauga = "INSERT INTO utilizator_db(email,nume,parola,numar_telefon) VALUES(?,?,?,?);";
 		try (Connection conn = DriverManager.getConnection(url);
 				PreparedStatement ps = conn.prepareStatement(s_adauga)) {
-			ps.setString(1, db_email);
-			ps.setString(2, db_nume);
-			ps.setString(3, db_parola);
-			ps.setString(4, db_nr_telefon);
+			ps.setString(1, util.getEmail());
+			ps.setString(2, util.getNume());
+			ps.setString(3, util.getParola());
+			ps.setString(4, util.getNumarTelefon());
 			ps.executeUpdate();
 			System.out.println("Utilizator adaugat!");
 		} catch (Exception e) {
@@ -55,22 +52,21 @@ public class DataBase_Utilizator {
 	}
 
 	/**
-	 * * * @param nume - String 
-	 * @param parola - String 
+	 * @param util - Utilizator 
 	 * @return boolean : true -
 	 * daca parola coincide/false - daca parola nu coincide
 	 */
-	public boolean verifica_parola(String db_email, String db_parola) {
+	public boolean verifica_parola(Utilizator util) {
 		String parola_gasita = null;
 		String s_verifica = "SELECT parola FROM utilizator_db WHERE email = ?";
 		try (Connection conn = DriverManager.getConnection(url);
 				PreparedStatement ps = conn.prepareStatement(s_verifica)) {
-			ps.setString(1, db_email);
+			ps.setString(1, util.getEmail());
 			ResultSet rs = ps.executeQuery();
 			if (rs.next()) {
 				parola_gasita = rs.getString("parola");
 			}
-			if (parola_gasita != null && parola_gasita.equals(db_parola)) {
+			if (parola_gasita != null && Utilizator.decode(parola_gasita).equals(util.getParola())) {
 				return true;
 			} else {
 				return false;
@@ -81,24 +77,30 @@ public class DataBase_Utilizator {
 		return false;
 	}
 
-	/** * Inlocuieste numele utilizatorului * @param email * @param nume_nou */
-	public void updateNume(String db_email, String db_nume_nou) {
+	/** * Inlocuieste numele utilizatorului 
+	* @param util - Utilizator 
+	* @param nume_nou - String  
+	*/
+	public void updateNume(Utilizator util, String db_nume_nou) {
 		String sql = "UPDATE utilizator_db SET nume = ? WHERE email = ?";
 		try (Connection conn = DriverManager.getConnection(url); PreparedStatement ps = conn.prepareStatement(sql)) {
 			ps.setString(1, db_nume_nou);
-			ps.setString(2, db_email);
+			ps.setString(2, util.getEmail());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
 		}
 	}
 
-	/** * Inlocuieste parola utilizatorului * @param email * @param parola_noua */
-	public void updateParola(String db_email, String db_parola_noua) {
+	/** * Inlocuieste parola utilizatorului 
+	 * @param util - Utilizator  
+	 * @param parola_noua - String  
+	 * */
+	public void updateParola(Utilizator util, String db_parola_noua) {
 		String sql = "UPDATE utilizator_db SET parola = ? WHERE email = ?";
 		try (Connection conn = DriverManager.getConnection(url); PreparedStatement ps = conn.prepareStatement(sql)) {
-			ps.setString(1, db_parola_noua);
-			ps.setString(2, db_email);
+			ps.setString(1, Utilizator.encode(db_parola_noua));
+			ps.setString(2, util.getEmail());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
@@ -106,14 +108,15 @@ public class DataBase_Utilizator {
 	}
 
 	/**
-	 * * Inlocuieste numarul de telefon al utilizatorului * @param email * @param
-	 * numar_nou
+	 * * Inlocuieste numarul de telefon al utilizatorului 
+	 * @param util - Utilizator  
+	 * @param numar_nou - String
 	 */
-	public void updateNumarTelefon(String db_email, String db_numar_nou) {
+	public void updateNumarTelefon(Utilizator util, String db_numar_nou) {
 		String sql = "UPDATE utilizator_db SET numar_telefon = ? WHERE email = ?";
 		try (Connection conn = DriverManager.getConnection(url); PreparedStatement ps = conn.prepareStatement(sql)) {
 			ps.setString(1, db_numar_nou);
-			ps.setString(2, db_email);
+			ps.setString(2, util.getEmail());
 			ps.executeUpdate();
 		} catch (Exception e) {
 			System.out.println(e);
