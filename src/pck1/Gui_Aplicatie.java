@@ -5,45 +5,63 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
-
+/*
+ * Gui_Aplicatie - fereastra principala a aplicatiei TravaleRo.
+ *
+ * Paleta verde aprins:
+ *   GREEN_PRIMARY = #009933  verde electric - culoarea principala
+ *   GREEN_DARK    = #006622  verde inchis pentru hover si elemente secundare
+ *   ORANGE_PRICE  = #FF6600  portocaliu pentru preturi - contrast maxim pe alb
+ *   ORANGE_STAR   = #FF9900  portocaliu deschis pentru stele si rating
+ *   BG_PAGE       = #F3F6F3  fundal gri cu nuanta verde foarte subtila
+ *   SIDEBAR_BG    = #0A1A0A  aproape negru cu nuanta verde - contrast maxim
+ *
+ * Structura navigare:
+ *   rootLayout (JFrame)
+ *     "login"    -> buildLoginPage()
+ *     "register" -> buildRegisterPage()
+ *     "app"      -> buildAppPanel()
+ *                     mainPanel (CardLayout)
+ *                       "home"     -> buildHomePage()
+ *                       "search"   -> buildSearchPage()
+ *                       "atractii" -> buildAtractiiPage()
+ *                       "rezervari"-> buildRezervariPage()
+ *                       "profil"   -> buildProfilPage()
+ *                       "detail"   -> detailPanel (populat dinamic)
+ */
 public class Gui_Aplicatie extends JFrame {
 
-	// ===== PALETA NOUA (calma, moderna) =====
-	private static final Color PRIMARY      = new Color(41, 98, 255);   // albastru
-	private static final Color PRIMARY_DARK = new Color(30, 64, 175);
-	private static final Color ACCENT       = new Color(0, 150, 136);   // teal (nu verde agresiv)
-	private static final Color BG_PAGE      = new Color(245, 247, 250);
-	private static final Color CARD_BG      = Color.WHITE;
-	private static final Color TEXT_MAIN    = new Color(30, 30, 30);
-	private static final Color TEXT_SECOND  = new Color(120, 120, 120);
-	private static final Color BORDER_C     = new Color(220, 220, 220);
-	private static final Color ALB          = Color.WHITE;
-	private static final Color BG_DARK = new Color(28, 32, 40);
-	
-	private static final Color GRI_TEXT = TEXT_SECOND;
-	private static final Color SIDEBAR_BG = new Color(20, 24, 32);
-	private static final Color SIDEBAR_SEC = new Color(30, 36, 48);
-	
-	private static final Font FONT_TITLE = new Font("Segoe UI", Font.BOLD, 18);
-	private static final Font FONT_SUB   = new Font("Segoe UI", Font.PLAIN, 13);
-	private static final Font FONT_SMALL = new Font("Segoe UI", Font.PLAIN, 12);
+    // Paleta verde aprins
+    private static final Color GREEN_PRIMARY = new Color(  0, 153,  51);
+    private static final Color GREEN_DARK    = new Color(  0, 102,  34);
+    private static final Color GREEN_LIGHT   = new Color( 51, 204,  51);
+    private static final Color ORANGE_PRICE  = new Color(255, 102,   0);
+    private static final Color ORANGE_STAR   = new Color(255, 153,   0);
+    private static final Color BG_PAGE       = new Color(243, 246, 243);
+    private static final Color SIDEBAR_BG    = new Color( 10,  26,  10);
+    private static final Color SIDEBAR_SEC   = new Color( 18,  42,  18);
+    private static final Color GRI_TEXT      = new Color(107, 107, 107);
+    private static final Color BORDER_C      = new Color(220, 220, 220);
+    private static final Color ALB           = Color.WHITE;
 
-    // Alias-uri pentru compatibilitate cu codul existent (nu mai trebuie schimbat in tot fisierul)
-	private static final Color ROS_VIU = PRIMARY;
-	private static final Color ROS_HOVER = PRIMARY_DARK;
-	private static final Color PORTOCALIU = ACCENT;
-	private static final Color PORTOCALIU_2 = ACCENT;
-	private static final Color WARM_BG = BG_PAGE;
+    // Alias-uri pentru compatibilitate interna
+    private static final Color ROS_VIU   = GREEN_PRIMARY;
+    private static final Color ROS_HOVER = GREEN_DARK;
+    private static final Color PORTOCALIU   = ORANGE_PRICE;
+    private static final Color PORTOCALIU_2 = ORANGE_STAR;
+    private static final Color WARM_BG      = BG_PAGE;
 
-    // CardLayout la nivel de JFrame - comuta intre login si aplicatie
+    // CardLayout radacina - comuta intre login, register si aplicatie
     private CardLayout rootLayout;
     private JPanel     rootPanel;
 
-    // CardLayout pentru paginile din interiorul aplicatiei
+    // CardLayout interior - comuta intre paginile aplicatiei
     private CardLayout cardLayout;
     private JPanel     mainPanel;
     private JPanel     detailPanel;
-    private JButton    btnHome, btnAtractii, btnRezervari;
+
+    // Butoanele de navigare din sidebar - tinute ca field pentru a le activa/dezactiva
+    private JButton btnHome, btnAtractii, btnRezervari;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
@@ -62,87 +80,83 @@ public class Gui_Aplicatie extends JFrame {
         setSize(1100, 700);
         setLocationRelativeTo(null);
 
-        // rootPanel contine DOUA straturi:
-        //   "login" = ecranul de autentificare (fara topbar/sidebar)
-        //   "app"   = aplicatia completa cu topbar + sidebar + pagini
         rootLayout = new CardLayout();
         rootPanel  = new JPanel(rootLayout);
 
-        // Pagina de login - se vede prima
         rootPanel.add(buildLoginPage(),    "login");
-
-        // Pagina de register - accesibila din butonul "Creeaza cont" de pe login
         rootPanel.add(buildRegisterPage(), "register");
-
-        // Aplicatia completa - ascunsa pana la autentificare
-        rootPanel.add(buildAppPanel(), "app");
+        rootPanel.add(buildAppPanel(),     "app");
 
         setContentPane(rootPanel);
-
-        // Pornim pe ecranul de login
         showRoot("app");
     }
 
+    // Navigare centralizata - previne glitch-urile vizuale cu revalidate+repaint
+    private void showPage(String name) {
+        cardLayout.show(mainPanel, name);
+        mainPanel.revalidate();
+        mainPanel.repaint();
+    }
+
+    private void showRoot(String name) {
+        rootLayout.show(rootPanel, name);
+        rootPanel.revalidate();
+        rootPanel.repaint();
+    }
+
+    // ================================================================
+    //  LOGIN
+    // ================================================================
     /*
      * buildLoginPage() - ecranul de autentificare.
-     *
-     * Layout: tot ecranul e impartit in doua coloane cu GridLayout:
-     *   - Stanga: panel rosu cu logo-ul mare si un slogan
-     *   - Dreapta: formularul de login (email, parola, butoane)
-     *
-     * Simplu intentionat - fara date reale, fara validare complexa.
-     * La click pe "Intra" se trece direct la aplicatie.
+     * Stanga: branding cu logo mare si slogan.
+     * Dreapta: formular cu email, parola, buton login, link register.
      */
     private JPanel buildLoginPage() {
         JPanel page = new JPanel(new GridLayout(1, 2, 0, 0));
 
-        // Jumatatea stanga - branding colorat
+        // Stanga - branding verde
         JPanel leftSide = new JPanel(new GridBagLayout());
-        leftSide.setBackground(ROS_VIU);
+        leftSide.setBackground(GREEN_PRIMARY);
 
-        JPanel brandContent = new JPanel();
-        brandContent.setLayout(new BoxLayout(brandContent, BoxLayout.Y_AXIS));
-        brandContent.setBackground(ROS_VIU);
+        JPanel brand = new JPanel();
+        brand.setLayout(new BoxLayout(brand, BoxLayout.Y_AXIS));
+        brand.setBackground(GREEN_PRIMARY);
 
-        // Logo mare
         JLabel logoMare = new JLabel(
             "<html><div style='text-align:center;'>" +
             "<span style='color:white;font-size:42pt;font-weight:bold;'>Travale</span>" +
-            "<span style='color:#FF9900;font-size:42pt;font-weight:bold;'>Ro</span>" +
+            "<span style='color:#FFCC00;font-size:42pt;font-weight:bold;'>Ro</span>" +
             "</div></html>"
         );
         logoMare.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Icona avion sub logo
         JLabel avion = new JLabel("✈", SwingConstants.CENTER);
         avion.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 48));
-        avion.setForeground(new Color(255, 200, 180));
+        avion.setForeground(new Color(200, 255, 200));
         avion.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        // Slogan sub logo
         JLabel slogan = new JLabel(
-            "<html><div style='text-align:center;color:#FFD0C0;font-size:13pt;'>" +
+            "<html><div style='text-align:center;color:#CCFFCC;font-size:13pt;'>" +
             "Planifica-ti urmatoarea aventura<br>din inima Iasului spre lume." +
             "</div></html>"
         );
         slogan.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        brandContent.add(Box.createVerticalGlue());
-        brandContent.add(logoMare);
-        brandContent.add(Box.createVerticalStrut(8));
-        brandContent.add(avion);
-        brandContent.add(Box.createVerticalStrut(24));
-        brandContent.add(slogan);
-        brandContent.add(Box.createVerticalGlue());
-
-        leftSide.add(brandContent);
+        brand.add(Box.createVerticalGlue());
+        brand.add(logoMare);
+        brand.add(Box.createVerticalStrut(8));
+        brand.add(avion);
+        brand.add(Box.createVerticalStrut(24));
+        brand.add(slogan);
+        brand.add(Box.createVerticalGlue());
+        leftSide.add(brand);
         page.add(leftSide);
 
-        // Jumatatea dreapta - formularul de login
+        // Dreapta - formular
         JPanel rightSide = new JPanel(new GridBagLayout());
-        rightSide.setBackground(WARM_BG);
+        rightSide.setBackground(BG_PAGE);
 
-        // Cardul alb cu formularul - centrat in dreapta
         JPanel formCard = new JPanel();
         formCard.setLayout(new BoxLayout(formCard, BoxLayout.Y_AXIS));
         formCard.setBackground(ALB);
@@ -151,7 +165,6 @@ public class Gui_Aplicatie extends JFrame {
             new EmptyBorder(40, 44, 32, 44)
         ));
 
-        // Titlul formularului
         JLabel titluForm = new JLabel("Bine ai revenit");
         titluForm.setFont(new Font("Segoe UI", Font.BOLD, 22));
         titluForm.setForeground(new Color(20, 20, 20));
@@ -167,7 +180,7 @@ public class Gui_Aplicatie extends JFrame {
         formCard.add(subtitluForm);
         formCard.add(Box.createVerticalStrut(32));
 
-        // Label + camp email
+        // Camp email
         JLabel lblEmail = new JLabel("Adresa de email");
         lblEmail.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblEmail.setForeground(GRI_TEXT);
@@ -186,7 +199,7 @@ public class Gui_Aplicatie extends JFrame {
         formCard.add(campEmail);
         formCard.add(Box.createVerticalStrut(18));
 
-        // Label + camp parola
+        // Camp parola
         JLabel lblParola = new JLabel("Parola");
         lblParola.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblParola.setForeground(GRI_TEXT);
@@ -194,7 +207,6 @@ public class Gui_Aplicatie extends JFrame {
         formCard.add(lblParola);
         formCard.add(Box.createVerticalStrut(5));
 
-        // JPasswordField ascunde caracterele introduse cu puncte
         JPasswordField campParola = new JPasswordField();
         campParola.setFont(new Font("Segoe UI", Font.PLAIN, 14));
         campParola.setBorder(BorderFactory.createCompoundBorder(
@@ -206,29 +218,23 @@ public class Gui_Aplicatie extends JFrame {
         formCard.add(campParola);
         formCard.add(Box.createVerticalStrut(28));
 
-        // Butonul principal de login - lat, rosu aprins
+        // Buton login - verde aprins
         JButton btnLogin = new JButton("Intra in cont");
         btnLogin.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btnLogin.setBackground(ROS_VIU);
+        btnLogin.setBackground(GREEN_PRIMARY);
         btnLogin.setForeground(ALB);
         btnLogin.setBorder(new EmptyBorder(12, 0, 12, 0));
         btnLogin.setFocusPainted(false);
         btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnLogin.setMaximumSize(new Dimension(Integer.MAX_VALUE, 46));
         btnLogin.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        // La click trecem la aplicatie - in practica aici ar fi validarea credentialelor
         btnLogin.addActionListener(e -> showRoot("app"));
-
-        // Apasarea Enter pe oricare camp face acelasi lucru ca butonul Login
         campEmail.addActionListener(e -> showRoot("app"));
         campParola.addActionListener(e -> showRoot("app"));
-
         formCard.add(btnLogin);
         formCard.add(Box.createVerticalStrut(16));
 
-        // Rand de jos: Register (stanga) si Forgot password (dreapta)
-        // Folosim BorderLayout pe un panel de 1 rand pentru a-i pozitiona la capete
+        // Rand de jos: register stanga, forgot password dreapta
         JPanel bottomRow = new JPanel(new BorderLayout());
         bottomRow.setBackground(ALB);
         bottomRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 28));
@@ -236,12 +242,11 @@ public class Gui_Aplicatie extends JFrame {
 
         JButton btnRegister = new JButton("Creeaza cont");
         btnRegister.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        btnRegister.setForeground(PORTOCALIU);
+        btnRegister.setForeground(GREEN_PRIMARY);
         btnRegister.setBackground(ALB);
         btnRegister.setBorder(BorderFactory.createEmptyBorder());
         btnRegister.setFocusPainted(false);
         btnRegister.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        // Navigam la pagina de register
         btnRegister.addActionListener(e -> showRoot("register"));
 
         JButton btnForgot = new JButton("Ai uitat parola?");
@@ -252,76 +257,73 @@ public class Gui_Aplicatie extends JFrame {
         btnForgot.setFocusPainted(false);
         btnForgot.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnForgot.addActionListener(e ->
-            JOptionPane.showMessageDialog(this,
-                "Resetare parola - in curand!",
-                "TravaleRo", JOptionPane.INFORMATION_MESSAGE)
-        );
+            JOptionPane.showMessageDialog(this, "Resetare parola - in curand!",
+                "TravaleRo", JOptionPane.INFORMATION_MESSAGE));
 
         bottomRow.add(btnRegister, BorderLayout.WEST);
         bottomRow.add(btnForgot,   BorderLayout.EAST);
         formCard.add(bottomRow);
 
-        // Fixam latimea cardului de login
-        formCard.setPreferredSize(new Dimension(380, 440));
+        formCard.setPreferredSize(new Dimension(380, 420));
         rightSide.add(formCard);
         page.add(rightSide);
-
         return page;
     }
 
+    // ================================================================
+    //  REGISTER
+    // ================================================================
     /*
-     * buildRegisterPage() - ecranul de creare cont nou.
-     *
-     * Acelasi layout ca loginul: stanga branding, dreapta formular.
-     * Campuri: Nume, Prenume, Email, Parola, Oras resedinta.
-     * Butonul "Inapoi la login" duce inapoi la "login".
-     * Butonul "Creeaza cont" va trimite datele la baza de date (de conectat ulterior).
+     * buildRegisterPage() - ecranul de creare cont.
+     * Stanga: branding galben-verde.
+     * Dreapta: formular cu Nume, Prenume, Email, Parola, Oras.
+     * "Autentifica-te" duce inapoi la login.
+     * TODO: conectare la baza de date - inlocuieste JOptionPane cu apel JDBC.
      */
     private JPanel buildRegisterPage() {
         JPanel page = new JPanel(new GridLayout(1, 2, 0, 0));
 
-        // Jumatatea stanga - acelasi branding ca la login
+        // Stanga branding - galben-verde
         JPanel leftSide = new JPanel(new GridBagLayout());
-        leftSide.setBackground(PORTOCALIU);
+        leftSide.setBackground(GREEN_DARK);
 
-        JPanel brandContent = new JPanel();
-        brandContent.setLayout(new BoxLayout(brandContent, BoxLayout.Y_AXIS));
-        brandContent.setBackground(PORTOCALIU);
+        JPanel brand = new JPanel();
+        brand.setLayout(new BoxLayout(brand, BoxLayout.Y_AXIS));
+        brand.setBackground(GREEN_DARK);
 
         JLabel logoMare = new JLabel(
             "<html><div style='text-align:center;'>" +
             "<span style='color:white;font-size:40pt;font-weight:bold;'>Travale</span>" +
-            "<span style='color:#FFD080;font-size:40pt;font-weight:bold;'>Ro</span>" +
+            "<span style='color:#FFCC00;font-size:40pt;font-weight:bold;'>Ro</span>" +
             "</div></html>"
         );
         logoMare.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel avion = new JLabel("✈", SwingConstants.CENTER);
         avion.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 46));
-        avion.setForeground(new Color(255, 230, 180));
+        avion.setForeground(new Color(180, 255, 180));
         avion.setAlignmentX(Component.CENTER_ALIGNMENT);
 
         JLabel slogan = new JLabel(
-            "<html><div style='text-align:center;color:#FFE5CC;font-size:13pt;'>" +
+            "<html><div style='text-align:center;color:#AAFFAA;font-size:13pt;'>" +
             "Alatura-te comunitatii TravaleRo<br>si descopera lumea." +
             "</div></html>"
         );
         slogan.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        brandContent.add(Box.createVerticalGlue());
-        brandContent.add(logoMare);
-        brandContent.add(Box.createVerticalStrut(8));
-        brandContent.add(avion);
-        brandContent.add(Box.createVerticalStrut(24));
-        brandContent.add(slogan);
-        brandContent.add(Box.createVerticalGlue());
-
-        leftSide.add(brandContent);
+        brand.add(Box.createVerticalGlue());
+        brand.add(logoMare);
+        brand.add(Box.createVerticalStrut(8));
+        brand.add(avion);
+        brand.add(Box.createVerticalStrut(24));
+        brand.add(slogan);
+        brand.add(Box.createVerticalGlue());
+        leftSide.add(brand);
         page.add(leftSide);
 
-        // Jumatatea dreapta - formularul de inregistrare
+        // Dreapta - formular
         JPanel rightSide = new JPanel(new GridBagLayout());
-        rightSide.setBackground(WARM_BG);
+        rightSide.setBackground(BG_PAGE);
 
         JPanel formCard = new JPanel();
         formCard.setLayout(new BoxLayout(formCard, BoxLayout.Y_AXIS));
@@ -331,7 +333,6 @@ public class Gui_Aplicatie extends JFrame {
             new EmptyBorder(32, 44, 28, 44)
         ));
 
-        // Titlul formularului
         JLabel titluForm = new JLabel("Creeaza cont nou");
         titluForm.setFont(new Font("Segoe UI", Font.BOLD, 21));
         titluForm.setForeground(new Color(20, 20, 20));
@@ -347,13 +348,12 @@ public class Gui_Aplicatie extends JFrame {
         formCard.add(subtitluForm);
         formCard.add(Box.createVerticalStrut(24));
 
-        // Rand cu Nume si Prenume - doua campuri pe acelasi rand cu GridLayout
+        // Rand Nume + Prenume pe acelasi rand
         JPanel numeRow = new JPanel(new GridLayout(1, 2, 10, 0));
         numeRow.setBackground(ALB);
         numeRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 68));
         numeRow.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        // Campul Nume
         JPanel numePanel = new JPanel();
         numePanel.setLayout(new BoxLayout(numePanel, BoxLayout.Y_AXIS));
         numePanel.setBackground(ALB);
@@ -371,7 +371,6 @@ public class Gui_Aplicatie extends JFrame {
         numePanel.add(campNume);
         numeRow.add(numePanel);
 
-        // Campul Prenume
         JPanel prenumePanel = new JPanel();
         prenumePanel.setLayout(new BoxLayout(prenumePanel, BoxLayout.Y_AXIS));
         prenumePanel.setBackground(ALB);
@@ -391,39 +390,30 @@ public class Gui_Aplicatie extends JFrame {
 
         formCard.add(numeRow);
         formCard.add(Box.createVerticalStrut(14));
-
-        // Campul Email
         formCard.add(buildFormField("Adresa de email", false));
         formCard.add(Box.createVerticalStrut(14));
-
-        // Campul Parola - JPasswordField ascunde textul introdus
         formCard.add(buildFormField("Parola", true));
         formCard.add(Box.createVerticalStrut(14));
-
-        // Campul Oras resedinta
         formCard.add(buildFormField("Oras resedinta", false));
         formCard.add(Box.createVerticalStrut(26));
 
-        // Butonul principal de creare cont - portocaliu vibrant
         JButton btnCreaza = new JButton("Creeaza cont");
         btnCreaza.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btnCreaza.setBackground(ROS_VIU);
+        btnCreaza.setBackground(GREEN_PRIMARY);
         btnCreaza.setForeground(ALB);
         btnCreaza.setBorder(new EmptyBorder(12, 0, 12, 0));
         btnCreaza.setFocusPainted(false);
         btnCreaza.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnCreaza.setMaximumSize(new Dimension(Integer.MAX_VALUE, 46));
         btnCreaza.setAlignmentX(Component.LEFT_ALIGNMENT);
-        // TODO: conectare la baza de date - trimite campNume, campPrenume, email, parola, oras
+        // TODO: inlocuieste cu apel JDBC folosind campNume, campPrenume si celelalte
         btnCreaza.addActionListener(e ->
             JOptionPane.showMessageDialog(this,
-                "Cont creat cu succes! Te poti autentifica acum.",
-                "TravaleRo - Bun venit!", JOptionPane.INFORMATION_MESSAGE)
-        );
+                "Cont creat! Te poti autentifica acum.",
+                "TravaleRo - Bun venit!", JOptionPane.INFORMATION_MESSAGE));
         formCard.add(btnCreaza);
         formCard.add(Box.createVerticalStrut(14));
 
-        // Randul de jos: link inapoi la login
         JPanel bottomRow = new JPanel(new BorderLayout());
         bottomRow.setBackground(ALB);
         bottomRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 26));
@@ -433,10 +423,9 @@ public class Gui_Aplicatie extends JFrame {
         lblAiCont.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblAiCont.setForeground(GRI_TEXT);
 
-        // Buton text care duce inapoi la pagina de login
         JButton btnSpreLogin = new JButton("Autentifica-te");
         btnSpreLogin.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        btnSpreLogin.setForeground(PORTOCALIU);
+        btnSpreLogin.setForeground(GREEN_PRIMARY);
         btnSpreLogin.setBackground(ALB);
         btnSpreLogin.setBorder(BorderFactory.createEmptyBorder());
         btnSpreLogin.setFocusPainted(false);
@@ -450,15 +439,11 @@ public class Gui_Aplicatie extends JFrame {
         formCard.setPreferredSize(new Dimension(390, 510));
         rightSide.add(formCard);
         page.add(rightSide);
-
         return page;
     }
 
     /*
-     * buildFormField() - helper care construieste un label + camp de text.
-     * Parametrul esteParola determina daca folosim JPasswordField (ascunde textul)
-     * sau JTextField normal.
-     * Returneaza un panel vertical cu label deasupra si campul dedesubt.
+     * buildFormField() - helper reutilizabil: label + camp text sau parola.
      */
     private JPanel buildFormField(String labelText, boolean esteParola) {
         JPanel panel = new JPanel();
@@ -473,7 +458,6 @@ public class Gui_Aplicatie extends JFrame {
         panel.add(lbl);
         panel.add(Box.createVerticalStrut(5));
 
-        // Alegem tipul campului in functie de parametru
         JTextField camp = esteParola ? new JPasswordField() : new JTextField();
         camp.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         camp.setBorder(BorderFactory.createCompoundBorder(
@@ -483,31 +467,32 @@ public class Gui_Aplicatie extends JFrame {
         camp.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
         camp.setAlignmentX(Component.LEFT_ALIGNMENT);
         panel.add(camp);
-
         return panel;
     }
 
+    // ================================================================
+    //  APP PANEL - continut principal dupa autentificare
+    // ================================================================
     /*
-     * buildAppPanel() - construieste intreaga aplicatie (topbar + sidebar + pagini).
-     * Acesta e panelul care apare DUPA login.
-     * Structura e identica cu ce era inainte in constructor.
+     * buildAppPanel() - construieste aplicatia completa cu topbar + sidebar + pagini.
+     * Topbar si sidebar sunt fixe (BorderLayout NORTH si WEST).
+     * Zona centrala e un CardLayout cu toate paginile.
      */
     private JPanel buildAppPanel() {
         JPanel app = new JPanel(new BorderLayout());
-
-        // Topbar si sidebar sunt fixe - nu dispar la schimbarea paginii interioare
         app.add(buildTopBar(),  BorderLayout.NORTH);
         app.add(buildSidebar(), BorderLayout.WEST);
 
-        // Zona centrala cu CardLayout pentru paginile aplicatiei
         cardLayout = new CardLayout();
         mainPanel  = new JPanel(cardLayout);
-        mainPanel.add(buildSearchPage(), "home");
+
+        mainPanel.add(buildHomePage(),      "home");
+        mainPanel.add(buildSearchPage(),    "search");
         mainPanel.add(buildAtractiiPage(),  "atractii");
         mainPanel.add(buildRezervariPage(), "rezervari");
         mainPanel.add(buildProfilPage(),    "profil");
-        mainPanel.add(buildSearchPage(), "search");
 
+        // detailPanel e gol - se populeaza la click pe un listing
         detailPanel = new JPanel(new BorderLayout());
         mainPanel.add(detailPanel, "detail");
 
@@ -516,172 +501,83 @@ public class Gui_Aplicatie extends JFrame {
         return app;
     }
 
+    // ================================================================
+    //  TOPBAR
+    // ================================================================
     /*
-     * showPage() - helper centralizat pentru navigarea intre paginile aplicatiei.
-     *
-     * Problema glitch: CardLayout schimba pagina dar Swing nu stie intotdeauna
-     * ca trebuie sa redeseneze. Fara revalidate+repaint pot ramane artefacte
-     * vizuale din pagina anterioara.
-     *
-     * Solutia: orice schimbare de pagina trece prin aceasta metoda care:
-     *   1. Schimba pagina cu cardLayout.show()
-     *   2. Forteaza recalcularea layout-ului cu revalidate()
-     *   3. Forteaza redesenarea cu repaint()
+     * buildTopBar() - bara de sus fixa.
+     * Logo stanga, bara de cautare centru, buton Profil dreapta.
+     * Butonul Cauta navigheaza la pagina "search".
      */
-    private void showPage(String pageName) {
-        cardLayout.show(mainPanel, pageName);
-        mainPanel.revalidate();
-        mainPanel.repaint();
-    }
-
-    // Acelasi lucru dar pentru rootLayout (login <-> app <-> register)
-    private void showRoot(String pageName) {
-        rootLayout.show(rootPanel, pageName);
-        rootPanel.revalidate();
-        rootPanel.repaint();
-    }
-    private JPanel buildSearchPage() {
-        JPanel page = new JPanel(new BorderLayout());
-        page.setBackground(BG_DARK);
-
-        JPanel content = new JPanel();
-        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        content.setBackground(BG_DARK);
-        content.setBorder(new EmptyBorder(20, 40, 20, 40));
-
-        // ===== CAZARI =====
-        content.add(createSectionTitle("Cazari gasite"));
-        content.add(Box.createVerticalStrut(10));
-
-        for (int i = 0; i < 5; i++) {
-            content.add(createListingCard(
-                "Hotel exemplu " + (i+1),
-                "Iasi centru",
-                "Descriere scurta pentru hotel.",
-                "4." + i,
-                "120",
-                "150",
-                false
-            ));
-            content.add(Box.createVerticalStrut(10));
-        }
-
-        // ===== ATRACTII =====
-        content.add(Box.createVerticalStrut(30));
-        content.add(createSectionTitle("Atractii"));
-        content.add(Box.createVerticalStrut(10));
-
-        for (int i = 0; i < 5; i++) {
-            content.add(createListingCard(
-                "Atractie " + (i+1),
-                "Zona turistica",
-                "Loc frumos de vizitat.",
-                "4." + i,
-                "80",
-                "0",
-                false
-            ));
-            content.add(Box.createVerticalStrut(10));
-        }
-
-        // ===== RESTAURANTE =====
-        content.add(Box.createVerticalStrut(30));
-        content.add(createSectionTitle("Restaurante"));
-        content.add(Box.createVerticalStrut(10));
-
-        for (int i = 0; i < 5; i++) {
-            content.add(createListingCard(
-                "Restaurant " + (i+1),
-                "Centru",
-                "Mancare foarte buna.",
-                "4." + i,
-                "200",
-                "50",
-                false
-            ));
-            content.add(Box.createVerticalStrut(10));
-        }
-
-        JScrollPane scroll = new JScrollPane(content);
-        scroll.setBorder(null);
-        scroll.getViewport().setBackground(BG_DARK);
-
-        // 🔥 SCROLL SMOOTH
-        scroll.getVerticalScrollBar().setUnitIncrement(20);
-        scroll.getVerticalScrollBar().setBlockIncrement(60);
-
-        page.add(scroll, BorderLayout.CENTER);
-        return page;
-    }
-    
     private JPanel buildTopBar() {
         JPanel top = new JPanel(new BorderLayout(16, 0));
-        top.setBackground(ROS_VIU);
+        top.setBackground(GREEN_PRIMARY);
         top.setBorder(new EmptyBorder(10, 18, 10, 18));
 
-        // Logo - "Travale" alb, "Ro" portocaliu, avion portocaliu
+        // Logo - "Travale" alb, "Ro" galben
         JLabel logo = new JLabel(
             "<html><span style='color:white;font-size:17pt;font-weight:bold;'>" +
-            "Travale</span><span style='color:#FF9900;font-size:17pt;font-weight:bold;'>" +
-            "Ro</span><span style='color:#FF9900;font-size:12pt;'> ✈</span></html>"
+            "Travale</span><span style='color:#FFCC00;font-size:17pt;font-weight:bold;'>" +
+            "Ro</span><span style='color:#FFCC00;font-size:12pt;'> ✈</span></html>"
         );
         logo.setPreferredSize(new Dimension(175, 36));
         top.add(logo, BorderLayout.WEST);
 
-        // Bara de cautare - alba cu bordura portocalie subtila
+        // Bara de cautare
         JPanel searchRow = new JPanel(new BorderLayout());
         searchRow.setBackground(ALB);
         searchRow.setBorder(BorderFactory.createLineBorder(BORDER_C, 1));
 
-        // Butonul "Pe harta" - stanga barei, fara functionalitate momentan
         JButton mapBtn = new JButton("   Pe harta");
         mapBtn.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        mapBtn.setForeground(PORTOCALIU);
-        mapBtn.setBackground(new Color(255, 250, 245));
+        mapBtn.setForeground(GREEN_DARK);
+        mapBtn.setBackground(new Color(245, 255, 245));
         mapBtn.setBorder(new MatteBorder(0, 0, 0, 1, BORDER_C));
         mapBtn.setFocusPainted(false);
         mapBtn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         mapBtn.setPreferredSize(new Dimension(115, 36));
         searchRow.add(mapBtn, BorderLayout.WEST);
 
-        // Campul de cautare cu placeholder
         JTextField searchField = new JTextField("Cauta destinatie, hotel, atractie...");
         searchField.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        searchField.setForeground(new Color(160, 155, 148));
+        searchField.setForeground(new Color(160, 160, 155));
         searchField.setBorder(new EmptyBorder(0, 12, 0, 12));
         searchField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent e) {
                 if (searchField.getText().startsWith("Cauta")) {
                     searchField.setText("");
-                    searchField.setForeground(new Color(30, 30, 30));
+                    searchField.setForeground(new Color(20, 20, 20));
                 }
             }
             public void focusLost(java.awt.event.FocusEvent e) {
                 if (searchField.getText().isEmpty()) {
                     searchField.setText("Cauta destinatie, hotel, atractie...");
-                    searchField.setForeground(new Color(160, 155, 148));
+                    searchField.setForeground(new Color(160, 160, 155));
                 }
             }
         });
         searchRow.add(searchField, BorderLayout.CENTER);
 
-        // Butonul Cauta - rosu aprins, text alb, dreptunghi fara rotunjire
+        // Butonul Cauta deschide pagina de rezultate
         JButton cautaBtn = new JButton("Cauta");
-        cautaBtn.addActionListener(e -> showPage("search"));
         cautaBtn.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        cautaBtn.setBackground(ROS_VIU);
+        cautaBtn.setBackground(GREEN_PRIMARY);
         cautaBtn.setForeground(ALB);
         cautaBtn.setBorder(new EmptyBorder(0, 18, 0, 18));
         cautaBtn.setFocusPainted(false);
         cautaBtn.setPreferredSize(new Dimension(85, 36));
+        cautaBtn.addActionListener(e -> {
+            clearSidebarSelection();
+            showPage("search");
+        });
         searchRow.add(cautaBtn, BorderLayout.EAST);
         top.add(searchRow, BorderLayout.CENTER);
 
-        // Buton Profil - portocaliu ca accent diferit de rosul principal
+        // Buton Profil - galben ca accent diferit de verde
         JButton btnProfil = new JButton("  Profil");
         btnProfil.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        btnProfil.setForeground(ALB);
-        btnProfil.setBackground(PORTOCALIU);
+        btnProfil.setForeground(new Color(20, 20, 20));
+        btnProfil.setBackground(new Color(255, 204, 0));
         btnProfil.setBorder(new EmptyBorder(7, 16, 7, 16));
         btnProfil.setFocusPainted(false);
         btnProfil.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -693,30 +589,21 @@ public class Gui_Aplicatie extends JFrame {
 
         return top;
     }
-    private JPanel createSectionTitle(String text) {
-        JPanel panel = new JPanel(new BorderLayout());
-        panel.setBackground(PRIMARY);
-        panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 50));
 
-        JLabel lbl = new JLabel("  " + text);
-        lbl.setFont(FONT_TITLE);
-        lbl.setForeground(Color.WHITE);
-
-        panel.add(lbl, BorderLayout.CENTER);
-        return panel;
-    }
-
+    // ================================================================
+    //  SIDEBAR
+    // ================================================================
     /*
-     * buildSidebar() - panelul lateral stang.
-     * Fundal aproape negru cu nuanta calduta - contrast maxim cu rosul aprins.
-     * Contine: navigare principala + lista rezervari recente.
+     * buildSidebar() - panelul lateral stang fix.
+     * Sus: butoane de navigare (Hoteluri, Atractii, Rezervari).
+     * Jos: carduri mici cu rezervarile recente.
      */
     private JPanel buildSidebar() {
         JPanel sidebar = new JPanel(new BorderLayout());
         sidebar.setBackground(SIDEBAR_BG);
         sidebar.setPreferredSize(new Dimension(205, 0));
 
-        // Sectiunea de navigare - sus in sidebar
+        // Navigare principala
         JPanel navSection = new JPanel();
         navSection.setLayout(new BoxLayout(navSection, BoxLayout.Y_AXIS));
         navSection.setBackground(SIDEBAR_BG);
@@ -724,54 +611,41 @@ public class Gui_Aplicatie extends JFrame {
 
         JLabel navLabel = new JLabel("  MENIU");
         navLabel.setFont(new Font("Segoe UI", Font.BOLD, 9));
-        navLabel.setForeground(new Color(150, 100, 90));
+        navLabel.setForeground(new Color(100, 160, 100));
         navLabel.setBorder(new EmptyBorder(0, 16, 8, 0));
         navSection.add(navLabel);
 
-        // Cream butoanele de navigare - primul e activ la pornire
-        btnHome      = createNavButton("Hoteluri",   true);
-        btnAtractii  = createNavButton("Atractii",   false);
-        btnRezervari = createNavButton("Rezervari",  false);
+        btnHome      = createNavButton("Hoteluri",  true);
+        btnAtractii  = createNavButton("Atractii",  false);
+        btnRezervari = createNavButton("Rezervari", false);
 
-        // Fiecare buton schimba pagina si se evidentiaza
-        btnHome.addActionListener(e -> {
-            setActiveNavButton(btnHome);
-            showPage("home");
-        });
-        btnAtractii.addActionListener(e -> {
-            setActiveNavButton(btnAtractii);
-            showPage("atractii");
-        });
-        btnRezervari.addActionListener(e -> {
-            setActiveNavButton(btnRezervari);
-            showPage("rezervari");
-        });
+        btnHome.addActionListener(e -> { setActiveNavButton(btnHome);      showPage("home"); });
+        btnAtractii.addActionListener(e -> { setActiveNavButton(btnAtractii);  showPage("atractii"); });
+        btnRezervari.addActionListener(e -> { setActiveNavButton(btnRezervari); showPage("rezervari"); });
 
         navSection.add(btnHome);
         navSection.add(btnAtractii);
         navSection.add(btnRezervari);
         sidebar.add(navSection, BorderLayout.NORTH);
 
-        // Sectiunea de rezervari recente - jos in sidebar
+        // Rezervari recente - jos in sidebar
         JPanel rezSection = new JPanel();
         rezSection.setLayout(new BoxLayout(rezSection, BoxLayout.Y_AXIS));
         rezSection.setBackground(SIDEBAR_BG);
         rezSection.setBorder(new EmptyBorder(0, 0, 16, 0));
 
-        // Linie separatoare subtila
         JSeparator sep = new JSeparator();
-        sep.setForeground(new Color(60, 20, 22));
+        sep.setForeground(new Color(20, 60, 20));
         sep.setMaximumSize(new Dimension(205, 1));
         rezSection.add(sep);
         rezSection.add(Box.createVerticalStrut(12));
 
         JLabel secLabel = new JLabel("  REZERVARI RECENTE");
         secLabel.setFont(new Font("Segoe UI", Font.BOLD, 9));
-        secLabel.setForeground(new Color(150, 100, 90));
+        secLabel.setForeground(new Color(100, 160, 100));
         secLabel.setBorder(new EmptyBorder(0, 16, 8, 0));
         rezSection.add(secLabel);
 
-        // Carduri mici pentru rezervarile recente din sidebar
         rezSection.add(createSidebarCard("Hotel Traian", "15-18 Mai", "Confirmata"));
         rezSection.add(Box.createVerticalStrut(5));
         rezSection.add(createSidebarCard("Copou View",   "2-5 Iun",  "Asteptare"));
@@ -782,14 +656,13 @@ public class Gui_Aplicatie extends JFrame {
         return sidebar;
     }
 
-    // Buton de navigare din sidebar cu stare activa/inactiva
+    // Buton de navigare in sidebar - bara verde in stanga cand e activ
     private JButton createNavButton(String text, boolean activ) {
         JButton btn = new JButton(text);
-        btn.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        btn.setForeground(activ ? ALB : new Color(160, 170, 190));
-        // Butonul activ are o bara rosie vizibila in stanga
-        btn.setBackground(activ ? new Color(41, 98, 255, 80) : SIDEBAR_BG);
-        btn.setBorder(new MatteBorder(0, activ ? 3 : 0, 0, 0, ROS_VIU));
+        btn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
+        btn.setForeground(activ ? ALB : new Color(140, 180, 140));
+        btn.setBackground(activ ? new Color(0, 100, 0, 80) : SIDEBAR_BG);
+        btn.setBorder(new MatteBorder(0, activ ? 3 : 0, 0, 0, GREEN_PRIMARY));
         btn.setFocusPainted(false);
         btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btn.setHorizontalAlignment(SwingConstants.LEFT);
@@ -798,29 +671,24 @@ public class Gui_Aplicatie extends JFrame {
         return btn;
     }
 
-    // Evidentiaza butonul activ si le reseteaza pe celelalte
     private void setActiveNavButton(JButton active) {
         for (JButton b : new JButton[]{btnHome, btnAtractii, btnRezervari}) {
             boolean isActive = (b == active);
-            b.setForeground(isActive ? ALB : new Color(180, 140, 130));
-            b.setBackground(isActive ? new Color(200, 16, 46, 60) : SIDEBAR_BG);
-            b.setBorder(new MatteBorder(0, isActive ? 3 : 0, 0, 0, ROS_VIU));
+            b.setForeground(isActive ? ALB : new Color(140, 180, 140));
+            b.setBackground(isActive ? new Color(0, 100, 0, 80) : SIDEBAR_BG);
+            b.setBorder(new MatteBorder(0, isActive ? 3 : 0, 0, 0, GREEN_PRIMARY));
         }
     }
 
-    // Reseteaza evidentierea (ex: cand mergem la Profil din topbar)
     private void clearSidebarSelection() {
         for (JButton b : new JButton[]{btnHome, btnAtractii, btnRezervari}) {
-            b.setForeground(new Color(180, 140, 130));
+            b.setForeground(new Color(140, 180, 140));
             b.setBackground(SIDEBAR_BG);
-            b.setBorder(new MatteBorder(0, 0, 0, 0, ROS_VIU));
+            b.setBorder(new MatteBorder(0, 0, 0, 0, GREEN_PRIMARY));
         }
     }
 
-    /*
-     * createSidebarCard() - card mic pentru o rezervare in sidebar.
-     * Statusul e colorat: verde pentru confirmata, portocaliu pentru in asteptare.
-     */
+    // Card mic de rezervare in sidebar
     private JPanel createSidebarCard(String hotel, String date, String status) {
         JPanel card = new JPanel();
         card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
@@ -834,12 +702,11 @@ public class Gui_Aplicatie extends JFrame {
 
         JLabel lblDate = new JLabel(date);
         lblDate.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        lblDate.setForeground(new Color(180, 140, 130));
+        lblDate.setForeground(new Color(150, 200, 150));
 
-        // Verde pentru confirmat, portocaliu pentru in asteptare
         Color sColor = status.equals("Confirmata")
-            ? new Color(80, 210, 110)
-            : new Color(255, 160, 40);
+            ? new Color(80, 220, 100)
+            : new Color(255, 180, 40);
         JLabel lblStatus = new JLabel("● " + status);
         lblStatus.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         lblStatus.setForeground(sColor);
@@ -852,235 +719,474 @@ public class Gui_Aplicatie extends JFrame {
         return card;
     }
 
+    // ================================================================
+    //  HOME PAGE
+    // ================================================================
     /*
-     * buildHomePage() - pagina principala cu listinguri de hoteluri.
+     * buildHomePage() - pagina cu listinguri de hoteluri.
+     * Sus: bara de filtre interactiva + bara de context cu sortare.
+     * Centru: lista de carduri scrollabila.
      */
     private JPanel buildHomePage() {
         JPanel page = new JPanel(new BorderLayout());
-        page.setBackground(WARM_BG);
-        page.add(buildFiltersBar(), BorderLayout.NORTH);
+        page.setBackground(BG_PAGE);
 
+        // Bara de sus cu filtre si sortare
+        JPanel topSection = new JPanel(new BorderLayout());
+        topSection.setBackground(ALB);
+
+        JPanel contextBar = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 10));
+        contextBar.setBackground(ALB);
+        contextBar.setBorder(new MatteBorder(0, 0, 1, 0, new Color(230, 230, 230)));
+
+        JLabel lblOras = new JLabel("Iasi, Romania");
+        lblOras.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        lblOras.setForeground(new Color(20, 20, 20));
+        contextBar.add(lblOras);
+
+        JLabel lblSep = new JLabel("·");
+        lblSep.setForeground(new Color(180, 180, 180));
+        contextBar.add(lblSep);
+
+        JLabel lblNr = new JLabel("4 proprietati disponibile");
+        lblNr.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+        lblNr.setForeground(GRI_TEXT);
+        contextBar.add(lblNr);
+
+        contextBar.add(Box.createHorizontalStrut(200));
+        JLabel lblSort = new JLabel("Sorteaza:");
+        lblSort.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblSort.setForeground(GRI_TEXT);
+        contextBar.add(lblSort);
+
+        JComboBox<String> sortBox = new JComboBox<>(new String[]{"Recomandate", "Pret crescator", "Rating"});
+        sortBox.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        sortBox.setBackground(ALB);
+        contextBar.add(sortBox);
+
+        topSection.add(buildFiltersBar(), BorderLayout.NORTH);
+        topSection.add(contextBar, BorderLayout.SOUTH);
+        page.add(topSection, BorderLayout.NORTH);
+
+        // Lista carduri
         JPanel lista = new JPanel();
         lista.setLayout(new BoxLayout(lista, BoxLayout.Y_AXIS));
-        lista.setBackground(WARM_BG);
-        lista.setBorder(new EmptyBorder(14, 20, 14, 20));
+        lista.setBackground(BG_PAGE);
+        lista.setBorder(new EmptyBorder(16, 20, 20, 20));
 
-        // Eticheta rezultate cu nuanta portocalie
-        JLabel lbl = new JLabel("4 proprietati gasite in Iasi");
-        lbl.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        lbl.setForeground(new Color(140, 80, 40));
-        lbl.setBorder(new EmptyBorder(0, 0, 10, 0));
-        lista.add(lbl);
-
-        lista.add(createListingCard("Hotel Traian",
-            "Piata Unirii 1, Iasi",
-            "Hotel emblematic cu vedere la Palatul Culturii. Spa si restaurant traditional.",
-            "4.3", "128", "185", true));
-        lista.add(Box.createVerticalStrut(10));
-        lista.add(createListingCard("Pensiunea La Conac",
-            "Str. Lapusneanu 14, Iasi",
-            "Pensiune boutique cu gradina interioara si mic dejun inclus.",
-            "4.8", "74", "95", false));
-        lista.add(Box.createVerticalStrut(10));
-        lista.add(createListingCard("Apartament Copou View",
-            "Bd. Carol I 22, Iasi",
-            "Apartament modern 2 camere, 5 min de Gradina Copou. Parcare gratuita.",
-            "4.1", "39", "60", false));
-        lista.add(Box.createVerticalStrut(10));
-        lista.add(createListingCard("Casa Pogor Suites",
-            "Str. Vasile Pogor 4, Iasi",
+        lista.add(createListingCard("Hotel Traian",       "Piata Unirii 1, Iasi",
+            "Hotel emblematic cu vedere la Palatul Culturii. Spa, restaurant si bar.",
+            "4.3", "128", "185", true,  new Color(180,  60,  60)));
+        lista.add(Box.createVerticalStrut(12));
+        lista.add(createListingCard("Pensiunea La Conac", "Str. Lapusneanu 14, Iasi",
+            "Pensiune boutique cu gradina interioara, mic dejun inclus si parcare.",
+            "4.8", "74",  "95",  false, new Color( 60, 110, 180)));
+        lista.add(Box.createVerticalStrut(12));
+        lista.add(createListingCard("Apartament Copou View", "Bd. Carol I 22, Copou",
+            "Apartament modern 2 camere, la 5 minute de Gradina Copou si Universitate.",
+            "4.1", "39",  "60",  false, new Color( 40, 140, 100)));
+        lista.add(Box.createVerticalStrut(12));
+        lista.add(createListingCard("Casa Pogor Suites",  "Str. Vasile Pogor 4, Iasi",
             "Cazare de lux in casa istorica Pogor restaurata. Mic dejun gourmet inclus.",
-            "4.9", "51", "220", false));
+            "4.9", "51",  "220", false, new Color(130,  60, 160)));
 
         JScrollPane scroll = new JScrollPane(lista);
         scroll.setBorder(null);
+        scroll.getViewport().setBackground(BG_PAGE);
         scroll.getVerticalScrollBar().setUnitIncrement(20);
-        scroll.getVerticalScrollBar().setBlockIncrement(60);
-        scroll.getViewport().setBackground(WARM_BG);
-        //scroll.getVerticalScrollBar().setUnitIncrement(16);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         page.add(scroll, BorderLayout.CENTER);
         return page;
     }
 
     /*
-     * buildFiltersBar() - bara de filtre cu chipuri colorate.
-     * Chipa activa e rosie, celelalte sunt albe cu bordura portocalie.
+     * buildFiltersBar() - bara de filtre interactiva.
+     * Click pe un chip il activeaza si il dezactiveaza pe cel anterior.
      */
     private JPanel buildFiltersBar() {
-        JPanel bar = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 9));
-        bar.setBackground(new Color(255, 240, 232));
-        bar.setBorder(new MatteBorder(0, 0, 1, 0, BORDER_C));
-
-        JLabel lbl = new JLabel("Filtre:");
-        lbl.setFont(new Font("Segoe UI", Font.BOLD, 12));
-        lbl.setForeground(PORTOCALIU);
-        bar.add(lbl);
+        JPanel bar = new JPanel(new FlowLayout(FlowLayout.LEFT, 6, 10));
+        bar.setBackground(ALB);
+        bar.setBorder(new MatteBorder(0, 0, 1, 0, new Color(225, 225, 225)));
 
         String[] filtre = {"Toate", "Hoteluri", "Pensiuni", "Apartamente", "Budget", "Lux"};
+        JButton[] chipuri = new JButton[filtre.length];
+
         for (int i = 0; i < filtre.length; i++) {
             JButton chip = new JButton(filtre[i]);
-            chip.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+            chip.setFont(new Font("Segoe UI", Font.PLAIN, 13));
             chip.setFocusPainted(false);
             chip.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+            chip.setOpaque(true);
             if (i == 0) {
-                // Primul chip (Toate) e activ - rosu aprins
-                chip.setBackground(ROS_VIU);
+                chip.setBackground(GREEN_PRIMARY);
                 chip.setForeground(ALB);
-                chip.setBorder(BorderFactory.createLineBorder(ROS_VIU));
+                chip.setBorder(new EmptyBorder(5, 14, 5, 14));
             } else {
                 chip.setBackground(ALB);
-                chip.setForeground(PORTOCALIU);
-                chip.setBorder(BorderFactory.createLineBorder(BORDER_C));
+                chip.setForeground(new Color(50, 50, 50));
+                chip.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(new Color(200, 200, 200), 1),
+                    new EmptyBorder(4, 13, 4, 13)
+                ));
             }
+            chipuri[i] = chip;
+            final int idx = i;
+            chip.addActionListener(e -> {
+                for (int j = 0; j < chipuri.length; j++) {
+                    if (j == idx) {
+                        chipuri[j].setBackground(GREEN_PRIMARY);
+                        chipuri[j].setForeground(ALB);
+                        chipuri[j].setBorder(new EmptyBorder(5, 14, 5, 14));
+                    } else {
+                        chipuri[j].setBackground(ALB);
+                        chipuri[j].setForeground(new Color(50, 50, 50));
+                        chipuri[j].setBorder(BorderFactory.createCompoundBorder(
+                            BorderFactory.createLineBorder(new Color(200, 200, 200), 1),
+                            new EmptyBorder(4, 13, 4, 13)
+                        ));
+                    }
+                }
+            });
             bar.add(chip);
         }
         return bar;
     }
-    private JPanel createListingCard(String titlu, String locatie, String descriere,
-            String rating, String nrRec, String pret,
-            boolean topAles) {
 
-JPanel card = new JPanel(new BorderLayout());
-card.setBackground(Color.WHITE);
-card.setBorder(BorderFactory.createLineBorder(BORDER_C, 1));
-card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 150));
-card.setBorder(BorderFactory.createCompoundBorder(
-	    BorderFactory.createLineBorder(BORDER_C, 1),
-	    new EmptyBorder(5,5,5,5)
-	));
-
-card.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-card.setBorder(BorderFactory.createCompoundBorder(
-	    BorderFactory.createLineBorder(BORDER_C, 1),
-	    new EmptyBorder(6,6,6,6)
-	));
-
-// ===== IMAGINE REALA (placeholder mai mare) =====
-JPanel imgPanel = new JPanel(new BorderLayout());
-imgPanel.setPreferredSize(new Dimension(160, 150));
-imgPanel.setBackground(new Color(210, 225, 245));
-
-JLabel imgLabel = new JLabel("IMG", SwingConstants.CENTER);
-imgLabel.setForeground(new Color(100, 120, 150));
-imgPanel.add(imgLabel, BorderLayout.CENTER);
-
-// badge
-if (topAles) {
-JLabel badge = new JLabel(" TOP ", SwingConstants.CENTER);
-badge.setFont(new Font("Segoe UI", Font.BOLD, 10));
-badge.setForeground(Color.WHITE);
-badge.setBackground(PRIMARY);
-badge.setOpaque(true);
-imgPanel.add(badge, BorderLayout.NORTH);
-}
-
-card.add(imgPanel, BorderLayout.WEST);
-
-// ===== INFO =====
-JPanel info = new JPanel();
-info.setLayout(new BoxLayout(info, BoxLayout.Y_AXIS));
-info.setBackground(CARD_BG);
-info.setBorder(new EmptyBorder(12, 14, 12, 8));
-
-JLabel lblT = new JLabel(titlu);
-lblT.setFont(FONT_TITLE);
-lblT.setForeground(TEXT_MAIN);
-
-JLabel lblL = new JLabel(locatie);
-lblL.setFont(FONT_SMALL);
-lblL.setForeground(PRIMARY);
-
-JLabel lblR = new JLabel("⭐ " + rating + " (" + nrRec + ")");
-lblR.setFont(FONT_SMALL);
-lblR.setForeground(ACCENT);
-
-JLabel lblD = new JLabel("<html><body style='width:300px'>" + descriere + "</body></html>");
-lblD.setFont(FONT_SUB);
-lblD.setForeground(TEXT_SECOND);
-
-info.add(lblT);
-info.add(Box.createVerticalStrut(4));
-info.add(lblL);
-info.add(Box.createVerticalStrut(4));
-info.add(lblR);
-info.add(Box.createVerticalStrut(6));
-info.add(lblD);
-
-card.add(info, BorderLayout.CENTER);
-
-// ===== DREAPTA =====
-JPanel right = new JPanel();
-right.setLayout(new BoxLayout(right, BoxLayout.Y_AXIS));
-right.setBackground(CARD_BG);
-right.setBorder(new EmptyBorder(12, 8, 12, 16));
-
-JLabel lblP = new JLabel(pret + "€");
-lblP.setFont(new Font("Segoe UI", Font.BOLD, 18));
-lblP.setForeground(PRIMARY);
-lblP.setAlignmentX(Component.RIGHT_ALIGNMENT);
-
-JButton btnRez = new JButton("Rezervă");
-btnRez.setBackground(PRIMARY);
-btnRez.setForeground(Color.WHITE);
-btnRez.setFocusPainted(false);
-btnRez.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-btnRez.setAlignmentX(Component.RIGHT_ALIGNMENT);
-
-right.add(lblP);
-right.add(Box.createVerticalStrut(10));
-right.add(btnRez);
-
-card.add(right, BorderLayout.EAST);
-
-return card;
-}
     /*
-     * buildAtractiiPage() - pagina cu atractii turistice din Iasi.
-     * Grid 2 coloane cu carduri colorate in portocaliu si rosu.
+     * createListingCard() - card polish pentru un listing.
+     * WEST:   imagine colorata unica + badge
+     * CENTER: titlu, locatie, rating cu scor, tag-uri facilitati, descriere
+     * EAST:   pret + buton Rezerva (navigheaza la detail)
+     */
+    private JPanel createListingCard(String titlu, String locatie, String descriere,
+                                      String rating, String nrRec, String pret,
+                                      boolean topAles, Color imgColor) {
+        JPanel wrapper = new JPanel(new BorderLayout());
+        wrapper.setBackground(BG_PAGE);
+        wrapper.setMaximumSize(new Dimension(Integer.MAX_VALUE, 162));
+
+        JPanel card = new JPanel(new BorderLayout());
+        card.setBackground(ALB);
+        card.setBorder(BorderFactory.createLineBorder(new Color(220, 220, 220), 1));
+
+        // Zona imagine
+        JPanel imgZone = new JPanel(new BorderLayout());
+        imgZone.setPreferredSize(new Dimension(160, 162));
+        imgZone.setBackground(imgColor);
+
+        JLabel imgIcon = new JLabel("🏨", SwingConstants.CENTER);
+        imgIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 36));
+        imgIcon.setForeground(new Color(255, 255, 255, 140));
+        imgZone.add(imgIcon, BorderLayout.CENTER);
+
+        JLabel badge = new JLabel(topAles ? "  ★ Top ales  " : "  Proprietate  ",
+                                  SwingConstants.CENTER);
+        badge.setFont(new Font("Segoe UI", Font.BOLD, 10));
+        badge.setForeground(ALB);
+        badge.setBackground(topAles ? GREEN_DARK : new Color(0, 0, 0, 80));
+        badge.setOpaque(true);
+        badge.setPreferredSize(new Dimension(160, 22));
+        imgZone.add(badge, BorderLayout.NORTH);
+        card.add(imgZone, BorderLayout.WEST);
+
+        // Info centru
+        JPanel info = new JPanel();
+        info.setLayout(new BoxLayout(info, BoxLayout.Y_AXIS));
+        info.setBackground(ALB);
+        info.setBorder(new EmptyBorder(14, 16, 14, 10));
+
+        JLabel lblT = new JLabel(titlu);
+        lblT.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        lblT.setForeground(new Color(15, 15, 15));
+        lblT.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel lblL = new JLabel("📍 " + locatie);
+        lblL.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblL.setForeground(new Color(0, 100, 180));
+        lblL.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        // Rating row: scor verde + stele galbene + nr recenzii
+        int stele = (int) Math.round(Double.parseDouble(rating));
+        JPanel ratingRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 0));
+        ratingRow.setBackground(ALB);
+        ratingRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel scoreBox = new JLabel(" " + rating + " ");
+        scoreBox.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        scoreBox.setForeground(ALB);
+        scoreBox.setBackground(GREEN_DARK);
+        scoreBox.setOpaque(true);
+
+        JLabel steleLabel = new JLabel("★".repeat(stele) + "☆".repeat(5 - stele));
+        steleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        steleLabel.setForeground(ORANGE_STAR);
+
+        JLabel recLabel = new JLabel("· " + nrRec + " recenzii");
+        recLabel.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        recLabel.setForeground(GRI_TEXT);
+
+        ratingRow.add(scoreBox);
+        ratingRow.add(steleLabel);
+        ratingRow.add(recLabel);
+
+        // Tag-uri facilitati
+        JPanel tagsRow = new JPanel(new FlowLayout(FlowLayout.LEFT, 4, 0));
+        tagsRow.setBackground(ALB);
+        tagsRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        String[] tags = topAles
+            ? new String[]{"Wi-Fi", "Mic dejun", "Spa"}
+            : new String[]{"Wi-Fi", "Parcare"};
+        for (String tag : tags) {
+            JLabel t = new JLabel(tag);
+            t.setFont(new Font("Segoe UI", Font.PLAIN, 10));
+            t.setForeground(new Color(60, 60, 60));
+            t.setBorder(BorderFactory.createCompoundBorder(
+                BorderFactory.createLineBorder(new Color(210, 210, 210), 1),
+                new EmptyBorder(2, 7, 2, 7)
+            ));
+            t.setBackground(new Color(248, 248, 248));
+            t.setOpaque(true);
+            tagsRow.add(t);
+        }
+
+        JLabel lblD = new JLabel(
+            "<html><body style='width:300px;color:#6b6b6b'>" + descriere + "</body></html>");
+        lblD.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblD.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        info.add(lblT);
+        info.add(Box.createVerticalStrut(3));
+        info.add(lblL);
+        info.add(Box.createVerticalStrut(5));
+        info.add(ratingRow);
+        info.add(Box.createVerticalStrut(5));
+        info.add(tagsRow);
+        info.add(Box.createVerticalStrut(6));
+        info.add(lblD);
+        card.add(info, BorderLayout.CENTER);
+
+        // Pret si buton dreapta
+        JPanel right = new JPanel(new BorderLayout());
+        right.setBackground(new Color(250, 252, 250));
+        right.setBorder(BorderFactory.createCompoundBorder(
+            new MatteBorder(0, 1, 0, 0, new Color(230, 230, 230)),
+            new EmptyBorder(14, 16, 14, 18)
+        ));
+
+        JLabel lblDisp = new JLabel("Disponibil");
+        lblDisp.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        lblDisp.setForeground(GREEN_PRIMARY);
+        lblDisp.setHorizontalAlignment(SwingConstants.RIGHT);
+
+        JPanel pretPanel = new JPanel();
+        pretPanel.setLayout(new BoxLayout(pretPanel, BoxLayout.Y_AXIS));
+        pretPanel.setBackground(new Color(250, 252, 250));
+
+        JLabel lblP = new JLabel(pret + "€");
+        lblP.setFont(new Font("Segoe UI", Font.BOLD, 22));
+        lblP.setForeground(new Color(15, 15, 15));
+        lblP.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+        JLabel lblN = new JLabel("/ noapte");
+        lblN.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        lblN.setForeground(GRI_TEXT);
+        lblN.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+        JLabel lblTaxe = new JLabel("Taxe incluse");
+        lblTaxe.setFont(new Font("Segoe UI", Font.PLAIN, 10));
+        lblTaxe.setForeground(new Color(150, 150, 150));
+        lblTaxe.setAlignmentX(Component.RIGHT_ALIGNMENT);
+
+        pretPanel.add(Box.createVerticalGlue());
+        pretPanel.add(lblP);
+        pretPanel.add(lblN);
+        pretPanel.add(Box.createVerticalStrut(2));
+        pretPanel.add(lblTaxe);
+        pretPanel.add(Box.createVerticalGlue());
+
+        // Buton Rezerva - verde aprins, navigheaza la pagina de detalii
+        JButton btnRez = new JButton("Rezerva");
+        btnRez.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        btnRez.setBackground(GREEN_PRIMARY);
+        btnRez.setForeground(ALB);
+        btnRez.setBorder(new EmptyBorder(9, 0, 9, 0));
+        btnRez.setFocusPainted(false);
+        btnRez.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnRez.setPreferredSize(new Dimension(120, 36));
+        btnRez.addActionListener(e ->
+            navigateToDetail(titlu, locatie, descriere, rating, nrRec, pret));
+
+        right.add(lblDisp,   BorderLayout.NORTH);
+        right.add(pretPanel, BorderLayout.CENTER);
+        right.add(btnRez,    BorderLayout.SOUTH);
+        card.add(right, BorderLayout.EAST);
+
+        wrapper.add(card, BorderLayout.CENTER);
+        JPanel shadow = new JPanel();
+        shadow.setBackground(new Color(210, 210, 210));
+        shadow.setPreferredSize(new Dimension(0, 2));
+        wrapper.add(shadow, BorderLayout.SOUTH);
+
+        return wrapper;
+    }
+
+    // ================================================================
+    //  SEARCH PAGE
+    // ================================================================
+    /*
+     * buildSearchPage() - pagina de rezultate dupa apasarea butonului Cauta.
+     * Afiseaza trei sectiuni: Cazari, Atractii, Restaurante.
+     * Fiecare are un header verde si carduri de listing.
+     * Butonul "Rezerva" din fiecare card navigheaza la detalii.
+     */
+    private JPanel buildSearchPage() {
+        JPanel page = new JPanel(new BorderLayout());
+        page.setBackground(BG_PAGE);
+
+        // Header cu buton inapoi
+        JPanel header = new JPanel(new BorderLayout(10, 0));
+        header.setBackground(GREEN_DARK);
+        header.setBorder(new EmptyBorder(10, 16, 10, 16));
+
+        JButton btnBack = new JButton("< Inapoi");
+        btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        btnBack.setForeground(ALB);
+        btnBack.setBackground(GREEN_PRIMARY);
+        btnBack.setBorder(new EmptyBorder(6, 14, 6, 14));
+        btnBack.setFocusPainted(false);
+        btnBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnBack.addActionListener(e -> {
+            setActiveNavButton(btnHome);
+            showPage("home");
+        });
+        header.add(btnBack, BorderLayout.WEST);
+
+        JLabel lblHeader = new JLabel("Rezultate cautare");
+        lblHeader.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        lblHeader.setForeground(ALB);
+        header.add(lblHeader, BorderLayout.CENTER);
+        page.add(header, BorderLayout.NORTH);
+
+        // Continut cu cele trei sectiuni
+        JPanel content = new JPanel();
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        content.setBackground(BG_PAGE);
+        content.setBorder(new EmptyBorder(16, 20, 20, 20));
+
+        // Sectiunea Cazari
+        content.add(createSectionTitle("Cazari gasite"));
+        content.add(Box.createVerticalStrut(10));
+        String[][] cazari = {
+            {"Hotel Central",    "Centru, Iasi", "Hotel modern cu vedere panoramica.",  "4.5", "89",  "160"},
+            {"Vila Panoramic",   "Tatarasi",     "Vila cu gradina si piscina privata.", "4.2", "45",  "120"},
+            {"Hostel Backpacker","Centru, Iasi", "Cazare accesibila in centrul orasului.","3.8","210","35"},
+        };
+        for (String[] c : cazari) {
+            content.add(createListingCard(c[0], c[1], c[2], c[3], c[4], c[5], false,
+                new Color(60, 130, 180)));
+            content.add(Box.createVerticalStrut(10));
+        }
+
+        // Sectiunea Atractii
+        content.add(Box.createVerticalStrut(16));
+        content.add(createSectionTitle("Atractii in zona"));
+        content.add(Box.createVerticalStrut(10));
+        String[][] atractii = {
+            {"Palatul Culturii",     "Centru, Iasi", "4 muzee nationale sub acelasi acoperis.", "4.8", "1200", "0"},
+            {"Gradina Botanica",     "Copou",         "10.000 de specii de plante.",              "4.6", "850",  "0"},
+            {"Catedrala Mitropolitana","Centru",       "Cel mai mare lacas ortodox din Moldova.", "4.9", "2100", "0"},
+        };
+        for (String[] a : atractii) {
+            content.add(createListingCard(a[0], a[1], a[2], a[3], a[4], a[5], false,
+                new Color(40, 140, 80)));
+            content.add(Box.createVerticalStrut(10));
+        }
+
+        // Sectiunea Restaurante
+        content.add(Box.createVerticalStrut(16));
+        content.add(createSectionTitle("Restaurante recomandate"));
+        content.add(Box.createVerticalStrut(10));
+        String[][] restaurante = {
+            {"Bolta Rece",       "Str. Rece 10",  "Restaurant traditional moldovenesc.",  "4.7", "560", "45"},
+            {"La Mama",          "Centru, Iasi",  "Bucatarie romaneasca autentica.",       "4.5", "890", "55"},
+            {"Vivo Cafe",        "Copou",          "Cafenea si bistro cu terasa.",          "4.3", "320", "30"},
+        };
+        for (String[] r : restaurante) {
+            content.add(createListingCard(r[0], r[1], r[2], r[3], r[4], r[5], false,
+                new Color(180, 80, 40)));
+            content.add(Box.createVerticalStrut(10));
+        }
+
+        JScrollPane scroll = new JScrollPane(content);
+        scroll.setBorder(null);
+        scroll.getViewport().setBackground(BG_PAGE);
+        scroll.getVerticalScrollBar().setUnitIncrement(20);
+        scroll.getVerticalScrollBar().setBlockIncrement(60);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        page.add(scroll, BorderLayout.CENTER);
+        return page;
+    }
+
+    // Header de sectiune verde pentru pagina de search
+    private JPanel createSectionTitle(String text) {
+        JPanel panel = new JPanel(new BorderLayout());
+        panel.setBackground(GREEN_PRIMARY);
+        panel.setMaximumSize(new Dimension(Integer.MAX_VALUE, 44));
+        panel.setBorder(new EmptyBorder(0, 14, 0, 0));
+
+        JLabel lbl = new JLabel(text);
+        lbl.setFont(new Font("Segoe UI", Font.BOLD, 15));
+        lbl.setForeground(ALB);
+        panel.add(lbl, BorderLayout.CENTER);
+        return panel;
+    }
+
+    // ================================================================
+    //  ATRACTII PAGE
+    // ================================================================
+    /*
+     * buildAtractiiPage() - grid 2 coloane cu atractii turistice.
+     * Fiecare card are o bara colorata unica in stanga.
      */
     private JPanel buildAtractiiPage() {
         JPanel page = new JPanel(new BorderLayout());
         page.setBackground(WARM_BG);
 
-        // Header cu gradient vizual - rosu aprins la portocaliu
         JPanel header = new JPanel(new BorderLayout());
-        header.setBackground(PRIMARY);
+        header.setBackground(GREEN_PRIMARY);
         header.setBorder(new EmptyBorder(18, 22, 18, 22));
-
         JLabel titlu = new JLabel("Atractii turistice in Iasi");
         titlu.setFont(new Font("Segoe UI", Font.BOLD, 21));
         titlu.setForeground(ALB);
-
         JLabel subtitlu = new JLabel("Descopera cele mai frumoase locuri din oras");
         subtitlu.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        subtitlu.setForeground(new Color(200, 220, 255));
+        subtitlu.setForeground(new Color(200, 255, 200));
         header.add(titlu, BorderLayout.NORTH);
         header.add(subtitlu, BorderLayout.SOUTH);
         page.add(header, BorderLayout.NORTH);
 
-        // Grid cu carduri de atractii
         JPanel grid = new JPanel(new GridLayout(0, 2, 12, 12));
         grid.setBackground(WARM_BG);
         grid.setBorder(new EmptyBorder(16, 20, 16, 20));
 
         grid.add(createAtractieCard("Palatul Culturii",
             "Cel mai important monument al Iasului, gazduieste 4 muzee nationale.",
-            "Ma-Du: 10:00-17:00", "0.5 km", PORTOCALIU));
+            "Ma-Du: 10:00-17:00", "0.5 km", ORANGE_PRICE));
         grid.add(createAtractieCard("Gradina Botanica",
-            "A doua gradina botanica din Romania, cu 10.000 de specii de plante.",
+            "A doua gradina botanica din Romania, cu 10.000 de specii.",
             "Zilnic: 09:00-19:00", "2.0 km", new Color(255, 130, 0)));
         grid.add(createAtractieCard("Catedrala Mitropolitana",
             "Cea mai mare catedrala ortodoxa din Moldova, construita in 1880.",
-            "Zilnic: 07:00-20:00", "0.3 km", ROS_VIU));
+            "Zilnic: 07:00-20:00", "0.3 km", GREEN_PRIMARY));
         grid.add(createAtractieCard("Universitatea UAIC",
-            "Prima universitate din Romania, fondata in 1860. Arhitectura impresionanta.",
-            "Campus deschis", "1.0 km", new Color(220, 60, 30)));
+            "Prima universitate din Romania, fondata in 1860.",
+            "Campus deschis", "1.0 km", GREEN_DARK));
         grid.add(createAtractieCard("Gradina Copou",
-            "Cea mai veche gradina publica din Iasi, cu teiul lui Eminescu.",
-            "Zilnic: 06:00-22:00", "1.5 km", PORTOCALIU_2));
+            "Cea mai veche gradina publica, cu teiul lui Eminescu.",
+            "Zilnic: 06:00-22:00", "1.5 km", GREEN_LIGHT));
         grid.add(createAtractieCard("Curtea Domneasca",
             "Ruinele fostei curti medievale, simbol al istoriei Moldovei.",
-            "Ma-Du: 09:00-18:00", "0.8 km", new Color(200, 50, 20)));
+            "Ma-Du: 09:00-18:00", "0.8 km", ORANGE_STAR));
 
         JScrollPane scroll = new JScrollPane(grid);
         scroll.setBorder(null);
@@ -1090,23 +1196,17 @@ return card;
         return page;
     }
 
-    /*
-     * createAtractieCard() - card vizual pentru o atractie.
-     * Bara colorata in stanga cu culoarea unica a atractiei.
-     */
     private JPanel createAtractieCard(String nume, String desc, String program,
                                        String distanta, Color culoare) {
-        JPanel card = new JPanel(new BorderLayout(0, 0));
+        JPanel card = new JPanel(new BorderLayout());
         card.setBackground(ALB);
         card.setBorder(BorderFactory.createLineBorder(BORDER_C, 1));
 
-        // Bara colorata in stanga - culoarea unica a fiecarei atractii
         JPanel bara = new JPanel();
         bara.setBackground(culoare);
         bara.setPreferredSize(new Dimension(5, 0));
         card.add(bara, BorderLayout.WEST);
 
-        // Continut card
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
         content.setBackground(ALB);
@@ -1126,7 +1226,7 @@ return card;
 
         JLabel lblDist = new JLabel("  " + distanta + " de centru");
         lblDist.setFont(new Font("Segoe UI", Font.BOLD, 11));
-        lblDist.setForeground(culoare); // culoarea atractiei pentru consistenta
+        lblDist.setForeground(culoare);
 
         content.add(lblNume);
         content.add(Box.createVerticalStrut(5));
@@ -1136,19 +1236,18 @@ return card;
         content.add(Box.createVerticalStrut(2));
         content.add(lblDist);
         card.add(content, BorderLayout.CENTER);
-
         return card;
     }
 
-    /*
-     * buildRezervariPage() - pagina cu toate rezervarile utilizatorului.
-     */
+    // ================================================================
+    //  REZERVARI PAGE
+    // ================================================================
     private JPanel buildRezervariPage() {
         JPanel page = new JPanel(new BorderLayout());
-        page.setBackground(BG_DARK);
+        page.setBackground(WARM_BG);
 
         JPanel header = new JPanel(new BorderLayout());
-        header.setBackground(ROS_VIU);
+        header.setBackground(GREEN_PRIMARY);
         header.setBorder(new EmptyBorder(18, 22, 18, 22));
         JLabel titlu = new JLabel("Rezervarile mele");
         titlu.setFont(new Font("Segoe UI", Font.BOLD, 21));
@@ -1158,14 +1257,14 @@ return card;
 
         JPanel lista = new JPanel();
         lista.setLayout(new BoxLayout(lista, BoxLayout.Y_AXIS));
-        lista.setBackground(BG_DARK);
+        lista.setBackground(WARM_BG);
         lista.setBorder(new EmptyBorder(16, 20, 16, 20));
 
         lista.add(createRezervareCard("Hotel Traian", "Piata Unirii 1, Iasi",
             "15 Mai 2025", "18 Mai 2025", "3 nopti", "555€", "Confirmata"));
         lista.add(Box.createVerticalStrut(10));
         lista.add(createRezervareCard("Apartament Copou View", "Bd. Carol I 22, Iasi",
-            "2 Iun 2025", "5 Iun 2025", "3 nopti", "180€", "Asteptare"));
+            "2 Iun 2025",  "5 Iun 2025",  "3 nopti", "180€", "Asteptare"));
         lista.add(Box.createVerticalStrut(10));
         lista.add(createRezervareCard("Casa Pogor Suites", "Str. Vasile Pogor 4, Iasi",
             "10 Iul 2025", "12 Iul 2025", "2 nopti", "440€", "Confirmata"));
@@ -1178,7 +1277,6 @@ return card;
         return page;
     }
 
-    // Card detaliat pentru o rezervare - bara colorata stanga + informatii + status
     private JPanel createRezervareCard(String hotel, String adresa, String checkIn,
                                         String checkOut, String durata,
                                         String total, String status) {
@@ -1187,8 +1285,8 @@ return card;
         card.setBorder(BorderFactory.createLineBorder(BORDER_C, 1));
         card.setMaximumSize(new Dimension(Integer.MAX_VALUE, 112));
 
-        // Bara de status - rosie pentru confirmat, portocalie pentru asteptare
-        Color sColor = status.equals("Confirmata") ? ROS_VIU : PORTOCALIU;
+        // Bara colorata stanga: verde pentru confirmat, portocaliu pentru asteptare
+        Color sColor = status.equals("Confirmata") ? GREEN_PRIMARY : ORANGE_PRICE;
         JPanel bara = new JPanel();
         bara.setBackground(sColor);
         bara.setPreferredSize(new Dimension(5, 0));
@@ -1205,7 +1303,7 @@ return card;
 
         JLabel lblA = new JLabel("  " + adresa);
         lblA.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        lblA.setForeground(new Color(60, 130, 200));
+        lblA.setForeground(new Color(0, 100, 180));
 
         JLabel lblD = new JLabel("  " + checkIn + "  →  " + checkOut + "  (" + durata + ")");
         lblD.setFont(new Font("Segoe UI", Font.PLAIN, 12));
@@ -1223,14 +1321,12 @@ return card;
         right.setBackground(ALB);
         right.setBorder(new EmptyBorder(12, 8, 12, 16));
 
-        // Pretul total in portocaliu
         JLabel lblT = new JLabel("Total: " + total);
         lblT.setFont(new Font("Segoe UI", Font.BOLD, 14));
-        lblT.setForeground(PORTOCALIU);
+        lblT.setForeground(ORANGE_PRICE);
         lblT.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
-        // Statusul - rosu pentru confirmat, portocaliu-cald pentru asteptare
-        Color textS = status.equals("Confirmata") ? new Color(180, 0, 30) : new Color(190, 100, 0);
+        Color textS = status.equals("Confirmata") ? GREEN_DARK : new Color(190, 100, 0);
         JLabel lblS = new JLabel("● " + status);
         lblS.setFont(new Font("Segoe UI", Font.BOLD, 11));
         lblS.setForeground(textS);
@@ -1238,8 +1334,8 @@ return card;
 
         JButton btnA = new JButton("Anuleaza");
         btnA.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        btnA.setBackground(new Color(255, 248, 245));
-        btnA.setForeground(ROS_VIU);
+        btnA.setBackground(new Color(245, 252, 245));
+        btnA.setForeground(GREEN_DARK);
         btnA.setBorder(BorderFactory.createLineBorder(BORDER_C));
         btnA.setFocusPainted(false);
         btnA.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
@@ -1251,122 +1347,283 @@ return card;
         right.add(Box.createVerticalGlue());
         right.add(btnA);
         card.add(right, BorderLayout.EAST);
-
         return card;
     }
 
+    // ================================================================
+    //  PROFIL PAGE
+    // ================================================================
     /*
-     * buildProfilPage() - pagina de profil cu header rosu, statistici portocalii.
+     * buildProfilPage() - pagina de profil completa.
+     * Header verde cu avatar initiale, badge nivel, buton Editeaza.
+     * 4 carduri statistici cu accent colorat unic.
+     * Sectiuni tabel: Informatii cont, Preferinte, Calatorii recente.
      */
     private JPanel buildProfilPage() {
         JPanel page = new JPanel(new BorderLayout());
-        page.setBackground(WARM_BG);
+        page.setBackground(BG_PAGE);
 
-        // Header cu fundal rosu aprins
-        JPanel header = new JPanel(new FlowLayout(FlowLayout.LEFT, 20, 16));
-        header.setBackground(ROS_VIU);
+        // Header verde
+        JPanel header = new JPanel(new BorderLayout());
+        header.setBackground(GREEN_PRIMARY);
+        header.setBorder(new EmptyBorder(20, 24, 20, 24));
 
-        // Avatar - cerc portocaliu cu emoji
-        JLabel avatar = new JLabel("  ", SwingConstants.CENTER);
-        avatar.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 40));
-        avatar.setBackground(PORTOCALIU);
-        avatar.setForeground(ALB);
-        avatar.setOpaque(true);
-        avatar.setBorder(new EmptyBorder(10, 16, 10, 16));
-        header.add(avatar);
+        JPanel headerLeft = new JPanel(new FlowLayout(FlowLayout.LEFT, 18, 0));
+        headerLeft.setBackground(GREEN_PRIMARY);
+
+        // Avatar cu initiale
+        JPanel avatarBox = new JPanel(new GridBagLayout());
+        avatarBox.setBackground(GREEN_DARK);
+        avatarBox.setPreferredSize(new Dimension(70, 70));
+        avatarBox.setBorder(BorderFactory.createLineBorder(new Color(255, 255, 255, 60), 2));
+        JLabel initiale = new JLabel("AI");
+        initiale.setFont(new Font("Segoe UI", Font.BOLD, 26));
+        initiale.setForeground(ALB);
+        avatarBox.add(initiale);
+        headerLeft.add(avatarBox);
 
         JPanel namePanel = new JPanel();
         namePanel.setLayout(new BoxLayout(namePanel, BoxLayout.Y_AXIS));
-        namePanel.setBackground(ROS_VIU);
+        namePanel.setBackground(GREEN_PRIMARY);
 
         JLabel lblNume = new JLabel("Alexandru Ionescu");
-        lblNume.setFont(new Font("Segoe UI", Font.BOLD, 19));
+        lblNume.setFont(new Font("Segoe UI", Font.BOLD, 20));
         lblNume.setForeground(ALB);
 
         JLabel lblEmail = new JLabel("alex.ionescu@email.ro");
         lblEmail.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        lblEmail.setForeground(new Color(255, 200, 190));
+        lblEmail.setForeground(new Color(200, 255, 200));
 
-        JLabel lblMembru = new JLabel("Membru din Ianuarie 2024");
+        // Badge nivel - galben pe fond verde
+        JLabel lblNivel = new JLabel("  Calator Frecvent  ");
+        lblNivel.setFont(new Font("Segoe UI", Font.BOLD, 10));
+        lblNivel.setForeground(GREEN_DARK);
+        lblNivel.setBackground(new Color(255, 204, 0));
+        lblNivel.setOpaque(true);
+        lblNivel.setBorder(new EmptyBorder(2, 0, 2, 0));
+
+        JLabel lblMembru = new JLabel("Membru din Ianuarie 2024  ·  Iasi, Romania");
         lblMembru.setFont(new Font("Segoe UI", Font.PLAIN, 11));
-        lblMembru.setForeground(new Color(255, 180, 170));
+        lblMembru.setForeground(new Color(170, 240, 170));
 
         namePanel.add(lblNume);
-        namePanel.add(Box.createVerticalStrut(4));
+        namePanel.add(Box.createVerticalStrut(3));
         namePanel.add(lblEmail);
-        namePanel.add(Box.createVerticalStrut(2));
+        namePanel.add(Box.createVerticalStrut(5));
+        namePanel.add(lblNivel);
+        namePanel.add(Box.createVerticalStrut(4));
         namePanel.add(lblMembru);
-        header.add(namePanel);
-        page.add(header, BorderLayout.NORTH);
+        headerLeft.add(namePanel);
 
-        // Continut profil
-        JPanel content = new JPanel();
-        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
-        content.setBackground(WARM_BG);
-        content.setBorder(new EmptyBorder(22, 30, 22, 30));
-
-        // Carduri cu statistici - numerele in portocaliu vibrant
-        JPanel stats = new JPanel(new GridLayout(1, 3, 14, 0));
-        stats.setBackground(WARM_BG);
-        stats.setMaximumSize(new Dimension(Integer.MAX_VALUE, 100));
-        stats.add(createStatCard("3", "Rezervari active"));
-        stats.add(createStatCard("7", "Calatorii totale"));
-        stats.add(createStatCard("4.8", "Rating mediu dat"));
-        stats.setAlignmentX(Component.LEFT_ALIGNMENT);
-        content.add(stats);
-        content.add(Box.createVerticalStrut(22));
-
-        // Buton de editare - rosu aprins
-        JButton btnEdit = new JButton("  Editeaza profilul");
-        btnEdit.setFont(new Font("Segoe UI", Font.BOLD, 13));
-        btnEdit.setBackground(ROS_VIU);
-        btnEdit.setForeground(ALB);
-        btnEdit.setBorder(new EmptyBorder(10, 22, 10, 22));
+        JButton btnEdit = new JButton("Editeaza profilul");
+        btnEdit.setFont(new Font("Segoe UI", Font.BOLD, 12));
+        btnEdit.setForeground(GREEN_PRIMARY);
+        btnEdit.setBackground(ALB);
+        btnEdit.setBorder(new EmptyBorder(8, 16, 8, 16));
         btnEdit.setFocusPainted(false);
         btnEdit.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        btnEdit.setAlignmentX(Component.LEFT_ALIGNMENT);
-        content.add(btnEdit);
+
+        header.add(headerLeft, BorderLayout.CENTER);
+        header.add(btnEdit,    BorderLayout.EAST);
+        page.add(header, BorderLayout.NORTH);
+
+        // Continut scrollabil
+        JPanel content = new JPanel();
+        content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
+        content.setBackground(BG_PAGE);
+        content.setBorder(new EmptyBorder(18, 22, 22, 22));
+
+        // 4 carduri statistici cu accent colorat
+        JPanel statsRow = new JPanel(new GridLayout(1, 4, 12, 0));
+        statsRow.setBackground(BG_PAGE);
+        statsRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 90));
+        statsRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        statsRow.add(createStatCard("3",   "Rezervari active", GREEN_PRIMARY));
+        statsRow.add(createStatCard("7",   "Calatorii totale", GREEN_DARK));
+        statsRow.add(createStatCard("4.8", "Rating mediu",     ORANGE_PRICE));
+        statsRow.add(createStatCard("12",  "Orase vizitate",   ORANGE_STAR));
+        content.add(statsRow);
+        content.add(Box.createVerticalStrut(18));
+
+        content.add(buildProfilSection("Informatii cont", new String[][]{
+            {"Nume complet",   "Alexandru Ionescu"},
+            {"Email",          "alex.ionescu@email.ro"},
+            {"Telefon",        "+40 712 345 678"},
+            {"Oras resedinta", "Iasi, Romania"},
+            {"Limba",          "Romana"},
+        }));
+        content.add(Box.createVerticalStrut(14));
+
+        content.add(buildProfilSection("Preferinte de calatorie", new String[][]{
+            {"Tip cazare preferat",  "Hotel (4-5 stele)"},
+            {"Buget mediu / noapte", "100 - 200 EUR"},
+            {"Destinatii favorite",  "Europa, Asia"},
+            {"Durata medie sejur",   "3-5 nopti"},
+        }));
+        content.add(Box.createVerticalStrut(14));
+
+        // Calatorii recente
+        JPanel sectCalatorii = new JPanel(new BorderLayout());
+        sectCalatorii.setBackground(ALB);
+        sectCalatorii.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(220, 220, 220), 1),
+            new EmptyBorder(14, 16, 8, 16)
+        ));
+        sectCalatorii.setAlignmentX(Component.LEFT_ALIGNMENT);
+        sectCalatorii.setMaximumSize(new Dimension(Integer.MAX_VALUE, 999));
+
+        JLabel sectTitlu = new JLabel("Calatorii recente");
+        sectTitlu.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        sectTitlu.setForeground(new Color(20, 20, 20));
+        sectTitlu.setBorder(new EmptyBorder(0, 0, 8, 0));
+        sectCalatorii.add(sectTitlu, BorderLayout.NORTH);
+
+        JPanel calList = new JPanel();
+        calList.setLayout(new BoxLayout(calList, BoxLayout.Y_AXIS));
+        calList.setBackground(ALB);
+
+        String[][] calatorii = {
+            {"Paris, Franta",     "Hotel Grand Opera",   "Mar 2025", "4.7"},
+            {"Roma, Italia",      "Colosseum Suites",    "Ian 2025", "4.5"},
+            {"Praga, Cehia",      "Prague City Center",  "Oct 2024", "4.8"},
+            {"Barcelona, Spania", "Barceloneta Beach",   "Iun 2024", "4.3"},
+        };
+
+        for (String[] c : calatorii) {
+            JPanel row = new JPanel(new BorderLayout(10, 0));
+            row.setBackground(ALB);
+            row.setBorder(new MatteBorder(0, 0, 1, 0, new Color(240, 240, 240)));
+
+            JPanel rowLeft = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
+            rowLeft.setBackground(ALB);
+            JLabel dot = new JLabel("●");
+            dot.setForeground(GREEN_PRIMARY);
+            JLabel dest = new JLabel(c[0]);
+            dest.setFont(new Font("Segoe UI", Font.BOLD, 13));
+            dest.setForeground(new Color(15, 15, 15));
+            JLabel hotel = new JLabel("· " + c[1]);
+            hotel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+            hotel.setForeground(GRI_TEXT);
+            rowLeft.add(dot); rowLeft.add(dest); rowLeft.add(hotel);
+            row.add(rowLeft, BorderLayout.WEST);
+
+            JPanel rowRight = new JPanel(new FlowLayout(FlowLayout.RIGHT, 12, 8));
+            rowRight.setBackground(ALB);
+            JLabel data = new JLabel(c[2]);
+            data.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+            data.setForeground(GRI_TEXT);
+            JLabel scoreTag = new JLabel(" " + c[3] + " ");
+            scoreTag.setFont(new Font("Segoe UI", Font.BOLD, 11));
+            scoreTag.setForeground(ALB);
+            scoreTag.setBackground(GREEN_DARK);
+            scoreTag.setOpaque(true);
+            rowRight.add(data); rowRight.add(scoreTag);
+            row.add(rowRight, BorderLayout.EAST);
+
+            calList.add(row);
+        }
+
+        sectCalatorii.add(calList, BorderLayout.CENTER);
+        content.add(sectCalatorii);
+        content.add(Box.createVerticalStrut(22));
 
         JScrollPane scroll = new JScrollPane(content);
         scroll.setBorder(null);
-        scroll.getViewport().setBackground(WARM_BG);
+        scroll.getViewport().setBackground(BG_PAGE);
+        scroll.getVerticalScrollBar().setUnitIncrement(16);
+        scroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         page.add(scroll, BorderLayout.CENTER);
         return page;
     }
 
-    // Card cu o statistica numerica - numarul in portocaliu mare, eticheta dedesubt
-    private JPanel createStatCard(String valoare, String eticheta) {
-        JPanel card = new JPanel();
-        card.setLayout(new BoxLayout(card, BoxLayout.Y_AXIS));
-        card.setBackground(ALB);
-        card.setBorder(BorderFactory.createCompoundBorder(
-            BorderFactory.createLineBorder(BORDER_C, 1),
-            new EmptyBorder(16, 16, 16, 16)
+    /*
+     * buildProfilSection() - sectiune tabel cu randuri label:valoare.
+     */
+    private JPanel buildProfilSection(String titluSectiune, String[][] randuri) {
+        JPanel sect = new JPanel(new BorderLayout());
+        sect.setBackground(ALB);
+        sect.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(220, 220, 220), 1),
+            new EmptyBorder(14, 16, 6, 16)
         ));
-        JLabel lblV = new JLabel(valoare, SwingConstants.CENTER);
-        lblV.setFont(new Font("Segoe UI", Font.BOLD, 28));
-        lblV.setForeground(PORTOCALIU); // portocaliu vibrant pentru numere
-        lblV.setAlignmentX(Component.CENTER_ALIGNMENT);
+        sect.setAlignmentX(Component.LEFT_ALIGNMENT);
+        sect.setMaximumSize(new Dimension(Integer.MAX_VALUE, 999));
 
-        JLabel lblE = new JLabel(eticheta, SwingConstants.CENTER);
-        lblE.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        lblE.setForeground(GRI_TEXT);
-        lblE.setAlignmentX(Component.CENTER_ALIGNMENT);
+        JLabel titlu = new JLabel(titluSectiune);
+        titlu.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        titlu.setForeground(new Color(15, 15, 15));
+        titlu.setBorder(new EmptyBorder(0, 0, 8, 0));
+        sect.add(titlu, BorderLayout.NORTH);
 
-        card.add(lblV);
-        card.add(Box.createVerticalStrut(4));
-        card.add(lblE);
-        return card;
+        JPanel rows = new JPanel();
+        rows.setLayout(new BoxLayout(rows, BoxLayout.Y_AXIS));
+        rows.setBackground(ALB);
+
+        for (String[] r : randuri) {
+            JPanel row = new JPanel(new BorderLayout());
+            row.setBackground(ALB);
+            row.setBorder(new MatteBorder(0, 0, 1, 0, new Color(245, 245, 245)));
+
+            JLabel lblKey = new JLabel(r[0]);
+            lblKey.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+            lblKey.setForeground(GRI_TEXT);
+            lblKey.setBorder(new EmptyBorder(9, 0, 9, 0));
+            lblKey.setPreferredSize(new Dimension(180, 36));
+
+            JLabel lblVal = new JLabel(r[1]);
+            lblVal.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+            lblVal.setForeground(new Color(15, 15, 15));
+
+            row.add(lblKey, BorderLayout.WEST);
+            row.add(lblVal, BorderLayout.CENTER);
+            rows.add(row);
+        }
+
+        sect.add(rows, BorderLayout.CENTER);
+        return sect;
     }
 
     /*
-     * navigateToDetail() - navigheaza la pagina de detalii a unui listing.
-     *
-     * Pasii:
-     *   1. Golim panelul de detalii (din rezervarea anterioara)
-     *   2. Construim continut nou cu datele anuntului selectat
-     *   3. Cerem Swing sa redeseneze - revalidate + repaint sunt esentiale
-     *   4. Schimbam pagina activa cu CardLayout
+     * createStatCard() - card numeric cu linie colorata sus.
+     */
+    private JPanel createStatCard(String valoare, String eticheta, Color accentColor) {
+        JPanel card = new JPanel(new BorderLayout());
+        card.setBackground(ALB);
+        card.setBorder(BorderFactory.createLineBorder(new Color(220, 220, 220), 1));
+
+        JPanel accentLine = new JPanel();
+        accentLine.setBackground(accentColor);
+        accentLine.setPreferredSize(new Dimension(0, 4));
+        card.add(accentLine, BorderLayout.NORTH);
+
+        JPanel inner = new JPanel();
+        inner.setLayout(new BoxLayout(inner, BoxLayout.Y_AXIS));
+        inner.setBackground(ALB);
+        inner.setBorder(new EmptyBorder(12, 14, 12, 14));
+
+        JLabel lblV = new JLabel(valoare);
+        lblV.setFont(new Font("Segoe UI", Font.BOLD, 28));
+        lblV.setForeground(accentColor);
+        lblV.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel lblE = new JLabel(eticheta);
+        lblE.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        lblE.setForeground(GRI_TEXT);
+        lblE.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        inner.add(lblV);
+        inner.add(Box.createVerticalStrut(2));
+        inner.add(lblE);
+        card.add(inner, BorderLayout.CENTER);
+        return card;
+    }
+
+    // ================================================================
+    //  DETAIL PAGE
+    // ================================================================
+    /*
+     * navigateToDetail() - populeaza detailPanel si navigheaza la "detail".
+     * Apelata din butonul "Rezerva" al oricarui listing card.
      */
     private void navigateToDetail(String titlu, String locatie, String descriere,
                                    String rating, String nrRec, String pret) {
@@ -1379,27 +1636,26 @@ return card;
     }
 
     /*
-     * buildDetailPage() - pagina completa de detalii a unui anunt.
-     * Header rosu cu buton inapoi, imagine, descriere, facilitati, rezervare.
+     * buildDetailPage() - pagina de detalii a unui anunt.
+     * Header verde cu buton Inapoi.
+     * Imagine placeholder, descriere, facilitati, sectiune rezervare.
      */
     private JPanel buildDetailPage(String titlu, String locatie, String descriere,
                                     String rating, String nrRec, String pret) {
         JPanel page = new JPanel(new BorderLayout());
         page.setBackground(WARM_BG);
 
-        // Header rosu aprins cu buton Inapoi si titlul anuntului
         JPanel header = new JPanel(new BorderLayout(12, 0));
-        header.setBackground(ROS_VIU);
+        header.setBackground(GREEN_PRIMARY);
         header.setBorder(new EmptyBorder(10, 16, 10, 16));
 
         JButton btnBack = new JButton("< Inapoi");
         btnBack.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         btnBack.setForeground(ALB);
-        btnBack.setBackground(ROS_HOVER);
+        btnBack.setBackground(GREEN_DARK);
         btnBack.setBorder(new EmptyBorder(6, 14, 6, 14));
         btnBack.setFocusPainted(false);
         btnBack.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-        // La click: reactivam butonul Home in sidebar si aratam pagina home
         btnBack.addActionListener(e -> {
             setActiveNavButton(btnHome);
             showPage("home");
@@ -1412,25 +1668,23 @@ return card;
         header.add(lblH, BorderLayout.CENTER);
         page.add(header, BorderLayout.NORTH);
 
-        // Continut scrollabil
         JPanel content = new JPanel();
         content.setLayout(new BoxLayout(content, BoxLayout.Y_AXIS));
         content.setBackground(WARM_BG);
         content.setBorder(new EmptyBorder(22, 32, 22, 32));
 
-        // Imagine mare - placeholder portocaliu cald
+        // Imagine placeholder
         JPanel imgMare = new JPanel(new GridBagLayout());
-        imgMare.setBackground(new Color(255, 220, 195));
+        imgMare.setBackground(new Color(180, 230, 180));
         imgMare.setMaximumSize(new Dimension(Integer.MAX_VALUE, 240));
         imgMare.setAlignmentX(Component.LEFT_ALIGNMENT);
         JLabel imgL = new JLabel("Galerie foto - " + titlu, SwingConstants.CENTER);
         imgL.setFont(new Font("Segoe UI", Font.PLAIN, 14));
-        imgL.setForeground(new Color(160, 60, 10));
+        imgL.setForeground(GREEN_DARK);
         imgMare.add(imgL);
         content.add(imgMare);
         content.add(Box.createVerticalStrut(22));
 
-        // Titlu + locatie ca link + rating cu stele portocalii
         JLabel lblT = new JLabel(titlu);
         lblT.setFont(new Font("Segoe UI", Font.BOLD, 23));
         lblT.setForeground(new Color(20, 20, 20));
@@ -1440,7 +1694,7 @@ return card;
 
         JLabel lblL = new JLabel("  " + locatie);
         lblL.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        lblL.setForeground(new Color(60, 130, 200));
+        lblL.setForeground(new Color(0, 100, 180));
         lblL.setAlignmentX(Component.LEFT_ALIGNMENT);
         content.add(lblL);
         content.add(Box.createVerticalStrut(4));
@@ -1449,12 +1703,11 @@ return card;
         JLabel lblR = new JLabel("★".repeat(stele) + "☆".repeat(5 - stele)
             + "  " + rating + " din 5  ·  " + nrRec + " recenzii");
         lblR.setFont(new Font("Segoe UI", Font.PLAIN, 13));
-        lblR.setForeground(PORTOCALIU_2);
+        lblR.setForeground(ORANGE_STAR);
         lblR.setAlignmentX(Component.LEFT_ALIGNMENT);
         content.add(lblR);
         content.add(Box.createVerticalStrut(22));
 
-        // Descriere extinsa
         JLabel secDesc = new JLabel("Despre proprietate");
         secDesc.setFont(new Font("Segoe UI", Font.BOLD, 15));
         secDesc.setForeground(new Color(20, 20, 20));
@@ -1465,14 +1718,11 @@ return card;
         JLabel lblDesc = new JLabel(
             "<html><body style='width:680px;font-size:12pt;color:#3a3a3a'>" + descriere
             + " Camerele sunt dotate cu aer conditionat, TV si Wi-Fi gratuit."
-            + " Personalul nostru este disponibil non-stop la receptie."
-            + "</body></html>"
-        );
+            + " Personalul nostru este disponibil non-stop.</body></html>");
         lblDesc.setAlignmentX(Component.LEFT_ALIGNMENT);
         content.add(lblDesc);
         content.add(Box.createVerticalStrut(22));
 
-        // Facilitati - chipuri cu bordura portocalie
         JLabel secFac = new JLabel("Facilitati incluse");
         secFac.setFont(new Font("Segoe UI", Font.BOLD, 15));
         secFac.setForeground(new Color(20, 20, 20));
@@ -1486,12 +1736,12 @@ return card;
         for (String f : new String[]{"Wi-Fi gratuit", "Mic dejun", "Parcare", "AC", "Room service", "Receptie 24h"}) {
             JLabel c = new JLabel("  " + f + "  ");
             c.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-            c.setForeground(PORTOCALIU);
+            c.setForeground(GREEN_DARK);
             c.setBorder(BorderFactory.createCompoundBorder(
                 BorderFactory.createLineBorder(BORDER_C, 1),
                 new EmptyBorder(4, 6, 4, 6)
             ));
-            c.setBackground(new Color(255, 248, 240));
+            c.setBackground(new Color(240, 255, 240));
             c.setOpaque(true);
             facPanel.add(c);
         }
@@ -1505,7 +1755,6 @@ return card;
         content.add(sep);
         content.add(Box.createVerticalStrut(22));
 
-        // Sectiunea de rezervare - pret portocaliu + buton rosu mare
         JLabel secRez = new JLabel("Rezerva acum");
         secRez.setFont(new Font("Segoe UI", Font.BOLD, 15));
         secRez.setForeground(new Color(20, 20, 20));
@@ -1517,7 +1766,6 @@ return card;
         rezervRow.setBackground(WARM_BG);
         rezervRow.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        // Card pret cu fundal cald
         JPanel pretCard = new JPanel(new BorderLayout(0, 4));
         pretCard.setBackground(ALB);
         pretCard.setBorder(BorderFactory.createCompoundBorder(
@@ -1526,7 +1774,7 @@ return card;
         ));
         JLabel lblPretMare = new JLabel(pret + "€");
         lblPretMare.setFont(new Font("Segoe UI", Font.BOLD, 30));
-        lblPretMare.setForeground(PORTOCALIU); // portocaliu pentru pret mare
+        lblPretMare.setForeground(ORANGE_PRICE);
         JLabel lblPN = new JLabel("per noapte, taxe incluse");
         lblPN.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         lblPN.setForeground(GRI_TEXT);
@@ -1534,10 +1782,9 @@ return card;
         pretCard.add(lblPN, BorderLayout.SOUTH);
         rezervRow.add(pretCard);
 
-        // Butonul mare de rezervare - rosu aprins, text alb, padding generos
         JButton btnRezMare = new JButton("  Rezerva acum  >");
         btnRezMare.setFont(new Font("Segoe UI", Font.BOLD, 15));
-        btnRezMare.setBackground(ROS_VIU);
+        btnRezMare.setBackground(GREEN_PRIMARY);
         btnRezMare.setForeground(ALB);
         btnRezMare.setBorder(new EmptyBorder(16, 30, 16, 30));
         btnRezMare.setFocusPainted(false);
@@ -1545,8 +1792,7 @@ return card;
         btnRezMare.addActionListener(e ->
             JOptionPane.showMessageDialog(this,
                 "Rezervare initiata!\n\n" + titlu + "\n" + locatie + "\nPret: " + pret + "€ / noapte",
-                "TravaleRo - Rezervare", JOptionPane.INFORMATION_MESSAGE)
-        );
+                "TravaleRo - Rezervare", JOptionPane.INFORMATION_MESSAGE));
         rezervRow.add(btnRezMare);
         content.add(rezervRow);
         content.add(Box.createVerticalStrut(36));

@@ -235,7 +235,7 @@ public class Main extends JFrame {
         formCard.add(btnLogin);
         formCard.add(Box.createVerticalStrut(8));
 
-        // Buton DEV MODE - vizibil doar in timpul dezvoltarii.
+        // Buton t MODE - vizibil doar in timpul dezvoltarii.
         // Sare direct la o pagina specifica fara credentiale.
         // Sterge sau comenteaza acest bloc inainte de productie.
         JPanel devPanel = new JPanel(new FlowLayout(FlowLayout.CENTER, 6, 0));
