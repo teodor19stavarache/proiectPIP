@@ -1,7 +1,7 @@
-city=Vienna
+city=Rome
 check_in=2026-07-15
 check_out=2026-07-17
 adults=2
-children=2
-children_ages=5,5
+children=0
+children_ages=0
 currency=EUR

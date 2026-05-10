@@ -1,14 +1,14 @@
 [
   {
-    "name": "Hilton Vienna Waterfront",
-    "rate_per_night": "242 EUR",
-    "total_rate": "485 EUR",
-    "link": "https://www.hilton.com/en/hotels/viehahi-hilton-vienna-waterfront/?SEO_id=GMB-EMEA-HI-VIEHAHI",
-    "rating": 4.4,
+    "name": "Mercure Roma Corso Trieste",
+    "rate_per_night": "116 EUR",
+    "total_rate": "232 EUR",
+    "link": "https://all.accor.com/lien_externe.svlt?goto=fiche_hotel&code_hotel=3320&merchantid=seo-maps-IT-3320&sourceid=aw-cen&utm_medium=seo%20maps&utm_source=google%20Maps&utm_campaign=seo%20maps",
+    "rating": 4.3,
     "hotel_class": "4-star hotel",
     "nearby_places": [
       {
-        "name": "Viennese Giant Ferris Wheel",
+        "name": "Galleria Borghese",
         "transportations": [
           {
             "type": "Taxi",
@@ -17,7 +17,295 @@
         ]
       },
       {
-        "name": "Wien Praterstern",
+        "name": "Sant’Agnese - Annibaliano",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "6 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "53 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "1 hr 2 min"
+          }
+        ]
+      },
+      {
+        "name": "Pepe Verde",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHN89f_rijg7TbfLZTmJp39eo2Gdxuw0QmRG1gCg6db5wZ4MGAXz2EEnLKSU9QfSfwLm1KuVQFfIt1sgbIuy305AxZIZphDSeDI3HqpDZiY0-N1qZhnDZkIxNGN_CN-37TUyLJx=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "The Building Hotel",
+    "rate_per_night": "178 EUR",
+    "total_rate": "356 EUR",
+    "link": "https://www.thebuildinghotelrome.com/en/?utm_source=google&utm_medium=organic&utm_campaign=knowledge-graph",
+    "rating": 4.1,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Spanish Steps",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Croce Rossa",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "46 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "54 min"
+          }
+        ]
+      },
+      {
+        "name": "Mia Ristorante",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAECpX4h6Eh3wzmrv-yQKkMkZECJkJ2nqdsh1kliGMkOn0GJfLF7cipaUhCliQJQRcCnAU0mDEPb2zBHR_ej3BECzOu-hO1AvGZWx2EWq1fdUuzzVGwrDWoyyoOCbC2WKyEL8XHbfQ=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Courtyard by Marriott Rome Central Park",
+    "rate_per_night": "172 EUR",
+    "total_rate": "345 EUR",
+    "link": "https://www.marriott.com/en-us/hotels/romcp-courtyard-rome-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+    "rating": 4.3,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Gemelli",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "42 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "59 min"
+          }
+        ]
+      },
+      {
+        "name": "Sabores De Mi Tierra",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHEbu7KCzk3F-zupZT0SpUR5y1JVKQBc25fogiNP9GM4lu1YeDQHKF4mjBDfANYrqRVBOxGgZKDjBrCXPXZt_dDyHhOvi2lTM18cFPmX6-rhMSzk8FTHWnoU6PYaIbl5Ee46bwtmjh1YZ7c=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Hilton Garden Inn Rome Claridge",
+    "rate_per_night": "178 EUR",
+    "total_rate": "356 EUR",
+    "link": "https://www.hilton.com/en/hotels/romrcgi-hilton-garden-inn-rome-claridge/?SEO_id=GMB-EMEA-GI-ROMRCGI",
+    "rating": 4.3,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Spanish Steps",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Liegi/Ungheria",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "54 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "1 hr 5 min"
+          }
+        ]
+      },
+      {
+        "name": "Mattarello Parioli",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGTIw-VqAn3QqO0wk11_uS6gAF9B-aIIWrhq8WODTSQ0PUKT7tFCBzigPG8LtQOrEeWPYm8olcM8xmqR8fFhKGe0TQaN7NJmIzYiMxtuZKB_tJZdW33SxqQTf5Lg-MhgwaEq4jECow-Us8=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Suite Sistina for Brave Lovers",
+    "rate_per_night": "136 EUR",
+    "total_rate": "273 EUR",
+    "link": "https://www.suitesistina.com/?utm_source=google&utm_medium=organic&utm_campaign=GoogleMyBusiness",
+    "rating": 4.5,
+    "hotel_class": "3-star hotel",
+    "nearby_places": [
+      {
+        "name": "Spanish Steps",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "48 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "55 min"
+          }
+        ]
+      },
+      {
+        "name": "La Botte Antica",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh5.googleusercontent.com/proxy/Zs-Nkh-5bowcqMiTRWn7oY3PnN9oLdVjPx8bc7Lyucbwz6Yyd40QocSRWVbTl0I0CBoWqTUaTxsrE-J2IG1aDMX8RKmZQzlRtG9E7sKcK0jQnT88JdReA0cKokq_QLT0I45I1i1Dv_sgz0yihKcIiNjlXyJ8ro4=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Mario de' Fiori 37",
+    "rate_per_night": "174 EUR",
+    "total_rate": "347 EUR",
+    "link": "https://www.mariodefiori37.top/",
+    "rating": 4.6,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Spanish Steps",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      },
+      {
+        "name": "Spagna (Ma)",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "49 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "54 min"
+          }
+        ]
+      },
+      {
+        "name": "Al 34",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh6.googleusercontent.com/proxy/ltLoCR8dK8xAcx-q0m5ZlwtIcAN_mvuEU7lS00mVVZUiP3k_chtau-o-UrENdGb5zO_eCqpz0My7dJT8gdewePrGVjZBf76UocIt4gOnMpCnoVRTrhwE5yvza3iLMRmBxtEsVo5IBdiTgrUV1Hfn2wkJrDURdqc=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Hotel La Ville",
+    "rate_per_night": "151 EUR",
+    "total_rate": "302 EUR",
+    "link": "http://lavillerome.com/",
+    "rating": 4.7,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Galleria Borghese",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "10 min"
+          }
+        ]
+      },
+      {
+        "name": "Roma Tiburtina",
         "transportations": [
           {
             "type": "Taxi",
@@ -26,48 +314,286 @@
         ]
       },
       {
-        "name": "Vienna International Airport",
+        "name": "Leonardo da Vinci International Airport",
         "transportations": [
           {
             "type": "Public transport",
-            "duration": "26 min"
+            "duration": "56 min"
           },
           {
             "type": "Taxi",
-            "duration": "28 min"
+            "duration": "57 min"
           }
         ]
       },
       {
-        "name": "Fat Monk - Biz Zwei",
+        "name": "Pizzic'Osteria Volpetti Bistrot \"Salumeria Storica dal 1870\"",
         "transportations": [
           {
-            "type": "Taxi",
-            "duration": "5 min"
+            "type": "Walking",
+            "duration": "7 min"
           }
         ]
       }
-    ]
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFuK3RIZgZ1cklFVjBFzEsFCvX6XnRRh3rw-E0wsEQH12jSTAWvX1eNwfrYXr8XXJN7eoUb3ZDxraYzBY0HuCFfwxmalilFD4NiT8GllPhzOup4vbpBYeNG4K_1P5uxoylzgdt2=s287-w287-h192-n-k-no-v1"
   },
   {
-    "name": "Citadines Danube Vienna",
-    "rate_per_night": "174 EUR",
-    "total_rate": "348 EUR",
-    "link": "https://www.discoverasr.com/citadines/austria/citadines-danube-vienna?utm_source=google&utm_medium=maps&utm_campaign=hq-google-maps-alwayson-20240531-all-all-eu-at-citadinesdanubevienna-yext-gbp",
+    "name": "Hotel Golden",
+    "rate_per_night": "105 EUR",
+    "total_rate": "210 EUR",
+    "link": "https://www.hotelgoldenrome.com/?utm_source=google&utm_medium=organic&utm_campaign=GoogleMyBusiness",
+    "rating": 4.7,
+    "hotel_class": "2-star hotel",
+    "nearby_places": [
+      {
+        "name": "Villa Borghese",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Veneto/Sardegna",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "52 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "56 min"
+          }
+        ]
+      },
+      {
+        "name": "Dal 1962 I Piaceri del Casale",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEJcNAiKbUWYL_T-IXc46aIMbauJiJqKvza6-juRqhRc2y_EDQOfCGKfG_qw8_bAwsP-HdRwu3hzmU27tabB5YNYOzMVF8hZZvpy31VJMlVIaPd_gBGsTzYmCi3Hgdr2KdVJBeh=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Arch Rome SUITES",
+    "rate_per_night": "148 EUR",
+    "total_rate": "296 EUR",
+    "link": "http://www.archromesuites.it/",
+    "rating": 4.6,
+    "hotel_class": "3-star hotel",
+    "nearby_places": [
+      {
+        "name": "Pantheon",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      },
+      {
+        "name": "C.so Vittorio Emanuele (Argentina)",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "50 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "56 min"
+          }
+        ]
+      },
+      {
+        "name": "Trattoria Il Lucano",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh5.googleusercontent.com/proxy/0bJ-IZb3aD6MLS1t6MyQLp0MVbWOE2t2ue3Cjj8x7PKJi6pvT_NfbwgqGtghZCzSVeQxBfY2dHGmFSFptPPCLB8CN8qNHOjE8hsBHyrBs9UR4-cLMQ7wI-P3qWzRhcXE2VrRYxk7o7uYyNoYD6cC_MvfE-YB2pE=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Shangri-La",
+    "rate_per_night": "110 EUR",
+    "total_rate": "221 EUR",
+    "link": "https://www.shangrilaroma.it/?utm_source=gbp&utm_medium=organic",
+    "rating": 4.1,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "ROMA | Via Colombo Viale Oceano Atlantico # f2691",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "30 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "1 hr 14 min"
+          }
+        ]
+      },
+      {
+        "name": "Locanda Alla Romana",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "10 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF0DrE1mJ8vAGsfAb1tDJ210kEkWN452xHcRwPsmUXgholbiRth8AIoofqeOs_T3mbeR_XqMfk2uy_1jntyZ-4Wvu4Ohe3Mrw6g4N8x1NMifZYrGiQYQkQezXBp982hOIkouaeG_0eZVtiH=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Tiber Suite",
+    "rate_per_night": "60 EUR",
+    "total_rate": "121 EUR",
+    "link": "https://www.tibervillage.com/?partner=13624&utm_source=google&utm_medium=organic&utm_campaign=MyBusiness",
     "rating": 4.5,
     "hotel_class": "4-star hotel",
     "nearby_places": [
       {
-        "name": "Viennese Giant Ferris Wheel",
+        "name": "Tiberina/Civ 150",
         "transportations": [
           {
-            "type": "Public transport",
-            "duration": "10 min"
+            "type": "Walking",
+            "duration": "4 min"
           }
         ]
       },
       {
-        "name": "Kagran",
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "44 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "1 hr 31 min"
+          }
+        ]
+      },
+      {
+        "name": "La Casetta",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "2 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFLQTbrGTGxY7fFrd3xq8lv6_Eqm7Icox_FKdtvBId74nUxT4vzyyGHkds0Sr6sBJh5HGq8NP86acdZ3eQukm5nwakqU7gNHjrB8R71scOAVQrwTYr-ClsCGFTXNBzvMOOVmdy2=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Hotel Valentino Palace",
+    "rate_per_night": "94 EUR",
+    "total_rate": "189 EUR",
+    "link": "https://www.hotelvalentinopalaceroma.com/",
+    "rating": 4.1,
+    "hotel_class": "3-star hotel",
+    "nearby_places": [
+      {
+        "name": "Papal Basilica of Saint Mary Major",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Napoleone III",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      },
+      {
+        "name": "Leonardo da Vinci International Airport",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "37 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "50 min"
+          }
+        ]
+      },
+      {
+        "name": "Ristorante Elettra",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh5.googleusercontent.com/proxy/xkaMUt9YifIdXUI4v14IVK1ffreMmuP_mVZPg9nvORnrnjtvs8w1Mq1PXCXPSIsBlvu2-jRGD-JV3PuP-dsKIP2EmiOi618Yfaffn-_JifpfmZ2VtOfTpG7lWSPTWqJYW6zWebHeUw1w3gYAzOx4gHnLRvwZdQ=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Everest Inn Rome",
+    "rate_per_night": "98 EUR",
+    "total_rate": "196 EUR",
+    "link": "http://www.everestinnrome.it/",
+    "rating": 4,
+    "hotel_class": "3-star hotel",
+    "nearby_places": [
+      {
+        "name": "Papal Basilica of Saint Mary Major",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Nazionale/Torino",
         "transportations": [
           {
             "type": "Walking",
@@ -76,20 +602,20 @@
         ]
       },
       {
-        "name": "Vienna International Airport",
+        "name": "Leonardo da Vinci International Airport",
         "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "29 min"
-          },
           {
             "type": "Public transport",
             "duration": "43 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "50 min"
           }
         ]
       },
       {
-        "name": "Sha Guo 22",
+        "name": "Ambrosia Rooftop Restaurant & Bar",
         "transportations": [
           {
             "type": "Walking",
@@ -97,6 +623,7 @@
           }
         ]
       }
-    ]
+    ],
+    "image": "https://lh5.googleusercontent.com/proxy/P53L9gsTd_jyow4IlrUlCoSxACEMnOg_sTmYeoQxn1xu0rmdxp-aiKVBdexlImPyBhLUTfmAcviaT12gCNoxWvoO1Y2myfrkVGobCwQ9E_GRAtgiMescUSvD7jLtQPx2u6eRg7gQ7a1RtkF-CV5rCKsOHfbmIXg=s287-w287-h192-n-k-no-v1"
   }
 ]
