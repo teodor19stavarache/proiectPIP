@@ -24,6 +24,7 @@ currency=EUR
 				transporations["duration"]
 			}
 	}
+   hotel["image"]
 
    In final, acest fisier JSON este transformat in directorul ouput intr-o baza de date baza.db
    care contine 3 tabele separate. hotels--> nearby_places --> transporation
