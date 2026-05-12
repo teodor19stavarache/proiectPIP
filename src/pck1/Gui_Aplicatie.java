@@ -8,6 +8,8 @@ import javax.swing.border.MatteBorder;
 /*
  * Gui_Aplicatie - fereastra principala a aplicatiei TravaleRo.
  *
+ * Aplicatia se porneste din clasa Main (nu mai exista metoda main aici).
+ *
  * Paleta verde aprins:
  *   GREEN_PRIMARY = #009933  verde electric - culoarea principala
  *   GREEN_DARK    = #006622  verde inchis pentru hover si elemente secundare
@@ -62,17 +64,6 @@ public class Gui_Aplicatie extends JFrame {
 
     // Butoanele de navigare din sidebar - tinute ca field pentru a le activa/dezactiva
     private JButton btnHome, btnAtractii, btnRezervari;
-
-    public static void main(String[] args) {
-        EventQueue.invokeLater(() -> {
-            try {
-                Gui_Aplicatie frame = new Gui_Aplicatie();
-                frame.setVisible(true);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
-    }
 
     public Gui_Aplicatie() {
         setTitle("TravaleRo - Travel Planner");
@@ -131,7 +122,7 @@ public class Gui_Aplicatie extends JFrame {
         );
         logoMare.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel avion = new JLabel("✈", SwingConstants.CENTER);
+        JLabel avion = new JLabel("\u2708", SwingConstants.CENTER);
         avion.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 48));
         avion.setForeground(new Color(200, 255, 200));
         avion.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -299,7 +290,7 @@ public class Gui_Aplicatie extends JFrame {
         );
         logoMare.setAlignmentX(Component.CENTER_ALIGNMENT);
 
-        JLabel avion = new JLabel("✈", SwingConstants.CENTER);
+        JLabel avion = new JLabel("\u2708", SwingConstants.CENTER);
         avion.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 46));
         avion.setForeground(new Color(180, 255, 180));
         avion.setAlignmentX(Component.CENTER_ALIGNMENT);
@@ -518,7 +509,7 @@ public class Gui_Aplicatie extends JFrame {
         JLabel logo = new JLabel(
             "<html><span style='color:white;font-size:17pt;font-weight:bold;'>" +
             "Travale</span><span style='color:#FFCC00;font-size:17pt;font-weight:bold;'>" +
-            "Ro</span><span style='color:#FFCC00;font-size:12pt;'> ✈</span></html>"
+            "Ro</span><span style='color:#FFCC00;font-size:12pt;'> \u2708</span></html>"
         );
         logo.setPreferredSize(new Dimension(175, 36));
         top.add(logo, BorderLayout.WEST);
@@ -707,7 +698,7 @@ public class Gui_Aplicatie extends JFrame {
         Color sColor = status.equals("Confirmata")
             ? new Color(80, 220, 100)
             : new Color(255, 180, 40);
-        JLabel lblStatus = new JLabel("● " + status);
+        JLabel lblStatus = new JLabel("\u25CF " + status);
         lblStatus.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         lblStatus.setForeground(sColor);
 
@@ -744,7 +735,7 @@ public class Gui_Aplicatie extends JFrame {
         lblOras.setForeground(new Color(20, 20, 20));
         contextBar.add(lblOras);
 
-        JLabel lblSep = new JLabel("·");
+        JLabel lblSep = new JLabel("\u00B7");
         lblSep.setForeground(new Color(180, 180, 180));
         contextBar.add(lblSep);
 
@@ -874,12 +865,12 @@ public class Gui_Aplicatie extends JFrame {
         imgZone.setPreferredSize(new Dimension(160, 162));
         imgZone.setBackground(imgColor);
 
-        JLabel imgIcon = new JLabel("🏨", SwingConstants.CENTER);
+        JLabel imgIcon = new JLabel("\uD83C\uDFE8", SwingConstants.CENTER);
         imgIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 36));
         imgIcon.setForeground(new Color(255, 255, 255, 140));
         imgZone.add(imgIcon, BorderLayout.CENTER);
 
-        JLabel badge = new JLabel(topAles ? "  ★ Top ales  " : "  Proprietate  ",
+        JLabel badge = new JLabel(topAles ? "  \u2605 Top ales  " : "  Proprietate  ",
                                   SwingConstants.CENTER);
         badge.setFont(new Font("Segoe UI", Font.BOLD, 10));
         badge.setForeground(ALB);
@@ -900,7 +891,7 @@ public class Gui_Aplicatie extends JFrame {
         lblT.setForeground(new Color(15, 15, 15));
         lblT.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JLabel lblL = new JLabel("📍 " + locatie);
+        JLabel lblL = new JLabel("\uD83D\uDCCD " + locatie);
         lblL.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblL.setForeground(new Color(0, 100, 180));
         lblL.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -917,11 +908,11 @@ public class Gui_Aplicatie extends JFrame {
         scoreBox.setBackground(GREEN_DARK);
         scoreBox.setOpaque(true);
 
-        JLabel steleLabel = new JLabel("★".repeat(stele) + "☆".repeat(5 - stele));
+        JLabel steleLabel = new JLabel("\u2605".repeat(stele) + "\u2606".repeat(5 - stele));
         steleLabel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         steleLabel.setForeground(ORANGE_STAR);
 
-        JLabel recLabel = new JLabel("· " + nrRec + " recenzii");
+        JLabel recLabel = new JLabel("\u00B7 " + nrRec + " recenzii");
         recLabel.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         recLabel.setForeground(GRI_TEXT);
 
@@ -982,7 +973,7 @@ public class Gui_Aplicatie extends JFrame {
         pretPanel.setLayout(new BoxLayout(pretPanel, BoxLayout.Y_AXIS));
         pretPanel.setBackground(new Color(250, 252, 250));
 
-        JLabel lblP = new JLabel(pret + "€");
+        JLabel lblP = new JLabel(pret + "\u20AC");
         lblP.setFont(new Font("Segoe UI", Font.BOLD, 22));
         lblP.setForeground(new Color(15, 15, 15));
         lblP.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -1261,13 +1252,13 @@ public class Gui_Aplicatie extends JFrame {
         lista.setBorder(new EmptyBorder(16, 20, 16, 20));
 
         lista.add(createRezervareCard("Hotel Traian", "Piata Unirii 1, Iasi",
-            "15 Mai 2025", "18 Mai 2025", "3 nopti", "555€", "Confirmata"));
+            "15 Mai 2025", "18 Mai 2025", "3 nopti", "555\u20AC", "Confirmata"));
         lista.add(Box.createVerticalStrut(10));
         lista.add(createRezervareCard("Apartament Copou View", "Bd. Carol I 22, Iasi",
-            "2 Iun 2025",  "5 Iun 2025",  "3 nopti", "180€", "Asteptare"));
+            "2 Iun 2025",  "5 Iun 2025",  "3 nopti", "180\u20AC", "Asteptare"));
         lista.add(Box.createVerticalStrut(10));
         lista.add(createRezervareCard("Casa Pogor Suites", "Str. Vasile Pogor 4, Iasi",
-            "10 Iul 2025", "12 Iul 2025", "2 nopti", "440€", "Confirmata"));
+            "10 Iul 2025", "12 Iul 2025", "2 nopti", "440\u20AC", "Confirmata"));
 
         JScrollPane scroll = new JScrollPane(lista);
         scroll.setBorder(null);
@@ -1305,7 +1296,7 @@ public class Gui_Aplicatie extends JFrame {
         lblA.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         lblA.setForeground(new Color(0, 100, 180));
 
-        JLabel lblD = new JLabel("  " + checkIn + "  →  " + checkOut + "  (" + durata + ")");
+        JLabel lblD = new JLabel("  " + checkIn + "  \u2192  " + checkOut + "  (" + durata + ")");
         lblD.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblD.setForeground(GRI_TEXT);
 
@@ -1327,7 +1318,7 @@ public class Gui_Aplicatie extends JFrame {
         lblT.setAlignmentX(Component.RIGHT_ALIGNMENT);
 
         Color textS = status.equals("Confirmata") ? GREEN_DARK : new Color(190, 100, 0);
-        JLabel lblS = new JLabel("● " + status);
+        JLabel lblS = new JLabel("\u25CF " + status);
         lblS.setFont(new Font("Segoe UI", Font.BOLD, 11));
         lblS.setForeground(textS);
         lblS.setAlignmentX(Component.RIGHT_ALIGNMENT);
@@ -1402,7 +1393,7 @@ public class Gui_Aplicatie extends JFrame {
         lblNivel.setOpaque(true);
         lblNivel.setBorder(new EmptyBorder(2, 0, 2, 0));
 
-        JLabel lblMembru = new JLabel("Membru din Ianuarie 2024  ·  Iasi, Romania");
+        JLabel lblMembru = new JLabel("Membru din Ianuarie 2024  \u00B7  Iasi, Romania");
         lblMembru.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         lblMembru.setForeground(new Color(170, 240, 170));
 
@@ -1496,12 +1487,12 @@ public class Gui_Aplicatie extends JFrame {
 
             JPanel rowLeft = new JPanel(new FlowLayout(FlowLayout.LEFT, 8, 8));
             rowLeft.setBackground(ALB);
-            JLabel dot = new JLabel("●");
+            JLabel dot = new JLabel("\u25CF");
             dot.setForeground(GREEN_PRIMARY);
             JLabel dest = new JLabel(c[0]);
             dest.setFont(new Font("Segoe UI", Font.BOLD, 13));
             dest.setForeground(new Color(15, 15, 15));
-            JLabel hotel = new JLabel("· " + c[1]);
+            JLabel hotel = new JLabel("\u00B7 " + c[1]);
             hotel.setFont(new Font("Segoe UI", Font.PLAIN, 12));
             hotel.setForeground(GRI_TEXT);
             rowLeft.add(dot); rowLeft.add(dest); rowLeft.add(hotel);
@@ -1700,8 +1691,8 @@ public class Gui_Aplicatie extends JFrame {
         content.add(Box.createVerticalStrut(4));
 
         int stele = (int) Math.round(Double.parseDouble(rating));
-        JLabel lblR = new JLabel("★".repeat(stele) + "☆".repeat(5 - stele)
-            + "  " + rating + " din 5  ·  " + nrRec + " recenzii");
+        JLabel lblR = new JLabel("\u2605".repeat(stele) + "\u2606".repeat(5 - stele)
+            + "  " + rating + " din 5  \u00B7  " + nrRec + " recenzii");
         lblR.setFont(new Font("Segoe UI", Font.PLAIN, 13));
         lblR.setForeground(ORANGE_STAR);
         lblR.setAlignmentX(Component.LEFT_ALIGNMENT);
@@ -1772,7 +1763,7 @@ public class Gui_Aplicatie extends JFrame {
             BorderFactory.createLineBorder(BORDER_C, 1),
             new EmptyBorder(14, 20, 14, 20)
         ));
-        JLabel lblPretMare = new JLabel(pret + "€");
+        JLabel lblPretMare = new JLabel(pret + "\u20AC");
         lblPretMare.setFont(new Font("Segoe UI", Font.BOLD, 30));
         lblPretMare.setForeground(ORANGE_PRICE);
         JLabel lblPN = new JLabel("per noapte, taxe incluse");
@@ -1791,7 +1782,7 @@ public class Gui_Aplicatie extends JFrame {
         btnRezMare.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btnRezMare.addActionListener(e ->
             JOptionPane.showMessageDialog(this,
-                "Rezervare initiata!\n\n" + titlu + "\n" + locatie + "\nPret: " + pret + "€ / noapte",
+                "Rezervare initiata!\n\n" + titlu + "\n" + locatie + "\nPret: " + pret + "\u20AC / noapte",
                 "TravaleRo - Rezervare", JOptionPane.INFORMATION_MESSAGE));
         rezervRow.add(btnRezMare);
         content.add(rezervRow);
