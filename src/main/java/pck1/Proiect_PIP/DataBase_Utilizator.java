@@ -42,7 +42,7 @@ public class DataBase_Utilizator {
 				PreparedStatement ps = conn.prepareStatement(s_adauga)) {
 			ps.setString(1, util.getEmail());
 			ps.setString(2, util.getNume());
-			ps.setString(3, util.getParola());
+			ps.setString(3, Utilizator.encode(util.getParola()));
 			ps.setString(4, util.getNumarTelefon());
 			ps.executeUpdate();
 			System.out.println("Utilizator adaugat!");
@@ -53,8 +53,7 @@ public class DataBase_Utilizator {
 
 	/**
 	 * @param util - Utilizator 
-	 * @return boolean : true -
-	 * daca parola coincide/false - daca parola nu coincide
+	 * @return boolean : true - daca parola coincide / false - daca parola nu coincide
 	 */
 	public boolean verifica_parola(Utilizator util) {
 		String parola_gasita = null;

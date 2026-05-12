@@ -7,42 +7,98 @@ public class Utilizator {
 	private String parola;
 	private String numar_telefon;
 	
+	/**
+	 * Constructor Utilizator
+	 * @param e
+	 * @param n
+	 * @param p
+	 * @param nr_tel
+	 */
+	public Utilizator(String e, String n, String p, String nr_tel) {
+		email = e;
+		nume = n;
+		parola = p;
+		numar_telefon = nr_tel;
+	}
+	
+	/**
+	 * 
+	 * @param parola_encode
+	 * @return parola encodata pentru a proteja parola utilizatorului
+	 */
 	public static String encode(String parola_encode) {
         return Base64.getEncoder().encodeToString(parola_encode.getBytes());
     }
 	
+	/**
+	 * 
+	 * @param hash
+	 * @return parola decodata pentru a se face verificarile
+	 */
 	 public static String decode(String hash) {
 	        return new String(Base64.getDecoder().decode(hash));
 	    }
 	
+	 /**
+	  * schimba email-ul utilizatorului in obiect 
+	  * @param email_primit
+	  */
 	public void setEmail(String email_primit) {
 		email = email_primit;
 	}
 	
+	/**
+	 * schimba numele utilizatorului in obiect
+	 * @param nume_primit
+	 */
 	public void setNume(String nume_primit) {
 		nume = nume_primit;
 	}
 	
+	/**
+	 * schimba parola utilizatorului in obiect
+	 * @param parola_primita
+	 */
 	public void setParola(String parola_primita) {
-		parola = encode(parola_primita);
+		parola = parola_primita;
 	}
 	
+	/**
+	 * schimba numarul de telefon al utilizatorului in obiect
+	 * @param numar_telefon_primit
+	 */
 	public void setNumarTelefon(String numar_telefon_primit) {
 		numar_telefon = numar_telefon_primit;
 	}
 	
+	/**
+	 * 
+	 * @return email
+	 */
 	public String getEmail() {
 		return email;
 	}
 	
+	/**
+	 * 
+	 * @return nume
+	 */
 	public String getNume() {
 		return nume;
 	}
 	
+	/**
+	 * 
+	 * @return parola
+	 */
 	public String getParola() {
-		return decode(parola);
+		return parola;
 	}
 	
+	/**
+	 * 
+	 * @return numar_telefon
+	 */
 	public String getNumarTelefon() {
 		return numar_telefon;
 	}
