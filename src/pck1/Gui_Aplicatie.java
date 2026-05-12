@@ -62,8 +62,16 @@ public class Gui_Aplicatie extends JFrame {
     private JPanel     mainPanel;
     private JPanel     detailPanel;
 
-    // Butoanele de navigare din sidebar - tinute ca field pentru a le activa/dezactiva
-    private JButton btnHome, btnAtractii, btnRezervari;
+    // Buton Home pentru sidebar (folosit la resetare selectie)
+    private JButton btnHome;
+
+    // Filtre cautare sidebar
+    private JTextField sidebarLocatieField;
+    private JTextField sidebarDataInceput;
+    private JTextField sidebarDataFinal;
+    private JSpinner   sidebarAdulti;
+    private JSpinner   sidebarCopii;
+    private JPanel     sidebarVarstePanel;
 
     public Gui_Aplicatie() {
         setTitle("TravaleRo - Travel Planner");
@@ -586,68 +594,257 @@ public class Gui_Aplicatie extends JFrame {
     // ================================================================
     /*
      * buildSidebar() - panelul lateral stang fix.
-     * Sus: butoane de navigare (Hoteluri, Atractii, Rezervari).
+     * Sus: filtru de cautare cu locatie, date, persoane, copii, varste copii.
      * Jos: carduri mici cu rezervarile recente.
      */
     private JPanel buildSidebar() {
         JPanel sidebar = new JPanel(new BorderLayout());
         sidebar.setBackground(SIDEBAR_BG);
-        sidebar.setPreferredSize(new Dimension(205, 0));
+        sidebar.setPreferredSize(new Dimension(222, 0));
 
-        // Navigare principala
-        JPanel navSection = new JPanel();
-        navSection.setLayout(new BoxLayout(navSection, BoxLayout.Y_AXIS));
-        navSection.setBackground(SIDEBAR_BG);
-        navSection.setBorder(new EmptyBorder(14, 0, 8, 0));
+        // ---- Sectiunea de cautare ----
+        JPanel searchSection = new JPanel();
+        searchSection.setLayout(new BoxLayout(searchSection, BoxLayout.Y_AXIS));
+        searchSection.setBackground(SIDEBAR_BG);
+        searchSection.setBorder(new EmptyBorder(14, 12, 10, 12));
 
-        JLabel navLabel = new JLabel("  MENIU");
-        navLabel.setFont(new Font("Segoe UI", Font.BOLD, 9));
-        navLabel.setForeground(new Color(100, 160, 100));
-        navLabel.setBorder(new EmptyBorder(0, 16, 8, 0));
-        navSection.add(navLabel);
+        // Titlu sectiune
+        JLabel searchLabel = new JLabel("CAUTA SEJUR");
+        searchLabel.setFont(new Font("Segoe UI", Font.BOLD, 9));
+        searchLabel.setForeground(new Color(100, 160, 100));
+        searchLabel.setBorder(new EmptyBorder(0, 4, 10, 0));
+        searchLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        searchSection.add(searchLabel);
 
-        btnHome      = createNavButton("Hoteluri",  true);
-        btnAtractii  = createNavButton("Atractii",  false);
-        btnRezervari = createNavButton("Rezervari", false);
+        // --- Locatie ---
+        searchSection.add(buildSidebarFieldLabel("\u25BE  Destinatie / Locatie"));
+        sidebarLocatieField = buildSidebarTextField("ex: Paris, Iasi...");
+        searchSection.add(sidebarLocatieField);
+        searchSection.add(Box.createVerticalStrut(8));
 
-        btnHome.addActionListener(e -> { setActiveNavButton(btnHome);      showPage("home"); });
-        btnAtractii.addActionListener(e -> { setActiveNavButton(btnAtractii);  showPage("atractii"); });
-        btnRezervari.addActionListener(e -> { setActiveNavButton(btnRezervari); showPage("rezervari"); });
+        // --- Data inceput ---
+        searchSection.add(buildSidebarFieldLabel("\u25BE  Data inceput"));
+        sidebarDataInceput = buildSidebarTextField("zz/ll/aaaa");
+        searchSection.add(sidebarDataInceput);
+        searchSection.add(Box.createVerticalStrut(8));
 
-        navSection.add(btnHome);
-        navSection.add(btnAtractii);
-        navSection.add(btnRezervari);
-        sidebar.add(navSection, BorderLayout.NORTH);
+        // --- Data final ---
+        searchSection.add(buildSidebarFieldLabel("\u25BE  Data final"));
+        sidebarDataFinal = buildSidebarTextField("zz/ll/aaaa");
+        searchSection.add(sidebarDataFinal);
+        searchSection.add(Box.createVerticalStrut(8));
 
-        // Rezervari recente - jos in sidebar
+        // --- Adulti ---
+        searchSection.add(buildSidebarFieldLabel("\u25BE  Adulti"));
+        JPanel adultiRow = new JPanel(new BorderLayout(6, 0));
+        adultiRow.setBackground(new Color(18, 42, 18));
+        adultiRow.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
+            new EmptyBorder(4, 8, 4, 8)
+        ));
+        adultiRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        adultiRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel adultiIcon = new JLabel("\uD83D\uDC64");
+        adultiIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 13));
+        adultiRow.add(adultiIcon, BorderLayout.WEST);
+        sidebarAdulti = new JSpinner(new SpinnerNumberModel(2, 1, 20, 1));
+        styleSpinner(sidebarAdulti);
+        adultiRow.add(sidebarAdulti, BorderLayout.CENTER);
+        searchSection.add(adultiRow);
+        searchSection.add(Box.createVerticalStrut(8));
+
+        // --- Copii ---
+        searchSection.add(buildSidebarFieldLabel("\u25BE  Copii (sub 18 ani)"));
+        JPanel copiiRow = new JPanel(new BorderLayout(6, 0));
+        copiiRow.setBackground(new Color(18, 42, 18));
+        copiiRow.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
+            new EmptyBorder(4, 8, 4, 8)
+        ));
+        copiiRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
+        copiiRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        JLabel copiiIcon = new JLabel("\uD83D\uDC66");
+        copiiIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 13));
+        copiiRow.add(copiiIcon, BorderLayout.WEST);
+        sidebarCopii = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
+        styleSpinner(sidebarCopii);
+        copiiRow.add(sidebarCopii, BorderLayout.CENTER);
+        searchSection.add(copiiRow);
+        searchSection.add(Box.createVerticalStrut(8));
+
+        // --- Varste copii (panel dinamic) ---
+        JLabel varsteLabel = buildSidebarFieldLabel("\u25BE  Varste copii");
+        varsteLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        searchSection.add(varsteLabel);
+
+        sidebarVarstePanel = new JPanel();
+        sidebarVarstePanel.setLayout(new BoxLayout(sidebarVarstePanel, BoxLayout.Y_AXIS));
+        sidebarVarstePanel.setBackground(SIDEBAR_BG);
+        sidebarVarstePanel.setAlignmentX(Component.LEFT_ALIGNMENT);
+        searchSection.add(sidebarVarstePanel);
+        searchSection.add(Box.createVerticalStrut(4));
+
+        // Listener: la schimbarea numarului de copii, actualizez campurile de varsta
+        sidebarCopii.addChangeListener(e -> updateVarsteCopiiForms());
+        updateVarsteCopiiForms(); // initializare
+
+        searchSection.add(Box.createVerticalStrut(12));
+
+        // --- Buton Cauta ---
+        JButton btnCautaSidebar = new JButton("  Cauta sejur  >");
+        btnCautaSidebar.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        btnCautaSidebar.setBackground(GREEN_PRIMARY);
+        btnCautaSidebar.setForeground(ALB);
+        btnCautaSidebar.setBorder(new EmptyBorder(10, 0, 10, 0));
+        btnCautaSidebar.setFocusPainted(false);
+        btnCautaSidebar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnCautaSidebar.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        btnCautaSidebar.setAlignmentX(Component.LEFT_ALIGNMENT);
+        btnCautaSidebar.setOpaque(true);
+        btnCautaSidebar.addActionListener(e -> {
+            clearSidebarSelection();
+            showPage("search");
+        });
+        searchSection.add(btnCautaSidebar);
+
+        sidebar.add(searchSection, BorderLayout.CENTER);
+
+        // ---- Rezervari recente - jos in sidebar ----
         JPanel rezSection = new JPanel();
         rezSection.setLayout(new BoxLayout(rezSection, BoxLayout.Y_AXIS));
         rezSection.setBackground(SIDEBAR_BG);
-        rezSection.setBorder(new EmptyBorder(0, 0, 16, 0));
+        rezSection.setBorder(new EmptyBorder(0, 0, 12, 0));
 
         JSeparator sep = new JSeparator();
         sep.setForeground(new Color(20, 60, 20));
-        sep.setMaximumSize(new Dimension(205, 1));
+        sep.setMaximumSize(new Dimension(222, 1));
         rezSection.add(sep);
-        rezSection.add(Box.createVerticalStrut(12));
+        rezSection.add(Box.createVerticalStrut(10));
 
         JLabel secLabel = new JLabel("  REZERVARI RECENTE");
         secLabel.setFont(new Font("Segoe UI", Font.BOLD, 9));
         secLabel.setForeground(new Color(100, 160, 100));
-        secLabel.setBorder(new EmptyBorder(0, 16, 8, 0));
+        secLabel.setBorder(new EmptyBorder(0, 12, 6, 0));
         rezSection.add(secLabel);
 
         rezSection.add(createSidebarCard("Hotel Traian", "15-18 Mai", "Confirmata"));
-        rezSection.add(Box.createVerticalStrut(5));
+        rezSection.add(Box.createVerticalStrut(4));
         rezSection.add(createSidebarCard("Copou View",   "2-5 Iun",  "Asteptare"));
-        rezSection.add(Box.createVerticalStrut(5));
+        rezSection.add(Box.createVerticalStrut(4));
         rezSection.add(createSidebarCard("Casa Pogor",   "10 Iul",   "Confirmata"));
 
         sidebar.add(rezSection, BorderLayout.SOUTH);
         return sidebar;
     }
 
-    // Buton de navigare in sidebar - bara verde in stanga cand e activ
+    /*
+     * buildSidebarFieldLabel() - label mic verde deschis pentru fiecare camp din sidebar.
+     */
+    private JLabel buildSidebarFieldLabel(String text) {
+        JLabel lbl = new JLabel(text);
+        lbl.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+        lbl.setForeground(new Color(140, 190, 140));
+        lbl.setBorder(new EmptyBorder(0, 2, 3, 0));
+        lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
+        return lbl;
+    }
+
+    /*
+     * buildSidebarTextField() - camp text stilizat pentru sidebar inchis la culoare.
+     */
+    private JTextField buildSidebarTextField(String placeholder) {
+        JTextField field = new JTextField(placeholder);
+        field.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        field.setForeground(new Color(120, 160, 120));
+        field.setBackground(new Color(18, 42, 18));
+        field.setCaretColor(GREEN_LIGHT);
+        field.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
+            new EmptyBorder(6, 8, 6, 8)
+        ));
+        field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 34));
+        field.setAlignmentX(Component.LEFT_ALIGNMENT);
+        field.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (field.getText().equals(placeholder)) {
+                    field.setText("");
+                    field.setForeground(ALB);
+                }
+            }
+            public void focusLost(java.awt.event.FocusEvent e) {
+                if (field.getText().isEmpty()) {
+                    field.setText(placeholder);
+                    field.setForeground(new Color(120, 160, 120));
+                }
+            }
+        });
+        return field;
+    }
+
+    /*
+     * styleSpinner() - aplica stilul inchis pe un JSpinner pentru sidebar.
+     */
+    private void styleSpinner(JSpinner spinner) {
+        spinner.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        spinner.setBackground(new Color(18, 42, 18));
+        spinner.setForeground(ALB);
+        spinner.setBorder(BorderFactory.createEmptyBorder());
+        JComponent editor = spinner.getEditor();
+        if (editor instanceof JSpinner.DefaultEditor) {
+            JTextField tf = ((JSpinner.DefaultEditor) editor).getTextField();
+            tf.setBackground(new Color(18, 42, 18));
+            tf.setForeground(ALB);
+            tf.setFont(new Font("Segoe UI", Font.BOLD, 13));
+            tf.setBorder(new EmptyBorder(0, 4, 0, 0));
+        }
+    }
+
+    /*
+     * updateVarsteCopiiForms() - genereaza dinamic cate un spinner de varsta
+     * pentru fiecare copil selectat. Daca 0 copii, afiseaza un mesaj discret.
+     */
+    private void updateVarsteCopiiForms() {
+        sidebarVarstePanel.removeAll();
+        int nrCopii = (Integer) sidebarCopii.getValue();
+        if (nrCopii == 0) {
+            JLabel lblNone = new JLabel("Niciun copil selectat");
+            lblNone.setFont(new Font("Segoe UI", Font.ITALIC, 10));
+            lblNone.setForeground(new Color(80, 120, 80));
+            lblNone.setBorder(new EmptyBorder(2, 4, 4, 0));
+            sidebarVarstePanel.add(lblNone);
+        } else {
+            for (int i = 1; i <= nrCopii; i++) {
+                JPanel row = new JPanel(new BorderLayout(6, 0));
+                row.setBackground(new Color(14, 34, 14));
+                row.setBorder(BorderFactory.createCompoundBorder(
+                    BorderFactory.createLineBorder(new Color(35, 70, 35), 1),
+                    new EmptyBorder(3, 8, 3, 8)
+                ));
+                row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
+                row.setAlignmentX(Component.LEFT_ALIGNMENT);
+                JLabel lblCopil = new JLabel("Copil " + i + ":");
+                lblCopil.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+                lblCopil.setForeground(new Color(140, 190, 140));
+                row.add(lblCopil, BorderLayout.WEST);
+                JSpinner spVarsta = new JSpinner(new SpinnerNumberModel(5, 0, 17, 1));
+                styleSpinner(spVarsta);
+                JLabel lblAni = new JLabel(" ani");
+                lblAni.setFont(new Font("Segoe UI", Font.PLAIN, 11));
+                lblAni.setForeground(new Color(120, 160, 120));
+                JPanel rightPart = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
+                rightPart.setBackground(new Color(14, 34, 14));
+                rightPart.add(spVarsta);
+                rightPart.add(lblAni);
+                row.add(rightPart, BorderLayout.EAST);
+                sidebarVarstePanel.add(row);
+                if (i < nrCopii) sidebarVarstePanel.add(Box.createVerticalStrut(3));
+            }
+        }
+        sidebarVarstePanel.revalidate();
+        sidebarVarstePanel.repaint();
+    }
+
+    // Buton de navigare in sidebar (pastrat pentru compatibilitate interna - butonul Home)
     private JButton createNavButton(String text, boolean activ) {
         JButton btn = new JButton(text);
         btn.setFont(new Font("Segoe UI", Font.PLAIN, 14));
@@ -657,26 +854,21 @@ public class Gui_Aplicatie extends JFrame {
         btn.setFocusPainted(false);
         btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
         btn.setHorizontalAlignment(SwingConstants.LEFT);
-        btn.setMaximumSize(new Dimension(205, 44));
+        btn.setMaximumSize(new Dimension(222, 44));
         btn.setOpaque(true);
         return btn;
     }
 
     private void setActiveNavButton(JButton active) {
-        for (JButton b : new JButton[]{btnHome, btnAtractii, btnRezervari}) {
-            boolean isActive = (b == active);
-            b.setForeground(isActive ? ALB : new Color(140, 180, 140));
-            b.setBackground(isActive ? new Color(0, 100, 0, 80) : SIDEBAR_BG);
-            b.setBorder(new MatteBorder(0, isActive ? 3 : 0, 0, 0, GREEN_PRIMARY));
+        if (btnHome != null) {
+            btnHome.setForeground(ALB);
+            btnHome.setBackground(new Color(0, 100, 0, 80));
+            btnHome.setBorder(new MatteBorder(0, 3, 0, 0, GREEN_PRIMARY));
         }
     }
 
     private void clearSidebarSelection() {
-        for (JButton b : new JButton[]{btnHome, btnAtractii, btnRezervari}) {
-            b.setForeground(new Color(140, 180, 140));
-            b.setBackground(SIDEBAR_BG);
-            b.setBorder(new MatteBorder(0, 0, 0, 0, GREEN_PRIMARY));
-        }
+        // sidebar-ul nu mai are butoane de navigare activa - metoda pastrata pentru compatibilitate
     }
 
     // Card mic de rezervare in sidebar
