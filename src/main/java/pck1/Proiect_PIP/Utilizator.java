@@ -1,11 +1,14 @@
 package pck1.Proiect_PIP;
 import java.util.Base64;
 
+import java.util.List;
+
 public class Utilizator {
-	private String email;
-	private String nume;
-	private String parola;
-	private String numar_telefon;
+	private String email = "";
+	private String nume = "";
+	private String parola = "";
+	private String numar_telefon = "";
+	private List<String> tags;
 	
 	/**
 	 * Constructor Utilizator
@@ -14,11 +17,12 @@ public class Utilizator {
 	 * @param p
 	 * @param nr_tel
 	 */
-	public Utilizator(String e, String n, String p, String nr_tel) {
+	public Utilizator(String e, String n, String p, String nr_tel,List<String> t) {
 		email = e;
 		nume = n;
 		parola = p;
 		numar_telefon = nr_tel;
+		tags = t;
 	}
 	
 	/**
@@ -101,5 +105,9 @@ public class Utilizator {
 	 */
 	public String getNumarTelefon() {
 		return numar_telefon;
+	}
+	
+	public List<String> getTags(){
+		return tags;
 	}
 }

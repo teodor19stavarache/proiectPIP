@@ -1,0 +1,7 @@
+city=Iasi
+check_in=2026-07-15
+check_out=2026-07-17
+adults=2
+children=1
+children_ages=3
+currency=EUR
