@@ -1,7 +1,7 @@
-city=Rome
+city=Bucharest
 check_in=2026-07-15
 check_out=2026-07-17
 adults=2
 children=0
 children_ages=0
-currency=EUR
+currency=RON

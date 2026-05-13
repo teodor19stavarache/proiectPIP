@@ -1,209 +1,14 @@
 [
   {
-    "name": "Mercure Roma Corso Trieste",
-    "rate_per_night": "116 EUR",
-    "total_rate": "232 EUR",
-    "link": "https://all.accor.com/lien_externe.svlt?goto=fiche_hotel&code_hotel=3320&merchantid=seo-maps-IT-3320&sourceid=aw-cen&utm_medium=seo%20maps&utm_source=google%20Maps&utm_campaign=seo%20maps",
-    "rating": 4.3,
-    "hotel_class": "4-star hotel",
+    "name": "Radisson Blu Hotel Bucharest",
+    "rate_per_night": "493 RON",
+    "total_rate": "987 RON",
+    "link": "https://www.radissonhotels.com/en-us/hotels/radisson-blu-bucharest?cid=a:se+b:gmb+c:emea+i:local+e:rdb+d:cese+h:ROBUH1",
+    "rating": 4.6,
+    "hotel_class": "5-star hotel",
     "nearby_places": [
       {
-        "name": "Galleria Borghese",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "9 min"
-          }
-        ]
-      },
-      {
-        "name": "Sant’Agnese - Annibaliano",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "6 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "53 min"
-          },
-          {
-            "type": "Public transport",
-            "duration": "1 hr 2 min"
-          }
-        ]
-      },
-      {
-        "name": "Pepe Verde",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "5 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHN89f_rijg7TbfLZTmJp39eo2Gdxuw0QmRG1gCg6db5wZ4MGAXz2EEnLKSU9QfSfwLm1KuVQFfIt1sgbIuy305AxZIZphDSeDI3HqpDZiY0-N1qZhnDZkIxNGN_CN-37TUyLJx=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "The Building Hotel",
-    "rate_per_night": "178 EUR",
-    "total_rate": "356 EUR",
-    "link": "https://www.thebuildinghotelrome.com/en/?utm_source=google&utm_medium=organic&utm_campaign=knowledge-graph",
-    "rating": 4.1,
-    "hotel_class": "4-star hotel",
-    "nearby_places": [
-      {
-        "name": "Spanish Steps",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "9 min"
-          }
-        ]
-      },
-      {
-        "name": "Croce Rossa",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "3 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Public transport",
-            "duration": "46 min"
-          },
-          {
-            "type": "Taxi",
-            "duration": "54 min"
-          }
-        ]
-      },
-      {
-        "name": "Mia Ristorante",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "3 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAECpX4h6Eh3wzmrv-yQKkMkZECJkJ2nqdsh1kliGMkOn0GJfLF7cipaUhCliQJQRcCnAU0mDEPb2zBHR_ej3BECzOu-hO1AvGZWx2EWq1fdUuzzVGwrDWoyyoOCbC2WKyEL8XHbfQ=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Courtyard by Marriott Rome Central Park",
-    "rate_per_night": "172 EUR",
-    "total_rate": "345 EUR",
-    "link": "https://www.marriott.com/en-us/hotels/romcp-courtyard-rome-central-park/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
-    "rating": 4.3,
-    "hotel_class": "4-star hotel",
-    "nearby_places": [
-      {
-        "name": "Gemelli",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "5 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "42 min"
-          },
-          {
-            "type": "Public transport",
-            "duration": "59 min"
-          }
-        ]
-      },
-      {
-        "name": "Sabores De Mi Tierra",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "3 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHEbu7KCzk3F-zupZT0SpUR5y1JVKQBc25fogiNP9GM4lu1YeDQHKF4mjBDfANYrqRVBOxGgZKDjBrCXPXZt_dDyHhOvi2lTM18cFPmX6-rhMSzk8FTHWnoU6PYaIbl5Ee46bwtmjh1YZ7c=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Hilton Garden Inn Rome Claridge",
-    "rate_per_night": "178 EUR",
-    "total_rate": "356 EUR",
-    "link": "https://www.hilton.com/en/hotels/romrcgi-hilton-garden-inn-rome-claridge/?SEO_id=GMB-EMEA-GI-ROMRCGI",
-    "rating": 4.3,
-    "hotel_class": "4-star hotel",
-    "nearby_places": [
-      {
-        "name": "Spanish Steps",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "9 min"
-          }
-        ]
-      },
-      {
-        "name": "Liegi/Ungheria",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "1 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "54 min"
-          },
-          {
-            "type": "Public transport",
-            "duration": "1 hr 5 min"
-          }
-        ]
-      },
-      {
-        "name": "Mattarello Parioli",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "1 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGTIw-VqAn3QqO0wk11_uS6gAF9B-aIIWrhq8WODTSQ0PUKT7tFCBzigPG8LtQOrEeWPYm8olcM8xmqR8fFhKGe0TQaN7NJmIzYiMxtuZKB_tJZdW33SxqQTf5Lg-MhgwaEq4jECow-Us8=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Suite Sistina for Brave Lovers",
-    "rate_per_night": "136 EUR",
-    "total_rate": "273 EUR",
-    "link": "https://www.suitesistina.com/?utm_source=google&utm_medium=organic&utm_campaign=GoogleMyBusiness",
-    "rating": 4.5,
-    "hotel_class": "3-star hotel",
-    "nearby_places": [
-      {
-        "name": "Spanish Steps",
+        "name": "The Romanian Athenaeum",
         "transportations": [
           {
             "type": "Walking",
@@ -212,71 +17,29 @@
         ]
       },
       {
-        "name": "Leonardo da Vinci International Airport",
+        "name": "Bucharest North",
         "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "31 min"
+          },
           {
             "type": "Public transport",
             "duration": "48 min"
-          },
-          {
-            "type": "Taxi",
-            "duration": "55 min"
           }
         ]
       },
       {
-        "name": "La Botte Antica",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "3 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh5.googleusercontent.com/proxy/Zs-Nkh-5bowcqMiTRWn7oY3PnN9oLdVjPx8bc7Lyucbwz6Yyd40QocSRWVbTl0I0CBoWqTUaTxsrE-J2IG1aDMX8RKmZQzlRtG9E7sKcK0jQnT88JdReA0cKokq_QLT0I45I1i1Dv_sgz0yihKcIiNjlXyJ8ro4=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Mario de' Fiori 37",
-    "rate_per_night": "174 EUR",
-    "total_rate": "347 EUR",
-    "link": "https://www.mariodefiori37.top/",
-    "rating": 4.6,
-    "hotel_class": "4-star hotel",
-    "nearby_places": [
-      {
-        "name": "Spanish Steps",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "3 min"
-          }
-        ]
-      },
-      {
-        "name": "Spagna (Ma)",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "1 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Public transport",
-            "duration": "49 min"
-          },
-          {
-            "type": "Taxi",
-            "duration": "54 min"
-          }
-        ]
-      },
-      {
-        "name": "Al 34",
+        "name": "Primus",
         "transportations": [
           {
             "type": "Walking",
@@ -285,171 +48,27 @@
         ]
       }
     ],
-    "image": "https://lh6.googleusercontent.com/proxy/ltLoCR8dK8xAcx-q0m5ZlwtIcAN_mvuEU7lS00mVVZUiP3k_chtau-o-UrENdGb5zO_eCqpz0My7dJT8gdewePrGVjZBf76UocIt4gOnMpCnoVRTrhwE5yvza3iLMRmBxtEsVo5IBdiTgrUV1Hfn2wkJrDURdqc=s287-w287-h192-n-k-no-v1"
+    "image": "https://lh3.googleusercontent.com/proxy/_TC__oUzYfNELJskKHQopUkMCpMqrhnKU2q1jVFxB5OY84_3aNMEBZFO9xdWYUXOmycw67-iNcFUvkCkxr1CfRty6K56WKRcEbWXCmB6vVOqkOQeCftmlQ6OutjIAtG_D9HOenVfPTEWT4XtcG96lMYZXVnGsOA=s287-w287-h192-n-k-no-v1"
   },
   {
-    "name": "Hotel La Ville",
-    "rate_per_night": "151 EUR",
-    "total_rate": "302 EUR",
-    "link": "http://lavillerome.com/",
+    "name": "JW Marriott Bucharest Grand Hotel",
+    "rate_per_night": "825 RON",
+    "total_rate": "1649 RON",
+    "link": "https://www.marriott.com/en-us/hotels/buhro-jw-marriott-bucharest-grand-hotel/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
     "rating": 4.7,
-    "hotel_class": "4-star hotel",
+    "hotel_class": "5-star hotel",
     "nearby_places": [
       {
-        "name": "Galleria Borghese",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "10 min"
-          }
-        ]
-      },
-      {
-        "name": "Roma Tiburtina",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "8 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Public transport",
-            "duration": "56 min"
-          },
-          {
-            "type": "Taxi",
-            "duration": "57 min"
-          }
-        ]
-      },
-      {
-        "name": "Pizzic'Osteria Volpetti Bistrot \"Salumeria Storica dal 1870\"",
+        "name": "National Cathedral of Romania",
         "transportations": [
           {
             "type": "Walking",
             "duration": "7 min"
           }
         ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFuK3RIZgZ1cklFVjBFzEsFCvX6XnRRh3rw-E0wsEQH12jSTAWvX1eNwfrYXr8XXJN7eoUb3ZDxraYzBY0HuCFfwxmalilFD4NiT8GllPhzOup4vbpBYeNG4K_1P5uxoylzgdt2=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Hotel Golden",
-    "rate_per_night": "105 EUR",
-    "total_rate": "210 EUR",
-    "link": "https://www.hotelgoldenrome.com/?utm_source=google&utm_medium=organic&utm_campaign=GoogleMyBusiness",
-    "rating": 4.7,
-    "hotel_class": "2-star hotel",
-    "nearby_places": [
-      {
-        "name": "Villa Borghese",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "4 min"
-          }
-        ]
       },
       {
-        "name": "Veneto/Sardegna",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "2 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Public transport",
-            "duration": "52 min"
-          },
-          {
-            "type": "Taxi",
-            "duration": "56 min"
-          }
-        ]
-      },
-      {
-        "name": "Dal 1962 I Piaceri del Casale",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "1 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEJcNAiKbUWYL_T-IXc46aIMbauJiJqKvza6-juRqhRc2y_EDQOfCGKfG_qw8_bAwsP-HdRwu3hzmU27tabB5YNYOzMVF8hZZvpy31VJMlVIaPd_gBGsTzYmCi3Hgdr2KdVJBeh=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Arch Rome SUITES",
-    "rate_per_night": "148 EUR",
-    "total_rate": "296 EUR",
-    "link": "http://www.archromesuites.it/",
-    "rating": 4.6,
-    "hotel_class": "3-star hotel",
-    "nearby_places": [
-      {
-        "name": "Pantheon",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "3 min"
-          }
-        ]
-      },
-      {
-        "name": "C.so Vittorio Emanuele (Argentina)",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "4 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "50 min"
-          },
-          {
-            "type": "Public transport",
-            "duration": "56 min"
-          }
-        ]
-      },
-      {
-        "name": "Trattoria Il Lucano",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "1 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh5.googleusercontent.com/proxy/0bJ-IZb3aD6MLS1t6MyQLp0MVbWOE2t2ue3Cjj8x7PKJi6pvT_NfbwgqGtghZCzSVeQxBfY2dHGmFSFptPPCLB8CN8qNHOjE8hsBHyrBs9UR4-cLMQ7wI-P3qWzRhcXE2VrRYxk7o7uYyNoYD6cC_MvfE-YB2pE=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Shangri-La",
-    "rate_per_night": "110 EUR",
-    "total_rate": "221 EUR",
-    "link": "https://www.shangrilaroma.it/?utm_source=gbp&utm_medium=organic",
-    "rating": 4.1,
-    "hotel_class": "4-star hotel",
-    "nearby_places": [
-      {
-        "name": "ROMA | Via Colombo Viale Oceano Atlantico # f2691",
+        "name": "Piața Arsenalului",
         "transportations": [
           {
             "type": "Walking",
@@ -458,11 +77,11 @@
         ]
       },
       {
-        "name": "Leonardo da Vinci International Airport",
+        "name": "Bucharest Henri Coandă International Airport",
         "transportations": [
           {
             "type": "Taxi",
-            "duration": "30 min"
+            "duration": "36 min"
           },
           {
             "type": "Public transport",
@@ -471,78 +90,129 @@
         ]
       },
       {
-        "name": "Locanda Alla Romana",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "10 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF0DrE1mJ8vAGsfAb1tDJ210kEkWN452xHcRwPsmUXgholbiRth8AIoofqeOs_T3mbeR_XqMfk2uy_1jntyZ-4Wvu4Ohe3Mrw6g4N8x1NMifZYrGiQYQkQezXBp982hOIkouaeG_0eZVtiH=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Tiber Suite",
-    "rate_per_night": "60 EUR",
-    "total_rate": "121 EUR",
-    "link": "https://www.tibervillage.com/?partner=13624&utm_source=google&utm_medium=organic&utm_campaign=MyBusiness",
-    "rating": 4.5,
-    "hotel_class": "4-star hotel",
-    "nearby_places": [
-      {
-        "name": "Tiberina/Civ 150",
+        "name": "Allucinante",
         "transportations": [
           {
             "type": "Walking",
-            "duration": "4 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "44 min"
-          },
-          {
-            "type": "Public transport",
-            "duration": "1 hr 31 min"
-          }
-        ]
-      },
-      {
-        "name": "La Casetta",
-        "transportations": [
-          {
-            "type": "Taxi",
-            "duration": "2 min"
+            "duration": "5 min"
           }
         ]
       }
     ],
-    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFLQTbrGTGxY7fFrd3xq8lv6_Eqm7Icox_FKdtvBId74nUxT4vzyyGHkds0Sr6sBJh5HGq8NP86acdZ3eQukm5nwakqU7gNHjrB8R71scOAVQrwTYr-ClsCGFTXNBzvMOOVmdy2=s287-w287-h192-n-k-no-v1"
+    "image": "https://lh5.googleusercontent.com/proxy/kPsvjAirM2B3sm9Agp_A2oxbNsv9OTK5W_RrnpFvzaBcrb2y-Or1DzbdXgylTKutcFN9wimDM0rE3iYviAx8coOnOnh37LFd2ro16_RqP4qOOkkdrmz685RO65WnzIb_HIPjS2LsRueRHF8LQUIPSAkKnILV_DY=s287-w287-h192-n-k-no-v1"
   },
   {
-    "name": "Hotel Valentino Palace",
-    "rate_per_night": "94 EUR",
-    "total_rate": "189 EUR",
-    "link": "https://www.hotelvalentinopalaceroma.com/",
-    "rating": 4.1,
+    "name": "ibis Styles Bucharest City Center",
+    "rate_per_night": "474 RON",
+    "total_rate": "949 RON",
+    "link": "https://ibisstylesbucharestcenter.com/ro/",
+    "rating": 4.6,
     "hotel_class": "3-star hotel",
     "nearby_places": [
       {
-        "name": "Papal Basilica of Saint Mary Major",
+        "name": "Palace of Parliament",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "8 min"
+          }
+        ]
+      },
+      {
+        "name": "București Basarab",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "8 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "33 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "35 min"
+          }
+        ]
+      },
+      {
+        "name": "Beijing Garden",
         "transportations": [
           {
             "type": "Walking",
             "duration": "4 min"
           }
         ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH5xlQa1qgYzjH1dmjDagtJgJ2FuBc0MPmEVgdyr0h7M11B8-5rGPYS3_tFYztI_acqDbJm00h08P6CoJqr0h8aBwH2zKCnnDXhJ5W17DkBJGWgFkW8rh2MPtNQCOK1FsdTijdASg=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Duke Romana Hotel",
+    "rate_per_night": "225 RON",
+    "total_rate": "450 RON",
+    "link": "https://www.duke-hotels.com/",
+    "rating": 4,
+    "hotel_class": "3-star hotel",
+    "nearby_places": [
+      {
+        "name": "The Romanian Athenaeum",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "7 min"
+          }
+        ]
       },
       {
-        "name": "Napoleone III",
+        "name": "Piata Romana",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "28 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "43 min"
+          }
+        ]
+      },
+      {
+        "name": "Bacania Veche / Romana / Delicatese & Gradina",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh6.googleusercontent.com/proxy/jNcrMeDx2oR4spFE-_5vbQ0TCKlou7nZxBvDTdG4sG4352DwzCJ_XOBkXWkSvPLjPpKy0aLR0-rBgdMXTm0czmRVKNJNRR6ZzCOtTiPi8nqHV29TUHwSM-lXL-C3xFN0XHZfXK_UCNyJH2guv2X1ACV8IkE-rw=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Mercure Bucharest City Center",
+    "rate_per_night": "484 RON",
+    "total_rate": "968 RON",
+    "link": "https://all.accor.com/lien_externe.svlt?goto=fiche_hotel&code_hotel=9680&merchantid=seo-maps-RO-9680&sourceid=aw-cen&utm_medium=seo%20maps&utm_source=google%20Maps&utm_campaign=seo%20maps",
+    "rating": 4.6,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "The Romanian Athenaeum",
         "transportations": [
           {
             "type": "Walking",
@@ -551,40 +221,7 @@
         ]
       },
       {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Public transport",
-            "duration": "37 min"
-          },
-          {
-            "type": "Taxi",
-            "duration": "50 min"
-          }
-        ]
-      },
-      {
-        "name": "Ristorante Elettra",
-        "transportations": [
-          {
-            "type": "Walking",
-            "duration": "2 min"
-          }
-        ]
-      }
-    ],
-    "image": "https://lh5.googleusercontent.com/proxy/xkaMUt9YifIdXUI4v14IVK1ffreMmuP_mVZPg9nvORnrnjtvs8w1Mq1PXCXPSIsBlvu2-jRGD-JV3PuP-dsKIP2EmiOi618Yfaffn-_JifpfmZ2VtOfTpG7lWSPTWqJYW6zWebHeUw1w3gYAzOx4gHnLRvwZdQ=s287-w287-h192-n-k-no-v1"
-  },
-  {
-    "name": "Everest Inn Rome",
-    "rate_per_night": "98 EUR",
-    "total_rate": "196 EUR",
-    "link": "http://www.everestinnrome.it/",
-    "rating": 4,
-    "hotel_class": "3-star hotel",
-    "nearby_places": [
-      {
-        "name": "Papal Basilica of Saint Mary Major",
+        "name": "Piața Romană",
         "transportations": [
           {
             "type": "Walking",
@@ -593,29 +230,20 @@
         ]
       },
       {
-        "name": "Nazionale/Torino",
+        "name": "Bucharest Henri Coandă International Airport",
         "transportations": [
-          {
-            "type": "Walking",
-            "duration": "1 min"
-          }
-        ]
-      },
-      {
-        "name": "Leonardo da Vinci International Airport",
-        "transportations": [
-          {
-            "type": "Public transport",
-            "duration": "43 min"
-          },
           {
             "type": "Taxi",
-            "duration": "50 min"
+            "duration": "32 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "44 min"
           }
         ]
       },
       {
-        "name": "Ambrosia Rooftop Restaurant & Bar",
+        "name": "Casa Românească",
         "transportations": [
           {
             "type": "Walking",
@@ -624,6 +252,673 @@
         ]
       }
     ],
-    "image": "https://lh5.googleusercontent.com/proxy/P53L9gsTd_jyow4IlrUlCoSxACEMnOg_sTmYeoQxn1xu0rmdxp-aiKVBdexlImPyBhLUTfmAcviaT12gCNoxWvoO1Y2myfrkVGobCwQ9E_GRAtgiMescUSvD7jLtQPx2u6eRg7gQ7a1RtkF-CV5rCKsOHfbmIXg=s287-w287-h192-n-k-no-v1"
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGoDdOVjFYogXWPusUqlXdBzIh9oVVU4noEPLAuMjuTS2G2oJ7DpM01kDWhkvVqKPuyI0CJPoYOkWDo8D9yXyNRXw37Dx5UHZR4r0Dk97urDujCTmFybgcuhORvXbCCgtnhkBrf=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "InterContinental AthéNéE Palace Bucharest by IHG",
+    "rate_per_night": "840 RON",
+    "total_rate": "1679 RON",
+    "link": "https://www.ihg.com/intercontinental/hotels/gb/en/bucharest/buhap/hoteldetail?cm_mmc=GoogleMaps-_-IC-_-RO-_-BUHAP",
+    "rating": 4.7,
+    "hotel_class": "5-star hotel",
+    "nearby_places": [
+      {
+        "name": "The Romanian Athenaeum",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest North",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "8 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "31 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "48 min"
+          }
+        ]
+      },
+      {
+        "name": "Primus",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHC621yvQRkg2SvnHAC9wuQaiXc8GpC_YLH5AsgpcSLqyD7q8kNki3AKxWMfVvO7kbIo5JupZfwyxeLleduGB7ZhtTSEptAxVX3Kc4yUlysyGwqNnkmQGHfQf1ECekjKqlkbn981cPO4C95=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "The Marmorosch Bucharest, Autograph Collection",
+    "rate_per_night": "833 RON",
+    "total_rate": "1667 RON",
+    "link": "https://www.marriott.com/en-us/hotels/buhak-the-marmorosch-bucharest-autograph-collection/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+    "rating": 4.6,
+    "hotel_class": "5-star hotel",
+    "nearby_places": [
+      {
+        "name": "Macca - Vilacrosse Passage",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      },
+      {
+        "name": "Universitate",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "7 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "36 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "50 min"
+          }
+        ]
+      },
+      {
+        "name": "MOM Bucharest",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAEqf1aX9hhTyUdKGkO3j4Dg_zEukollriRwHbzkc1F_-YWgcKY3ORW7UThOo8QXEGkaKYex8-LzqKQgII_NU6eHUy29pY10X2RIMzkrXOIuL12G63ujQ7gTewHQeMn9SBSFVey5bp8UJaU=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Hilton Garden Inn Bucharest Old Town",
+    "rate_per_night": "655 RON",
+    "total_rate": "1310 RON",
+    "link": "https://www.hilton.com/en/hotels/buhgigi-hilton-garden-inn-bucharest-old-town/?SEO_id=GMB-EMEA-GI-BUHGIGI",
+    "rating": 4.6,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "Macca - Vilacrosse Passage",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      },
+      {
+        "name": "Universitate",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "6 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "34 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "48 min"
+          }
+        ]
+      },
+      {
+        "name": "Argentin Restaurant Centrul Vechi",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFgJUiRBUe76aOM5-umkPnQA5_70ayfervKjtg-JkGGk87fNWdu_Dd26S2lzNuCBQVx1e6XxcS1SAwEjC7GK9dNu_d25EDOeZUuhjjc0SGbkjBzc7Wfx0YmJaj9V8vHKGbPbv29Bg=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Leonardo Hotel Bucharest City Center",
+    "rate_per_night": "378 RON",
+    "total_rate": "756 RON",
+    "link": "https://www.leonardo-hotels.com/bucharest/leonardo-hotel-bucharest-city-center?utm_source=gmb&utm_medium=link_site_gmb&utm_campaign=leonardo-hotel-bucharest-city-center",
+    "rating": 4.1,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "George Enescu National Museum",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "7 min"
+          }
+        ]
+      },
+      {
+        "name": "Calea Grivitei",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "32 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "47 min"
+          }
+        ]
+      },
+      {
+        "name": "La Salumeria Bucharest",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAExTA_yDQ6s4XRA_IIqZ2WuLIb9KTzy6lE5d9C3wjrfBlhLm7f--OVTMSkARVLWQ2cFIsScGtqZX7ZSPhoiYb_q1oWRoHaJ1ZD4vggq-wmaITXSbfXVymKpseno2Et08E-EpZDR=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Grand Hotel Bucharest",
+    "rate_per_night": "571 RON",
+    "total_rate": "1143 RON",
+    "link": "https://www.grandhotelbucharest.ro/",
+    "rating": 4.5,
+    "hotel_class": "5-star hotel",
+    "nearby_places": [
+      {
+        "name": "University's Square",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Universitate",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "31 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "49 min"
+          }
+        ]
+      },
+      {
+        "name": "Restaurant Slow",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "8 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHnfXSsYoPAQKTmiM77yjiod7nQdJWA84VGAkZCLK3rMevkIrppYN3-GBanZvb5t1wdpzMb54kxuXvYNHhNE8BQqT7auSduEvn_2-YQfWvr0plhdOX1fQrWmnMNyJt2opPLuXY=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Union Plaza Hotel & Sky Bar",
+    "rate_per_night": "374 RON",
+    "total_rate": "748 RON",
+    "link": "https://unionplaza.ro/",
+    "rating": 4.4,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "The Church of the \"Stavropoleos\" Monastery",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "7 min"
+          }
+        ]
+      },
+      {
+        "name": "Traian",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "36 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "1 hr 7 min"
+          }
+        ]
+      },
+      {
+        "name": "Amethyst Sky Bar",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAH64M9tVIifNi3B1XToDj7qoEJ52MZ5rFR1rotXnSYtlqRzE3_zvfpIVoiByx12PRru7RYC-nVSwXGF698aKxwKkarsdG5rcBc-SQZ0ccPZfqRc44K60m-Kc9jJAq9DeWIfQN82ZQ=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Pullman Bucharest World Trade Center",
+    "rate_per_night": "427 RON",
+    "total_rate": "854 RON",
+    "link": "https://all.accor.com/lien_externe.svlt?goto=fiche_hotel&code_hotel=1714&merchantid=seo-maps-RO-1714&sourceid=aw-cen&utm_medium=seo%20maps&utm_source=google%20Maps&utm_campaign=seo%20maps",
+    "rating": 4.5,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "\"Dimitrie Gusti\" National Village Museum",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "8 min"
+          },
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Piata Presei",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "24 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "25 min"
+          }
+        ]
+      },
+      {
+        "name": "18Lounge",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/proxy/ZQg7KkPnTrlslBX46yMnX3wqc8CgJkwMoq0X-O6Lhg7sNKyr52Ym8zStrvgc75LclTMmZ2F2afEOTKuYa6o5ZNutelgNv-EPbnBOXJSJyI1TeabVSQDF7RFTNw_9eLp0siVcLsInCwgJFPo666hi2ev22baLtjs=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Park Inn by Radisson Bucharest Hotel & Residence",
+    "rate_per_night": "469 RON",
+    "total_rate": "939 RON",
+    "link": "https://www.radissonhotels.com/en-us/hotels/park-inn-bucharest?cid=a:se+b:gmb+c:emea+i:local+e:pii+d:cese+h:ROBUHHRD",
+    "rating": 4.6,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "The Romanian Athenaeum",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "6 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest North",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "32 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "49 min"
+          }
+        ]
+      },
+      {
+        "name": "Sharkia",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "1 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAHxPjWoe-ejGwlv0w8wwUAwnXHdF1dgnjfGvzCvpXLTdt8Q7G5u9I4s2OwG9w5m5bh9PMMbv0qrAaN5N_pOpxnQ9ugty64QHz67D0t6th3IG2QlQ3oXCmukr19ZGzuc1l_PGPsIh8hqnl4=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Epoque Hotel",
+    "rate_per_night": "856 RON",
+    "total_rate": "1712 RON",
+    "link": "https://www.hotelepoque.ro/",
+    "rating": 4.7,
+    "hotel_class": "5-star hotel",
+    "nearby_places": [
+      {
+        "name": "Cismigiu Gardens",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "7 min"
+          }
+        ]
+      },
+      {
+        "name": "Cismigiu",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "34 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "52 min"
+          }
+        ]
+      },
+      {
+        "name": "Trattoria Buoni Amici",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAF9KhY29Mbt7c6zHh1u_HpOLJ56AqsfPulGA3TPaCDCqk8nyOHFZQx_N9L81EPei8X7DnJzKpWdhCVCQdKESlWcfLYqH1CV8poFqT9OaPjev0Atz6Q2ory7kzhV21Gdj3QkK7LrYA=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Grand Hotel Continental Bucharest",
+    "rate_per_night": "657 RON",
+    "total_rate": "1314 RON",
+    "link": "https://grand-hotel-continental-bucuresti.continentalhotels.ro/en/",
+    "rating": 4.7,
+    "hotel_class": "5-star hotel",
+    "nearby_places": [
+      {
+        "name": "National Museum of Art",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Piata 21 December 1989 Bus Stop",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "34 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "52 min"
+          }
+        ]
+      },
+      {
+        "name": "The Lobby",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFPMaECE6eTAfhXdI9a-ifqinSzAZdR2b5ioJA3NX7Rl625d1TOVO2yhKhe76NE2k5L2tzkrV8rJ_vReet6Em9s-HWBUqXxQikBoTFulDWbdp4KqSo3VeDp7LovTHQZNpV6pDJ3ng=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Trianon Hotel",
+    "rate_per_night": "346 RON",
+    "total_rate": "693 RON",
+    "link": "http://www.hoteltrianon.ro/",
+    "rating": 4.1,
+    "hotel_class": "3-star hotel",
+    "nearby_places": [
+      {
+        "name": "Cismigiu Gardens",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Cismigiu",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "34 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "51 min"
+          }
+        ]
+      },
+      {
+        "name": "Trattoria Buoni Amici",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "2 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAGyvHMNFIz8vdudUFr9va2-ViUS3tBR7XqX949ht6gxQUCl-lDiZkv8RQJM3EcRALje8FXsBBSgcbgQaR-v-HRwYwlE0ZIL_45rlbyk79YIiJPRruZOJHMlTQgy3iY6yw5D_YOaGSXFXnQ=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Sheraton Bucharest Hotel",
+    "rate_per_night": "654 RON",
+    "total_rate": "1308 RON",
+    "link": "https://www.marriott.com/en-us/hotels/buhsi-sheraton-bucharest-hotel/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+    "rating": 4.5,
+    "hotel_class": "5-star hotel",
+    "nearby_places": [
+      {
+        "name": "The Romanian Athenaeum",
+        "transportations": [
+          {
+            "type": "Public transport",
+            "duration": "8 min"
+          }
+        ]
+      },
+      {
+        "name": "Piata Romana",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "30 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "42 min"
+          }
+        ]
+      },
+      {
+        "name": "Trattoria Adagio",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "3 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAE3_Jo4yZmnTK9NC_60EUQM0yOS3o2PxVk-LJ86cMo1Zfn6wz-lqseAq19jynb18IFNXtJ6TLKz5_a6wcHLPnBKq_kxwEZaxwwmDxpJ4ohZHnufdp6xqO2FeRXxIIDzuchlNQ_aMKWF-hc=s287-w287-h192-n-k-no-v1"
+  },
+  {
+    "name": "Courtyard by Marriott Bucharest Floreasca",
+    "rate_per_night": "502 RON",
+    "total_rate": "1004 RON",
+    "link": "https://www.marriott.com/en-us/hotels/buhcf-courtyard-bucharest-floreasca/overview/?scid=f2ae0541-1279-4f24-b197-a979c79310b0",
+    "rating": 4.6,
+    "hotel_class": "4-star hotel",
+    "nearby_places": [
+      {
+        "name": "\"King Michael I\" Park",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "9 min"
+          }
+        ]
+      },
+      {
+        "name": "Muzeul Aviatiei",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "5 min"
+          }
+        ]
+      },
+      {
+        "name": "Bucharest Henri Coandă International Airport",
+        "transportations": [
+          {
+            "type": "Taxi",
+            "duration": "23 min"
+          },
+          {
+            "type": "Public transport",
+            "duration": "42 min"
+          }
+        ]
+      },
+      {
+        "name": "Medusa Universe",
+        "transportations": [
+          {
+            "type": "Walking",
+            "duration": "4 min"
+          }
+        ]
+      }
+    ],
+    "image": "https://lh3.googleusercontent.com/gps-cs-s/APNQkAFAblp2Bt7NIJhLsQZ1NyFt8LB6MWWbD9Df5TVb98c3ipehjTAQwtaOPuUoXeZTQGhTn7vanC5EOn_GZv9EOdWhwzhU9omBca_IP8eA0ou1nb-CUxEFm_QXYDiVUTy3ozzHxCYQRw=s287-w287-h192-n-k-no-v1"
   }
 ]

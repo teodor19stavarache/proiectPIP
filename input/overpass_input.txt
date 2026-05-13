@@ -1,0 +1,2 @@
+city=Cluj-Napoca
+tags=istorie,natura,cultura

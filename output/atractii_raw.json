@@ -1,0 +1,1120 @@
+{
+  "raw_attractions": {
+    "version": 0.6,
+    "generator": "Overpass API 0.7.62.11 87bfad18",
+    "osm3s": {
+      "timestamp_osm_base": "2026-05-13T13:48:04Z",
+      "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+    },
+    "elements": [
+      {
+        "type": "node",
+        "id": 310644665,
+        "lat": 46.7747569,
+        "lon": 23.5901995,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "11",
+          "addr:postcode": "400151",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Piața Mihai Viteazu",
+          "amenity": "cinema",
+          "delivery": "no",
+          "name": "Cinema Florin Piersic",
+          "source": "survey",
+          "tiff2014": "yes",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 417207035,
+        "lat": 46.7751611,
+        "lon": 23.5792815,
+        "tags": {
+          "alt_name": "Dealul Cetățuii",
+          "ele": "401",
+          "name": "Dealul Cetățuia",
+          "name:hu": "Fellegvár",
+          "natural": "peak"
+        }
+      },
+      {
+        "type": "node",
+        "id": 417207051,
+        "lat": 46.7736174,
+        "lon": 23.5821454,
+        "tags": {
+          "tourism": "viewpoint",
+          "wheelchair": "limited"
+        }
+      },
+      {
+        "type": "node",
+        "id": 704432402,
+        "lat": 46.7490855,
+        "lon": 23.5304495,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "amenity": "cinema",
+          "brand": "Cinema City",
+          "brand:wikidata": "Q543651",
+          "brand:wikipedia": "en:Cinema City International",
+          "check_date": "2025-11-01",
+          "name": "Cinema City",
+          "name:ro": "Cinema City",
+          "payment:cash": "yes",
+          "payment:credit_cards": "yes",
+          "payment:debit_cards": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 828503502,
+        "lat": 46.7755038,
+        "lon": 23.5869138,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:street": "Strada Horea",
+          "amenity": "library",
+          "name": "Biblioteca Austria",
+          "name:de": "Österreich-Bibliothek",
+          "name:en": "Austrian Library",
+          "name:hu": "Osztrák Könyvtár",
+          "name:ro": "Biblioteca Austria",
+          "opening_hours": "Mo-Fr 09:00-13:00",
+          "operator": "Universitatea Babeș-Bolyai"
+        }
+      },
+      {
+        "type": "node",
+        "id": 963303445,
+        "lat": 46.7686289,
+        "lon": 23.5923722,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "amenity": "theatre",
+          "name": "Teatrul de Păpuși PUCK",
+          "name:de": "PUCK Puppentheater",
+          "name:en": "PUCK Puppet Theatre",
+          "name:hu": "PUCK Bábszínház",
+          "name:ro": "Teatrul de Păpuși PUCK",
+          "website": "https://teatrulpuck.ro/",
+          "wheelchair": "limited"
+        }
+      },
+      {
+        "type": "node",
+        "id": 963322996,
+        "lat": 46.7684573,
+        "lon": 23.5965135,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:street": "Strada Mihail Kogălniceanu",
+          "amenity": "arts_centre",
+          "name": "Breasla Barabás Miklós",
+          "name:de": "Barabás-Miklós-Vereinigung",
+          "name:en": "Barabás Miklós Guild",
+          "name:hu": "Barabás Miklós Céh",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 985682965,
+        "lat": 46.7687619,
+        "lon": 23.5895935,
+        "tags": {
+          "historic": "memorial",
+          "memorial": "obelisk",
+          "name": "Stâlpi Împușcați",
+          "wheelchair": "yes",
+          "wikidata": "Q26257320",
+          "wikipedia": "ro:Monumentul Stâlpii Împușcați"
+        }
+      },
+      {
+        "type": "node",
+        "id": 985683080,
+        "lat": 46.7697093,
+        "lon": 23.5922886,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:street": "Bulevardul Eroilor",
+          "historic": "monument",
+          "inscription": "Alla Citta di Cluj \nRoma Madre \nMCMXXI",
+          "name": "Lupa Capitolina",
+          "name:en": "Capitoline Wolf",
+          "name:ro": "Lupa Capitolina",
+          "wikidata": "Q6274572",
+          "wikipedia": "ro:Statuia Lupa Capitolina din Cluj-Napoca"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1177401687,
+        "lat": 46.7068023,
+        "lon": 23.6497736,
+        "tags": {
+          "ele": "760",
+          "natural": "peak"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1261905968,
+        "lat": 46.7676195,
+        "lon": 23.5921289,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "historic": "monument",
+          "name": "Școala Ardeleană",
+          "name:de": "Siebenbürgische Schule",
+          "name:en": "Transylvanian School",
+          "name:hu": "Erdélyi iskola"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1293194684,
+        "lat": 46.7730119,
+        "lon": 23.620332,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "amenity": "community_centre",
+          "name": "Centrul Cultural Polonez",
+          "name:de": "Polnisches Kulturinstitut",
+          "name:en": "Polish Cultural Centre",
+          "name:hu": "Lengyel Kulturális Intézet",
+          "name:ro": "Centrul Cultural Polonez",
+          "operator": "Universitatea Babeș-Bolyai"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1297291400,
+        "lat": 46.7707354,
+        "lon": 23.5890121,
+        "tags": {
+          "amenity": "community_centre",
+          "name": "Asociația Kolozsvár",
+          "name:de": "Kolozsvár-Gesellschaft",
+          "name:en": "Kolozsvár Society",
+          "name:hu": "Kolozsvár Társaság",
+          "name:ro": "Asociația Kolozsvár",
+          "official_name": "Asociația Kolozsvár Társaság"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1404864435,
+        "lat": 46.707115,
+        "lon": 23.6054913,
+        "tags": {
+          "ele": "754",
+          "name": "Dâmbul Mare",
+          "natural": "peak"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1585688249,
+        "lat": 46.7803515,
+        "lon": 23.5201079,
+        "tags": {
+          "historic": "archaeological_site",
+          "name": "Cheile Baciului",
+          "name:hu": "Bácsi-torok",
+          "name:ro": "Cheile Baciului",
+          "wikidata": "Q12723916",
+          "wikipedia": "ro:Cheile Baciului"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1599237742,
+        "lat": 46.7156054,
+        "lon": 23.5369501,
+        "tags": {
+          "name": "Brüll kilátó",
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1695003279,
+        "lat": 46.7555989,
+        "lon": 23.5957458,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "1",
+          "addr:postcode": "400500",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Observatorului",
+          "amenity": "library",
+          "name": "Biblioteca Județeană Octavian Goga, filiala Zorilor",
+          "opening_hours": "Mo-Fr 08:00-20:00; Sa-Su off",
+          "operator": "Biblioteca Județeană Octavian Goga Cluj-Napoca",
+          "phone": "+4 0264 438 409;+4 0364 401 796",
+          "website": "http://www.bjc.ro/new/index.php?filiala-zorilor/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1802386923,
+        "lat": 46.7195635,
+        "lon": 23.4997335,
+        "tags": {
+          "name": "Vedere spre Florești și Tăuți",
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1883218061,
+        "lat": 46.7717315,
+        "lon": 23.5871037,
+        "tags": {
+          "historic": "memorial",
+          "material": "limestone",
+          "memorial": "obelisk",
+          "name": "Obeliscul Carolina",
+          "name:de": "Karolinenobelisk",
+          "name:en": "Caroline Obelisk",
+          "name:hu": "Karolina-oszlop",
+          "name:ro": "Obeliscul Carolina",
+          "wikidata": "Q1104948",
+          "wikipedia": "ro:Obeliscul Carolina din Cluj-Napoca"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2135926870,
+        "lat": 46.7675161,
+        "lon": 23.5887845,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "11",
+          "addr:postcode": "400088",
+          "addr:street": "Strada Napoca",
+          "amenity": "library",
+          "name": "Istorie Modernă",
+          "name:de": "Neuzeit",
+          "name:en": "Modern History",
+          "name:hu": "Újkor",
+          "opening_hours": "Mo-Fr 08:00-19:45; Sa 08:00-15:00",
+          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
+          "website": "https://www.bcucluj.ro/filiale/f-istm.php",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2135935620,
+        "lat": 46.7666125,
+        "lon": 23.5895422,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "11",
+          "addr:postcode": "400089",
+          "addr:street": "Strada Avram Iancu",
+          "amenity": "library",
+          "name": "Biblioteca Facultății de Drept",
+          "name:de": "Rechtswissenschaft",
+          "name:en": "Faculty of Law",
+          "name:hu": "Jogtudomány",
+          "opening_hours": "Mo-Fr 08:00-19:45",
+          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
+          "website": "https://www.bcucluj.ro/filiale/f-drept.php"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2135937764,
+        "lat": 46.7679322,
+        "lon": 23.5919115,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "1",
+          "addr:postcode": "400084",
+          "addr:street": "Strada Mihail Kogălniceanu",
+          "amenity": "library",
+          "name": "Biblioteca de Filosofie",
+          "name:de": "Philosophie",
+          "name:en": "Philosophy",
+          "name:hu": "Filozófia",
+          "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-14:00",
+          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
+          "website": "https://www.bcucluj.ro/filiale/f-filos.php",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2135944644,
+        "lat": 46.7645934,
+        "lon": 23.5797146,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "5-7",
+          "addr:postcode": "400006",
+          "addr:street": "Strada Clinicilor",
+          "amenity": "library",
+          "name": "Geografie",
+          "name:de": "Geographie",
+          "name:en": "Geography",
+          "name:hu": "Földrajz",
+          "opening_hours": "Mo-Th 08:00-19:45; Fr 08:00-15:30",
+          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
+          "website": "https://www.bcucluj.ro/filiale/f-geogr.php",
+          "wheelchair": "limited"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2135944645,
+        "lat": 46.7677832,
+        "lon": 23.5919827,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "1",
+          "addr:postcode": "400084",
+          "addr:street": "Strada Mihail Kogălniceanu",
+          "amenity": "library",
+          "name": "Biblioteca de Fizică",
+          "name:de": "Physik",
+          "name:en": "Physics",
+          "name:hu": "Fizika",
+          "opening_hours": "Mo-Th 08:00-20:00; Fr 08:00-15:00; Sa 08:00-14:00",
+          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
+          "website": "https://www.bcucluj.ro/filiale/f-fizica.php",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2152486048,
+        "lat": 46.7654271,
+        "lon": 23.5908467,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housename": "4",
+          "addr:postcode": "400090",
+          "addr:street": "Strada Mărului",
+          "amenity": "library",
+          "designation": "lawyer",
+          "name": "Iordăchescu & Asociații",
+          "website": "https://www.iordachescu-law.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2341975442,
+        "lat": 46.7561779,
+        "lon": 23.5930936,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "34",
+          "addr:street": "Strada Observatorului",
+          "amenity": "library",
+          "name": "Biblioteca UTCN Observator",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2398523152,
+        "lat": 46.6903309,
+        "lon": 23.5569164,
+        "tags": {
+          "designation": "Peana top",
+          "name": "Belvedere Peana",
+          "source": "survey GPS",
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2634043838,
+        "lat": 46.7705771,
+        "lon": 23.5921832,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "name": "Unic Art Gallery",
+          "tourism": "gallery",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2634044264,
+        "lat": 46.7705692,
+        "lon": 23.5926408,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "name": "Artexpert Gallery",
+          "tourism": "gallery",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 2634651859,
+        "lat": 46.7673522,
+        "lon": 23.5921614,
+        "tags": {
+          "SIRUTA:code": "54984",
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "4",
+          "addr:postcode": "400084",
+          "addr:street": "Strada Mihail Kogălniceanu",
+          "codul_entității_muzeale": "5.1620000169E10",
+          "description:en": "The Museum was inaugurated in April 2001, during the mandate of Professor Andrei Marga as president of the \"Babes-Bolyai\" University. The idea of such a Museum was first discussed in 1994 at the 75-th anniversary of the creation of the Cluj Romanian Univ",
+          "description:ro": "Muzeul a fost inaugurat in aprilie 2001, in timpul rectoratului profesorului Andrei Marga, dupa ce ideea aparitiei unei asemenea institutii a aparut odata cu aniversarea a 75 de ani de la infiintarea universitatii romanesti din Cluj (in 1994), ea fiind r",
+          "email": "amstan@staff.ubbcluj.ro",
+          "name": "Muzeul Universității Babeș-Bolyai",
+          "name:en": "\"Babes-Bolyai\" University Museum",
+          "opening_hours": "Mo-Fr 9:30-13:30",
+          "phone": "0264/591.471",
+          "short_name": "Muzeul UBB",
+          "source": "INP",
+          "source:link": "http://date.gov.ro/dataset/ghidul-muzeelor-din-romania",
+          "start_date": "2001",
+          "tourism": "museum",
+          "tourism_survey": "04.12.2013 15:09:14",
+          "website": "https://muzee.ubbcluj.ro/",
+          "wheelchair": "no"
+        }
+      }
+    ]
+  },
+  "raw_restaurants": {
+    "version": 0.6,
+    "generator": "Overpass API 0.7.62.11 87bfad18",
+    "osm3s": {
+      "timestamp_osm_base": "2026-05-13T13:48:04Z",
+      "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+    },
+    "elements": [
+      {
+        "type": "node",
+        "id": 724318144,
+        "lat": 46.7659022,
+        "lon": 23.5823243,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "14",
+          "addr:postcode": "400006",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Clinicilor",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "food": "yes",
+          "name": "Restaurant Livada",
+          "opening_hours": "Mo-Fr 10:00-24:00;Sa-Su 12:00-24:00",
+          "website": "http://www.restaurantlivada.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 724318150,
+        "lat": 46.7657285,
+        "lon": 23.5854918,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "13",
+          "addr:postcode": "400012",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Victor Babeș",
+          "amenity": "restaurant",
+          "check_date:opening_hours": "2022-10-24",
+          "cuisine": "regional",
+          "indoor_seating": "yes",
+          "name": "Restaurant UMF",
+          "name:de": "UMF Restaurant",
+          "name:it": "UMF",
+          "opening_hours": "Mo-Fr 12:00-16:00",
+          "operator": "Universitatea de Medicină și Farmacie „Iuliu Hațieganu”",
+          "outdoor_seating": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 724372323,
+        "lat": 46.76379,
+        "lon": 23.5847264,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "12",
+          "addr:postcode": "400012",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Victor Babeș",
+          "amenity": "restaurant",
+          "cuisine": "pizza",
+          "delivery": "yes",
+          "email": "rezervari@newcroco.ro",
+          "indoor_seating": "yes",
+          "name": "Pizzeria New Croco",
+          "opening_hours": "Mo-Su 08:00-24:00",
+          "outdoor_seating": "no",
+          "phone": "+40 754 605 001;+40 724 056 686",
+          "source": "local knowledge, website",
+          "website": "https://newcroco.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 724394649,
+        "lat": 46.7630339,
+        "lon": 23.5838731,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "5",
+          "addr:postcode": "400337",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Profesor Gheorghe Marinescu",
+          "alt_name": "Tokyo Restaurant Cluj",
+          "amenity": "restaurant",
+          "check_date:opening_hours": "2022-08-10",
+          "cuisine": "japanese",
+          "diet:vegan": "yes",
+          "diet:vegetarian": "yes",
+          "name": "Tokyo",
+          "name:en": "Tokyo Japanese Restaurant",
+          "opening_hours": "Mo-Su 12:00-23:00",
+          "phone": "+40 264 598 662;+40 753 070 000",
+          "smoking": "isolated",
+          "source": "website, local knowledge",
+          "website": "https://www.tokyorestaurant.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 908391543,
+        "lat": 46.7741492,
+        "lon": 23.5927655,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:postcode": "400036",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Piața Mihai Viteazu",
+          "alt_name": "McDonald's Mihai Viteazul Cluj",
+          "amenity": "fast_food",
+          "brand": "McDonald's",
+          "brand:wikidata": "Q38076",
+          "brand:wikipedia": "en:McDonald's",
+          "cuisine": "burger",
+          "internet_access": "wlan",
+          "name": "McDonald's",
+          "opening_hours": "Mo-Sa 07:00-24:00; Su 08:00-24:00",
+          "phone": "+40 264 406 355;+40 372 701 225",
+          "smoking": "no",
+          "source": "survey, website",
+          "takeaway": "yes",
+          "website": "https://mcdonalds.ro/",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 916370002,
+        "lat": 46.7575325,
+        "lon": 23.5669635,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "27",
+          "addr:street": "Strada Govora",
+          "alt_name": "Restaurant Valachia",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "name": "Valahia",
+          "opening_hours": "Mo 00:00-23:00; Tu-Su 11:00-23:00"
+        }
+      },
+      {
+        "type": "node",
+        "id": 962211123,
+        "lat": 46.7729776,
+        "lon": 23.5908652,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "15",
+          "addr:postcode": "400102",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Dávid Ferenc",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "description": "Hungarian food specialities.",
+          "name": "Spritz",
+          "opening_hours": "08:00-24:00",
+          "phone": "+40 0723183266",
+          "website": "https://spritzcafe.com",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 962217316,
+        "lat": 46.7695291,
+        "lon": 23.5888326,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "15",
+          "addr:postcode": "400113",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Piața Unirii",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "email": "office@cafecorso.ro",
+          "name": "Bujolé",
+          "opening_hours": "Mo-Th 08:00-00:00; Fr 08:00-01:00; Sa 09:00-01:00; Su 09:00-00:00",
+          "phone": "+40 733 946 474",
+          "source": "local knowledge, website",
+          "website": "http://cafecorso.ro/",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 962251051,
+        "lat": 46.7646272,
+        "lon": 23.577451,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "23",
+          "addr:postcode": "400006",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Clinicilor",
+          "amenity": "restaurant",
+          "cuisine": "hungarian specialities",
+          "name": "Mikó",
+          "opening_hours": "8:00-11:00",
+          "wheelchair": "limited"
+        }
+      },
+      {
+        "type": "node",
+        "id": 962257719,
+        "lat": 46.7657681,
+        "lon": 23.5815745,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "18",
+          "addr:postcode": "400006",
+          "addr:street": "Strada Clinicilor",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "name": "Heltai",
+          "opening_hours": "9:00-20:00",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 963706837,
+        "lat": 46.7718313,
+        "lon": 23.6023989,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "24",
+          "addr:street": "Calea Dorobanților",
+          "amenity": "restaurant",
+          "cuisine": "asian",
+          "name": "Wok'n Roll",
+          "smoking": "no",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 963706843,
+        "lat": 46.7681915,
+        "lon": 23.5883406,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "8A",
+          "addr:street": "Strada Napoca",
+          "amenity": "restaurant",
+          "cuisine": "european",
+          "name": "Baracca",
+          "opening_hours": "Mo-Su 12:00-23:00",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 963706846,
+        "lat": 46.7687136,
+        "lon": 23.589542,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "amenity": "cafe",
+          "cuisine": "tea",
+          "indoor_seating": "no",
+          "name": "Demmers Teehouse",
+          "opening_hours": "Mo-Fr 10:00-20:00; Sa 12:00-20:00",
+          "outdoor_seating": "no",
+          "phone": "0731307897",
+          "smoking": "no",
+          "takeaway": "only",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 984385577,
+        "lat": 46.7685648,
+        "lon": 23.5860101,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "7",
+          "addr:postcode": "400004",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Gheorghe Șincai",
+          "amenity": "fast_food",
+          "cuisine": "kebab",
+          "indoor_seating": "yes",
+          "internet_access": "wlan",
+          "name": "Döner Maxx",
+          "opening_hours": "24/7",
+          "outdoor_seating": "no",
+          "smoking": "no",
+          "wheelchair": "limited"
+        }
+      },
+      {
+        "type": "node",
+        "id": 986810154,
+        "lat": 46.777266,
+        "lon": 23.6104922,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "148",
+          "addr:postcode": "400604",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Bulevardul 21 Decembrie 1989",
+          "amenity": "restaurant",
+          "cuisine": "romanian",
+          "name": "Hera",
+          "opening_hours": "Mo-Fr 09:00-18:00",
+          "phone": "+40 264 444 112",
+          "smoking": "no",
+          "website": "http://artaculinaracluj.ro/website/restaurant-hera/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1003385071,
+        "lat": 46.7720611,
+        "lon": 23.5906338,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "1",
+          "addr:postcode": "400104",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Cotită",
+          "amenity": "fast_food",
+          "cuisine": "kebab",
+          "name": "Mc Lewy",
+          "opening_hours": "24/7",
+          "smoking": "no",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1244306290,
+        "lat": 46.7638635,
+        "lon": 23.5768284,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "16",
+          "addr:street": "Strada Piezișă",
+          "amenity": "cafe",
+          "cuisine": "regional",
+          "name": "Solas Cafe",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1244306291,
+        "lat": 46.7639437,
+        "lon": 23.5767274,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:street": "Strada Piezișă",
+          "amenity": "cafe",
+          "cuisine": "regional",
+          "name": "Big Apple",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1288117728,
+        "lat": 46.7676519,
+        "lon": 23.5892979,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "6",
+          "addr:street": "Strada Inocențiu Micu Klein",
+          "amenity": "restaurant",
+          "cuisine": "italian;regional",
+          "email": "contact@viarestaurant.ro",
+          "name": "Via Restaurant",
+          "opening_hours": "Mo-Su 12:00-24:00",
+          "smoking": "no",
+          "website": "http://www.viarestaurant.ro",
+          "wheelchair": "limited"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1288196328,
+        "lat": 46.7699081,
+        "lon": 23.5926891,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:street": "Bulevardul Eroilor",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "name": "Tramvay",
+          "opening_hours": "Mo-Sa 09:00-21:00; Su off",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1288196335,
+        "lat": 46.7699412,
+        "lon": 23.587283,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "10",
+          "addr:postcode": "400114",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Memorandumului",
+          "amenity": "restaurant",
+          "contact:facebook": "https://www.facebook.com/LikeMemo10",
+          "cuisine": "international",
+          "name": "Memo 10",
+          "opening_hours": "Mo-Fr 11:00-18:00",
+          "phone": "+40 727 892 831",
+          "smoking": "no",
+          "source": "survey, website",
+          "website": "http://cantina-primariei.ro/",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1288196360,
+        "lat": 46.76995,
+        "lon": 23.5884895,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "16",
+          "addr:street": "Piața Unirii",
+          "alt_name": "Storia Cucina Centrale",
+          "amenity": "restaurant",
+          "contact:facebook": "https://www.facebook.com/Storia-Cluj-Napoca-882727991929614/",
+          "cuisine": "pizza",
+          "name": "Storia",
+          "opening_hours": "Mo-Su 09:00-23:00",
+          "phone": "0757 900 987",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1300729354,
+        "lat": 46.7735691,
+        "lon": 23.5934749,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "16",
+          "addr:postcode": "400107",
+          "addr:street": "Strada Cuza Vodă",
+          "amenity": "restaurant",
+          "delivery": "yes",
+          "diet:vegan": "yes",
+          "name": "Bistro Lovegan",
+          "opening_hours": "Mo-Fr 12:00-17:00",
+          "phone": "+40723698654",
+          "website": "https://www.meniudigital.ro/bistrolovegan"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1320496945,
+        "lat": 46.7675617,
+        "lon": 23.6022026,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "name": "Bolero",
+          "opening_hours": "Mo-Sa 08:00-01:00; Su 12:00-01:00",
+          "website": "http://www.restaurant-bolero.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1320496948,
+        "lat": 46.7671262,
+        "lon": 23.6026188,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "1",
+          "addr:postcode": "400485",
+          "addr:street": "Strada Constantin Brâncuși",
+          "amenity": "restaurant",
+          "contact:facebook": "https://www.facebook.com/Trattoria-Pineta-228288607305491/",
+          "cuisine": "pizza;italian",
+          "email": "trattoriapineta@yahoo.ro",
+          "name": "Trattoria Pineta",
+          "opening_hours": "Mo-Su 10:00-23:00",
+          "phone": "+40 264 414 820;+40 743 087 251",
+          "website": "http://www.trattoriapineta.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1320496952,
+        "lat": 46.7632967,
+        "lon": 23.6085299,
+        "tags": {
+          "addr:housenumber": "86A",
+          "addr:street": "Strada Constantin Brâncuși",
+          "alt_name": "Casa Dacilor Brâncuși",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "name": "Casa Dacilor",
+          "outdoor_seating": "yes",
+          "website": "https://www.casa-dacilor.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1376263505,
+        "lat": 46.7618147,
+        "lon": 23.6056653,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "1",
+          "addr:street": "Strada Amos Frâncu",
+          "amenity": "restaurant",
+          "cuisine": "regional",
+          "email": "info@engelsbistro.ro",
+          "internet_access": "wlan",
+          "name": "Engels Bistro",
+          "opening_hours": "Mo-Sa 07:30-00:30; Su 10:00-00:30",
+          "outdoor_seating": "yes",
+          "phone": "+40 749 201 000",
+          "smoking": "yes",
+          "website": "https://www.engelsbistro.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1376265303,
+        "lat": 46.7667634,
+        "lon": 23.602472,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "12A",
+          "addr:street": "Strada Constantin Brâncuși",
+          "amenity": "cafe",
+          "cuisine": "regional;coffee_shop",
+          "name": "Il caffe",
+          "opening_hours": "Mo-Fr 07:30-16:00; Sa 08:00-14:00; Su 09:00-14:00",
+          "website": "https://ilcaffe.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1491994437,
+        "lat": 46.7774066,
+        "lon": 23.5873855,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:country": "RO",
+          "addr:housenumber": "32",
+          "addr:postcode": "400038",
+          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
+          "addr:street": "Strada Horea",
+          "amenity": "restaurant",
+          "cuisine": "italian",
+          "internet_access": "wlan",
+          "name": "Capriccio",
+          "operator": "SC Fenega Import Export SRL",
+          "phone": "+40 364 566 713;+40 731 304 314",
+          "website": "https://www.capricciobistro.ro/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1544998859,
+        "lat": 46.7618146,
+        "lon": 23.6070876,
+        "tags": {
+          "addr:city": "Cluj-Napoca",
+          "addr:housenumber": "1",
+          "addr:postcode": "400474",
+          "addr:street": "Strada Moise Nicoară",
+          "amenity": "restaurant",
+          "capacity": "60",
+          "contact:email": "office@restaurantul-hora.ro",
+          "contact:facebook": "https://www.facebook.com/restaurantulhora",
+          "contact:phone": "+40 264 442 422;+40 723 249 889;+40 744 516 588",
+          "contact:website": "http://www.restaurantul-hora.ro/",
+          "cuisine": "romanian,international",
+          "email": "office@restaurantul-hora.ro",
+          "name": "Hora",
+          "outdoor_seating": "yes",
+          "phone": "+40 264 442 422;+40 723 249 889;+40 744 516 588",
+          "website": "http://www.restaurantul-hora.ro/"
+        }
+      }
+    ]
+  }
+}
