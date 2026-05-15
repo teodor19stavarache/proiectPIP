@@ -44,7 +44,7 @@ public class Gui_Aplicatie extends JFrame implements AppNavigator {
         rootPanel.add(buildAppPanel(),          "app");
 
         setContentPane(rootPanel);
-        showRoot("app");  // porneste de la pagina de login
+        showRoot("login");  // porneste de la pagina de login
     }
 
     @Override
