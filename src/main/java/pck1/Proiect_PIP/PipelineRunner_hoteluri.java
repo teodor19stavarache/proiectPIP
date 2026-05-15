@@ -21,7 +21,7 @@ public class PipelineRunner_hoteluri {
         // ═══════════════════════════════════════════
         System.out.println(">>> Pasul 1: Generare JSON...");
         run_script(
-            new String[]{"python", "scripts/script_json.py"},
+            new String[]{"python", "scripts/hotelAPI2.py"},
             "Pasul 1 finalizat — JSON generat în: " + jsonFile.toAbsolutePath()
         );
 
@@ -35,7 +35,7 @@ public class PipelineRunner_hoteluri {
         // ═══════════════════════════════════════════
         System.out.println(">>> Pasul 2: Conversie JSON → SQLite...");
         run_script(
-            new String[]{"python", "scripts/script_sqlite.py",
+            new String[]{"python", "scripts/JSONtoSQLite.py",
                          jsonFile.toString(),       // input  — fișierul JSON
                          sqliteFile.toString()},    // output — fișierul .db
             "Pasul 2 finalizat — SQLite salvat în: " + sqliteFile.toAbsolutePath()

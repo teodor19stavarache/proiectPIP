@@ -1,0 +1,2 @@
+city=Vaslui
+tags=istorie,cultura,natura

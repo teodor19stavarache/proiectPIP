@@ -14,14 +14,14 @@
 				"closeIdleConnection": true
 			}
 		},
-		"sqlite_jdbc-19e1cc77bb2-773e3f9be4fb416b": {
+		"sqlite_jdbc-19e21477beb-4a106b3d928243fa": {
 			"provider": "sqlite",
 			"driver": "sqlite_jdbc",
-			"name": "output.db",
+			"name": "atractii.db",
 			"save-password": true,
 			"configuration": {
-				"database": "E:\\Java\\proiectPIP\\database\\output.db",
-				"url": "jdbc:sqlite:E:\\Java\\proiectPIP\\database\\output.db",
+				"database": "E:\\Java\\proiectPIP\\database\\atractii.db",
+				"url": "jdbc:sqlite:E:\\Java\\proiectPIP\\database\\atractii.db",
 				"configurationType": "MANUAL",
 				"type": "dev",
 				"closeIdleConnection": true

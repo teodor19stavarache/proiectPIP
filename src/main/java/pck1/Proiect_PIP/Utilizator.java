@@ -1,15 +1,24 @@
 package pck1.Proiect_PIP;
 import java.util.Base64;
-
 import java.util.List;
 
 public class Utilizator {
-	private String email = "";
-	private String nume = "";
-	private String parola = "";
-	private String numar_telefon = "";
+	private String email;
+	private String nume;
+	private String parola;
+	private String numar_telefon;
 	private List<String> tags;
 	
+	/**
+	 * Constructor fara parametri
+	 */
+	public Utilizator() {
+		email = "";
+		nume = "";
+		parola = "";
+		numar_telefon = "";
+		tags = new java.util.ArrayList<>();
+	}
 	/**
 	 * Constructor Utilizator
 	 * @param e
