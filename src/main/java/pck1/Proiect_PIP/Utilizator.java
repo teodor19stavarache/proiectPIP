@@ -85,6 +85,13 @@ public class Utilizator {
 	}
 	
 	/**
+	 * seteaza tagurile utilizatorului in obiect
+	 */
+	public void setTags(List<String> lista) {
+		tags = lista;
+	}
+	
+	/**
 	 * 
 	 * @return email
 	 */
@@ -116,6 +123,9 @@ public class Utilizator {
 		return numar_telefon;
 	}
 	
+	/**
+	 * @return tags
+	 */
 	public List<String> getTags(){
 		return tags;
 	}
