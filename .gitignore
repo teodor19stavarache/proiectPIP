@@ -1,0 +1,13 @@
+# Build output
+target/
+
+# IDE
+.idea/
+*.iml
+
+# Database
+database/*.db
+
+# Compiled classes (deja in target)
+bin/
+*.class
