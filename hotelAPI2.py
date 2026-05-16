@@ -6,7 +6,7 @@ import re
 import sys
 
 # --- File paths ---
-INPUT_FILE    = r"C:\Users\blue\Desktop\ProiectPIP\hotelAPI\input\input.txt"
+INPUT_FILE    = os.path.join("input", "input.txt")
 output_folder = "output"
 os.makedirs(output_folder, exist_ok=True)
 

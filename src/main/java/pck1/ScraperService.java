@@ -31,8 +31,8 @@ import javax.swing.SwingWorker;
  */
 public final class ScraperService {
 
-    private static final Path SCRIPT_DIR = Paths.get("..", "hotelAPI");
-    private static final Path INPUT_DIR  = SCRIPT_DIR.resolve("input");
+    private static final Path SCRIPT_DIR = Paths.get(".");
+    private static final Path INPUT_DIR  = Paths.get("input");
 
     private ScraperService() {
         // utility class
