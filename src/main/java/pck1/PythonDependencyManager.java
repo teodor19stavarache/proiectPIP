@@ -29,7 +29,7 @@ public final class PythonDependencyManager {
      * (current working directory at launch time). Adjust if the project
      * layout changes.
      */
-    private static final String REQUIREMENTS_PATH = "../hotelAPI/requirements.txt";
+    private static final String REQUIREMENTS_PATH = "requirements.txt";
 
     private PythonDependencyManager() {
         // utility class, no instances

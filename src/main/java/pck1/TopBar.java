@@ -11,14 +11,27 @@ public class TopBar implements AppColors {
         top.setBackground(GREEN_PRIMARY);
         top.setBorder(new EmptyBorder(10, 18, 10, 18));
 
-        // Logo
-        JLabel logo = new JLabel(
+        // Logo — text HTML + emoji separat cu font explicit
+        // BoxLayout X_AXIS sumeaza corect latimile si nu taie emoji-ul
+        JLabel logoText = new JLabel(
             "<html><span style='color:white;font-size:17pt;font-weight:bold;'>" +
             "Travale</span><span style='color:#FFCC00;font-size:17pt;font-weight:bold;'>" +
-            "Ro</span><span style='color:#FFCC00;font-size:12pt;'> ✈</span></html>"
+            "Ro</span></html>"
         );
-        logo.setPreferredSize(new Dimension(175, 36));
-        top.add(logo, BorderLayout.WEST);
+        logoText.setAlignmentY(Component.CENTER_ALIGNMENT);
+
+        JLabel logoEmoji = new JLabel("✈");
+        logoEmoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 22));
+        logoEmoji.setForeground(new Color(255, 204, 0));
+        logoEmoji.setAlignmentY(Component.CENTER_ALIGNMENT);
+
+        JPanel logoPanel = new JPanel();
+        logoPanel.setLayout(new BoxLayout(logoPanel, BoxLayout.X_AXIS));
+        logoPanel.setOpaque(false);
+        logoPanel.add(logoText);
+        logoPanel.add(Box.createHorizontalStrut(6));
+        logoPanel.add(logoEmoji);
+        top.add(logoPanel, BorderLayout.WEST);
 
         // Buton Profil (singura actiune din bara de sus)
         JButton btnProfil = new JButton("  Profil");

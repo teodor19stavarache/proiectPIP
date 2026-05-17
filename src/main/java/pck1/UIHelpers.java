@@ -40,7 +40,7 @@ public class UIHelpers implements AppColors {
         lblName.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblClass = new JLabel("📍 " + (hotelClass.isEmpty() ? "Cazare" : hotelClass));
-        lblClass.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblClass.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 12));
         lblClass.setForeground(new Color(0, 100, 180));
         lblClass.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -95,12 +95,12 @@ public class UIHelpers implements AppColors {
         lblName.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblCat = new JLabel("🏷 " + category);
-        lblCat.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblCat.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 12));
         lblCat.setForeground(new Color(80, 130, 80));
         lblCat.setAlignmentX(Component.LEFT_ALIGNMENT);
 
         JLabel lblAddr = new JLabel("📍 " + (address.equals("N/A") ? "Adresa nedisponibila" : address));
-        lblAddr.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblAddr.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 12));
         lblAddr.setForeground(GRI_TEXT);
         lblAddr.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -164,7 +164,7 @@ public class UIHelpers implements AppColors {
         lblT.setFont(new Font("Segoe UI", Font.BOLD, 16));
         lblT.setAlignmentX(Component.LEFT_ALIGNMENT);
         JLabel lblL = new JLabel("📍 " + locatie);
-        lblL.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lblL.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 12));
         lblL.setForeground(new Color(0, 100, 180));
         lblL.setAlignmentX(Component.LEFT_ALIGNMENT);
         JPanel ratingRow = buildRatingRow(rating, nrRec);

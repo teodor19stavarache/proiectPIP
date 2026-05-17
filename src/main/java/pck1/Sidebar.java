@@ -7,24 +7,28 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.time.format.TextStyle;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.MatteBorder;
 
 public class Sidebar extends JPanel implements AppColors {
 
-    // hotel_input.txt este in input/ din radacina proiectului
     private static final Path HOTEL_INPUT = Paths.get("input", "hotel_input.txt");
 
     private JTextField locatieField;
-    private JSpinner   dataInceput;
-    private JSpinner   dataFinal;
+    // Afisaj date (read-only) + valoarea retinuta
+    private JTextField displayInceput;
+    private JTextField displayFinal;
+    private LocalDate  dateInceput;
+    private LocalDate  dateFinal;
+
     private JSpinner   adulti;
     private JSpinner   copii;
     private JPanel     varstePanel;
@@ -35,7 +39,10 @@ public class Sidebar extends JPanel implements AppColors {
         setBackground(SIDEBAR_BG);
         setPreferredSize(new Dimension(222, 0));
 
-        // Sectiunea de cautare
+        // Valori default: check-in peste 7 zile, check-out peste 14
+        dateInceput = LocalDate.now().plusDays(7);
+        dateFinal   = LocalDate.now().plusDays(14);
+
         JPanel searchSection = new JPanel();
         searchSection.setLayout(new BoxLayout(searchSection, BoxLayout.Y_AXIS));
         searchSection.setBackground(SIDEBAR_BG);
@@ -48,31 +55,63 @@ public class Sidebar extends JPanel implements AppColors {
         searchLabel.setAlignmentX(Component.LEFT_ALIGNMENT);
         searchSection.add(searchLabel);
 
-        searchSection.add(buildFieldLabel("▾  Destinatie / Locatie"));
+        searchSection.add(buildFieldLabel("Destinatie / Locatie"));
         locatieField = buildTextField("ex: Paris, Iasi...");
         searchSection.add(locatieField);
         searchSection.add(Box.createVerticalStrut(8));
 
-        // --- Date pickers ---
-        LocalDate today = LocalDate.now();
-        Date defaultIn  = toDate(today.plusDays(7));
-        Date defaultOut = toDate(today.plusDays(14));
+        // Autocomplete din istoricul sesiunii (non-focusabil = nu fura focus)
+        JPopupMenu destPopup = new JPopupMenu();
+        destPopup.setFocusable(false);
+        locatieField.addKeyListener(new java.awt.event.KeyAdapter() {
+            @Override
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE
+                 || e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    destPopup.setVisible(false);
+                    return;
+                }
+                String typed = locatieField.getText().trim();
+                if (typed.equals("ex: Paris, Iasi...") || typed.isEmpty()) {
+                    destPopup.setVisible(false); return;
+                }
+                destPopup.removeAll();
+                java.util.List<String> matches = Session.getHistorySuggestions(typed);
+                if (matches.isEmpty()) { destPopup.setVisible(false); return; }
+                for (String city : matches) {
+                    JMenuItem item = new JMenuItem("> " + city);
+                    item.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+                    item.setFocusable(false);
+                    item.addActionListener(ev -> {
+                        locatieField.setText(city);
+                        locatieField.setForeground(ALB);
+                        destPopup.setVisible(false);
+                    });
+                    destPopup.add(item);
+                }
+                destPopup.show(locatieField, 0, locatieField.getHeight());
+                locatieField.requestFocusInWindow();
+            }
+        });
 
-        searchSection.add(buildFieldLabel("▾  Data inceput"));
-        dataInceput = buildDateSpinner(defaultIn);
-        searchSection.add(dataInceput);
+        // --- Calendar pickers ---
+        searchSection.add(buildFieldLabel("Data inceput"));
+        displayInceput = buildDateDisplayField(dateInceput);
+        JPanel rowIn = buildCalendarRow(displayInceput, true);
+        searchSection.add(rowIn);
         searchSection.add(Box.createVerticalStrut(8));
 
-        searchSection.add(buildFieldLabel("▾  Data final"));
-        dataFinal = buildDateSpinner(defaultOut);
-        searchSection.add(dataFinal);
+        searchSection.add(buildFieldLabel("Data final"));
+        displayFinal = buildDateDisplayField(dateFinal);
+        JPanel rowFin = buildCalendarRow(displayFinal, false);
+        searchSection.add(rowFin);
         searchSection.add(Box.createVerticalStrut(8));
 
         // Adulti
-        searchSection.add(buildFieldLabel("▾  Adulti"));
+        searchSection.add(buildFieldLabel("Adulti"));
         JPanel adultiRow = buildSpinnerRow();
-        JLabel adultiIcon = new JLabel("👤");
-        adultiIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 13));
+        JLabel adultiIcon = new JLabel("Ad.");
+        adultiIcon.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         adultiRow.add(adultiIcon, BorderLayout.WEST);
         adulti = new JSpinner(new SpinnerNumberModel(2, 1, 20, 1));
         styleSpinner(adulti);
@@ -81,10 +120,10 @@ public class Sidebar extends JPanel implements AppColors {
         searchSection.add(Box.createVerticalStrut(8));
 
         // Copii
-        searchSection.add(buildFieldLabel("▾  Copii (sub 18 ani)"));
+        searchSection.add(buildFieldLabel("Copii (sub 18 ani)"));
         JPanel copiiRow = buildSpinnerRow();
-        JLabel copiiIcon = new JLabel("👦");
-        copiiIcon.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 13));
+        JLabel copiiIcon = new JLabel("Co.");
+        copiiIcon.setFont(new Font("Segoe UI", Font.PLAIN, 11));
         copiiRow.add(copiiIcon, BorderLayout.WEST);
         copii = new JSpinner(new SpinnerNumberModel(0, 0, 10, 1));
         styleSpinner(copii);
@@ -92,8 +131,7 @@ public class Sidebar extends JPanel implements AppColors {
         searchSection.add(copiiRow);
         searchSection.add(Box.createVerticalStrut(8));
 
-        // Varste copii (panel dinamic)
-        searchSection.add(buildFieldLabel("▾  Varste copii"));
+        searchSection.add(buildFieldLabel("Varste copii"));
         varstePanel = new JPanel();
         varstePanel.setLayout(new BoxLayout(varstePanel, BoxLayout.Y_AXIS));
         varstePanel.setBackground(SIDEBAR_BG);
@@ -110,7 +148,6 @@ public class Sidebar extends JPanel implements AppColors {
         fieldsScroll.getViewport().setBackground(SIDEBAR_BG);
         fieldsScroll.getVerticalScrollBar().setUnitIncrement(10);
 
-        // Buton Cauta
         JButton btnCauta = new JButton("  Cauta sejur  >");
         btnCauta.setFont(new Font("Segoe UI", Font.BOLD, 13));
         btnCauta.setBackground(GREEN_PRIMARY);
@@ -127,24 +164,17 @@ public class Sidebar extends JPanel implements AppColors {
                     "Cautare", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-
-            LocalDate checkIn  = spinnerToLocalDate(dataInceput);
-            LocalDate checkOut = spinnerToLocalDate(dataFinal);
-
-            if (!checkOut.isAfter(checkIn)) {
+            if (!dateFinal.isAfter(dateInceput)) {
                 JOptionPane.showMessageDialog(this,
                     "Data de sfarsit trebuie sa fie dupa data de inceput.",
                     "Date invalide", JOptionPane.WARNING_MESSAGE);
                 return;
             }
-
             int nrAdulti = (Integer) adulti.getValue();
             int nrCopii  = (Integer) copii.getValue();
             String childrenAges = collectChildrenAges();
-
-            writeHotelInput(city, checkIn.toString(), checkOut.toString(),
+            writeHotelInput(city, dateInceput.toString(), dateFinal.toString(),
                             nrAdulti, nrCopii, childrenAges);
-
             String tags = "istorie,natura,cultura";
             if (Session.isLoggedIn()) {
                 List<String> userTags = Session.getUser().getTags();
@@ -152,6 +182,7 @@ public class Sidebar extends JPanel implements AppColors {
                     tags = String.join(",", userTags);
                 }
             }
+            Session.addToHistory(city);
             nav.clearSidebarSelection();
             nav.runSearch(city, tags);
         });
@@ -189,43 +220,197 @@ public class Sidebar extends JPanel implements AppColors {
         add(rezSection, BorderLayout.SOUTH);
     }
 
-    // ── Date spinner helpers ─────────────────────────────────────────────────
+    // ── Calendar picker ──────────────────────────────────────────────────────
 
-    private JSpinner buildDateSpinner(Date initialValue) {
-        SpinnerDateModel model = new SpinnerDateModel(
-            initialValue, null, null, java.util.Calendar.DAY_OF_MONTH);
-        JSpinner spinner = new JSpinner(model);
+    /** Rand cu afisaj data (read-only) + buton calendar */
+    private JPanel buildCalendarRow(JTextField display, boolean isStart) {
+        JPanel row = new JPanel(new BorderLayout(2, 0));
+        row.setBackground(SIDEBAR_BG);
+        row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 34));
+        row.setAlignmentX(Component.LEFT_ALIGNMENT);
 
-        JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");
-        spinner.setEditor(editor);
+        JButton btnCal = new JButton("Cal");
+        btnCal.setFont(new Font("Segoe UI", Font.BOLD, 11));
+        btnCal.setBackground(new Color(30, 70, 30));
+        btnCal.setForeground(ALB);
+        btnCal.setBorder(new EmptyBorder(4, 6, 4, 6));
+        btnCal.setFocusPainted(false);
+        btnCal.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        btnCal.addActionListener(e -> {
+            LocalDate initial = isStart ? dateInceput : dateFinal;
+            LocalDate chosen  = showCalendarDialog(SwingUtilities.getWindowAncestor(this), initial);
+            if (chosen != null) {
+                if (isStart) {
+                    dateInceput = chosen;
+                    displayInceput.setText(formatDate(chosen));
+                } else {
+                    dateFinal = chosen;
+                    displayFinal.setText(formatDate(chosen));
+                }
+            }
+        });
 
-        // Stilizare dark
-        spinner.setBackground(new Color(18, 42, 18));
-        spinner.setForeground(ALB);
-        spinner.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        spinner.setBorder(BorderFactory.createCompoundBorder(
+        row.add(display,  BorderLayout.CENTER);
+        row.add(btnCal,   BorderLayout.EAST);
+        return row;
+    }
+
+    /** Afisaj read-only pentru data selectata */
+    private JTextField buildDateDisplayField(LocalDate date) {
+        JTextField field = new JTextField(formatDate(date));
+        field.setEditable(false);
+        field.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        field.setForeground(ALB);
+        field.setBackground(new Color(18, 42, 18));
+        field.setCaretColor(ALB);
+        field.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
-            new EmptyBorder(4, 4, 4, 4)));
-        spinner.setMaximumSize(new Dimension(Integer.MAX_VALUE, 34));
-        spinner.setAlignmentX(Component.LEFT_ALIGNMENT);
-
-        JTextField tf = editor.getTextField();
-        tf.setBackground(new Color(18, 42, 18));
-        tf.setForeground(ALB);
-        tf.setCaretColor(ALB);
-        tf.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-        tf.setBorder(new EmptyBorder(0, 4, 0, 0));
-
-        return spinner;
+            new EmptyBorder(6, 8, 6, 8)));
+        return field;
     }
 
-    private static Date toDate(LocalDate ld) {
-        return Date.from(ld.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    /** Deschide un dialog cu calendar vizual, returneaza data aleasa sau null */
+    private LocalDate showCalendarDialog(Window owner, LocalDate initial) {
+        LocalDate[] result = {null};
+        JDialog dlg = new JDialog(owner, "Alege data", Dialog.ModalityType.APPLICATION_MODAL);
+        dlg.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        dlg.setResizable(false);
+
+        LocalDate[] view = {initial.withDayOfMonth(1)}; // prima zi a lunii afisate
+
+        JPanel root = new JPanel(new BorderLayout(0, 6));
+        root.setBackground(new Color(20, 48, 20));
+        root.setBorder(new EmptyBorder(10, 10, 10, 10));
+
+        // --- Navigare luna ---
+        JPanel navRow = new JPanel(new BorderLayout());
+        navRow.setBackground(new Color(20, 48, 20));
+
+        JButton btnPrev = navBtn("<");
+        JButton btnNext = navBtn(">");
+        JLabel  lblLuna = new JLabel("", SwingConstants.CENTER);
+        lblLuna.setFont(new Font("Segoe UI", Font.BOLD, 13));
+        lblLuna.setForeground(ALB);
+
+        JPanel calGrid = new JPanel(new GridLayout(0, 7, 2, 2));
+        calGrid.setBackground(new Color(20, 48, 20));
+
+        // Closure pentru redesenare
+        Runnable[] refresh = {null};
+        refresh[0] = () -> {
+            String luna = view[0].getMonth().getDisplayName(TextStyle.FULL, new Locale("ro"));
+            lblLuna.setText(luna.substring(0, 1).toUpperCase() + luna.substring(1)
+                            + "  " + view[0].getYear());
+            calGrid.removeAll();
+
+            // Antet zile
+            String[] zile = {"Lu", "Ma", "Mi", "Jo", "Vi", "Sa", "Du"};
+            for (String z : zile) {
+                JLabel h = new JLabel(z, SwingConstants.CENTER);
+                h.setFont(new Font("Segoe UI", Font.BOLD, 11));
+                h.setForeground(new Color(100, 180, 100));
+                calGrid.add(h);
+            }
+
+            // Zile goale pana la prima zi a lunii (Monday=1)
+            int firstDow = view[0].getDayOfWeek().getValue(); // 1=Lun ... 7=Dum
+            for (int i = 1; i < firstDow; i++) calGrid.add(new JLabel());
+
+            int daysInMonth = view[0].lengthOfMonth();
+            LocalDate today = LocalDate.now();
+            for (int d = 1; d <= daysInMonth; d++) {
+                LocalDate day = view[0].withDayOfMonth(d);
+                JButton btn = new JButton(String.valueOf(d));
+                btn.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+                btn.setFocusPainted(false);
+                btn.setBorder(new EmptyBorder(4, 2, 4, 2));
+                btn.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+                if (day.equals(initial)) {
+                    btn.setBackground(GREEN_PRIMARY);
+                    btn.setForeground(ALB);
+                } else if (day.equals(today)) {
+                    btn.setBackground(new Color(255, 200, 50));
+                    btn.setForeground(new Color(20, 20, 20));
+                } else {
+                    btn.setBackground(new Color(30, 65, 30));
+                    btn.setForeground(ALB);
+                }
+
+                btn.addActionListener(e -> {
+                    result[0] = day;
+                    dlg.dispose();
+                });
+                calGrid.add(btn);
+            }
+            calGrid.revalidate();
+            calGrid.repaint();
+        };
+
+        JButton btnPrevYear = navBtn("«");
+        JButton btnNextYear = navBtn("»");
+
+        btnPrevYear.addActionListener(e -> { view[0] = view[0].minusYears(1);  refresh[0].run(); });
+        btnPrev.addActionListener(    e -> { view[0] = view[0].minusMonths(1); refresh[0].run(); });
+        btnNext.addActionListener(    e -> { view[0] = view[0].plusMonths(1);  refresh[0].run(); });
+        btnNextYear.addActionListener(e -> { view[0] = view[0].plusYears(1);   refresh[0].run(); });
+
+        // Click pe an -> dialog rapid pentru introducere an
+        lblLuna.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        lblLuna.setToolTipText("Click pentru a alege anul");
+        lblLuna.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override public void mouseClicked(java.awt.event.MouseEvent e) {
+                String input = JOptionPane.showInputDialog(dlg,
+                    "Introdu anul:", String.valueOf(view[0].getYear()));
+                if (input != null) {
+                    try {
+                        int yr = Integer.parseInt(input.trim());
+                        if (yr >= 2020 && yr <= 2050) {
+                            view[0] = view[0].withYear(yr);
+                            refresh[0].run();
+                        }
+                    } catch (NumberFormatException ignored) {}
+                }
+            }
+        });
+
+        JPanel leftNav  = new JPanel(new FlowLayout(FlowLayout.LEFT,  2, 0));
+        JPanel rightNav = new JPanel(new FlowLayout(FlowLayout.RIGHT, 2, 0));
+        leftNav.setBackground(new Color(20, 48, 20));
+        rightNav.setBackground(new Color(20, 48, 20));
+        leftNav.add(btnPrevYear);
+        leftNav.add(btnPrev);
+        rightNav.add(btnNext);
+        rightNav.add(btnNextYear);
+
+        navRow.add(leftNav,  BorderLayout.WEST);
+        navRow.add(lblLuna,  BorderLayout.CENTER);
+        navRow.add(rightNav, BorderLayout.EAST);
+
+        root.add(navRow,  BorderLayout.NORTH);
+        root.add(calGrid, BorderLayout.CENTER);
+
+        refresh[0].run();
+        dlg.setContentPane(root);
+        dlg.pack();
+        dlg.setLocationRelativeTo(owner);
+        dlg.setVisible(true); // blocat pana inchide
+        return result[0];
     }
 
-    private static LocalDate spinnerToLocalDate(JSpinner spinner) {
-        Date d = (Date) spinner.getValue();
-        return d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    private JButton navBtn(String text) {
+        JButton b = new JButton(text);
+        b.setFont(new Font("Segoe UI", Font.BOLD, 14));
+        b.setBackground(new Color(0, 80, 30));
+        b.setForeground(ALB);
+        b.setBorder(new EmptyBorder(4, 12, 4, 12));
+        b.setFocusPainted(false);
+        b.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        return b;
+    }
+
+    private static String formatDate(LocalDate d) {
+        return String.format("%02d/%02d/%d", d.getDayOfMonth(), d.getMonthValue(), d.getYear());
     }
 
     // ── Restul metodelor ─────────────────────────────────────────────────────
@@ -233,9 +418,7 @@ public class Sidebar extends JPanel implements AppColors {
     private String collectChildrenAges() {
         if (varsteSpinners.isEmpty()) return "";
         List<String> ages = new ArrayList<>();
-        for (JSpinner sp : varsteSpinners) {
-            ages.add(String.valueOf(sp.getValue()));
-        }
+        for (JSpinner sp : varsteSpinners) ages.add(String.valueOf(sp.getValue()));
         return String.join(",", ages);
     }
 
@@ -250,9 +433,8 @@ public class Sidebar extends JPanel implements AppColors {
                 w.println("check_out=" + checkOut);
                 w.println("adults=" + adults);
                 w.println("children=" + children);
-                if (children > 0 && !childrenAges.isBlank()) {
+                if (children > 0 && !childrenAges.isBlank())
                     w.println("children_ages=" + childrenAges);
-                }
                 w.println("currency=EUR");
             }
         } catch (IOException ex) {
@@ -276,8 +458,7 @@ public class Sidebar extends JPanel implements AppColors {
                 row.setBackground(new Color(14, 34, 14));
                 row.setBorder(BorderFactory.createCompoundBorder(
                     BorderFactory.createLineBorder(new Color(35, 70, 35), 1),
-                    new EmptyBorder(3, 8, 3, 8)
-                ));
+                    new EmptyBorder(3, 8, 3, 8)));
                 row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 30));
                 row.setAlignmentX(Component.LEFT_ALIGNMENT);
 
@@ -324,8 +505,7 @@ public class Sidebar extends JPanel implements AppColors {
         field.setCaretColor(GREEN_LIGHT);
         field.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
-            new EmptyBorder(6, 8, 6, 8)
-        ));
+            new EmptyBorder(6, 8, 6, 8)));
         field.setMaximumSize(new Dimension(Integer.MAX_VALUE, 34));
         field.setAlignmentX(Component.LEFT_ALIGNMENT);
         field.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -350,8 +530,7 @@ public class Sidebar extends JPanel implements AppColors {
         row.setBackground(new Color(18, 42, 18));
         row.setBorder(BorderFactory.createCompoundBorder(
             BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
-            new EmptyBorder(4, 8, 4, 8)
-        ));
+            new EmptyBorder(4, 8, 4, 8)));
         row.setMaximumSize(new Dimension(Integer.MAX_VALUE, 36));
         row.setAlignmentX(Component.LEFT_ALIGNMENT);
         return row;
@@ -388,8 +567,7 @@ public class Sidebar extends JPanel implements AppColors {
         lblDate.setForeground(new Color(150, 200, 150));
 
         Color sColor = status.equals("Confirmata")
-            ? new Color(80, 220, 100)
-            : new Color(255, 180, 40);
+            ? new Color(80, 220, 100) : new Color(255, 180, 40);
         JLabel lblStatus = new JLabel("● " + status);
         lblStatus.setFont(new Font("Segoe UI", Font.PLAIN, 10));
         lblStatus.setForeground(sColor);

@@ -39,8 +39,7 @@ public class SearchPage implements AppColors {
     private static final Path HOTELS_JSON   =
         Paths.get("output", "hotels_filtered.json");
 
-    // Istoric cautari per sesiune (nu se salveaza in DB)
-    private static final java.util.List<String> searchHistory = new java.util.ArrayList<>();
+    // Istoricul e gestionat in Session.addToHistory / Session.getHistorySuggestions
 
     public static JPanel build(AppNavigator nav) {
         JPanel page = new JPanel(new BorderLayout());
@@ -95,31 +94,36 @@ public class SearchPage implements AppColors {
         btnCauta.setBorder(new EmptyBorder(7, 20, 7, 20));
         btnCauta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
-        // Popup cu istoricul cautarilor (per sesiune)
+        // Autocomplete din istoricul sesiunii (non-focusabil = nu fura focus de la field)
         JPopupMenu historyPopup = new JPopupMenu();
+        historyPopup.setFocusable(false);
 
-        campOras.addFocusListener(new java.awt.event.FocusAdapter() {
+        campOras.addKeyListener(new java.awt.event.KeyAdapter() {
             @Override
-            public void focusGained(java.awt.event.FocusEvent e) {
-                if (!searchHistory.isEmpty()) {
-                    historyPopup.removeAll();
-                    JLabel header2 = new JLabel("  Cautari recente");
-                    header2.setFont(new Font("Segoe UI", Font.BOLD, 11));
-                    header2.setForeground(new Color(120, 120, 120));
-                    header2.setBorder(new EmptyBorder(4, 6, 4, 6));
-                    historyPopup.add(header2);
-                    historyPopup.addSeparator();
-                    // Afiseaza ultimele 5 cautari (cele mai recente primele)
-                    List<String> recent = new java.util.ArrayList<>(searchHistory);
-                    java.util.Collections.reverse(recent);
-                    for (String city : recent.subList(0, Math.min(5, recent.size()))) {
-                        JMenuItem item = new JMenuItem("🔍  " + city);
-                        item.setFont(new Font("Segoe UI", Font.PLAIN, 12));
-                        item.addActionListener(ev -> campOras.setText(city));
-                        historyPopup.add(item);
-                    }
-                    historyPopup.show(campOras, 0, campOras.getHeight());
+            public void keyReleased(java.awt.event.KeyEvent e) {
+                // Inchide la Escape sau Enter
+                if (e.getKeyCode() == java.awt.event.KeyEvent.VK_ESCAPE
+                 || e.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER) {
+                    historyPopup.setVisible(false);
+                    return;
                 }
+                String typed = campOras.getText().trim();
+                historyPopup.removeAll();
+                if (typed.isEmpty()) { historyPopup.setVisible(false); return; }
+                List<String> matches = Session.getHistorySuggestions(typed);
+                if (matches.isEmpty()) { historyPopup.setVisible(false); return; }
+                for (String city : matches) {
+                    JMenuItem item = new JMenuItem("> " + city);
+                    item.setFont(new Font("Segoe UI", Font.PLAIN, 13));
+                    item.setFocusable(false);
+                    item.addActionListener(ev -> {
+                        campOras.setText(city);
+                        historyPopup.setVisible(false);
+                    });
+                    historyPopup.add(item);
+                }
+                historyPopup.show(campOras, 0, campOras.getHeight());
+                campOras.requestFocusInWindow(); // pastreaza focus pe field
             }
         });
 
@@ -130,11 +134,7 @@ public class SearchPage implements AppColors {
                     JOptionPane.WARNING_MESSAGE);
                 return;
             }
-            // Adauga in istoric daca nu e deja ultimul
-            if (searchHistory.isEmpty() || !searchHistory.get(searchHistory.size() - 1)
-                    .equalsIgnoreCase(city)) {
-                searchHistory.add(city);
-            }
+            Session.addToHistory(city);
             historyPopup.setVisible(false);
             List<String> userTags2 = Session.isLoggedIn()
                 ? Session.getUser().getTags() : List.of("istorie", "natura", "cultura");
