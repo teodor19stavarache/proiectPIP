@@ -35,9 +35,12 @@ import org.json.JSONObject;
 public class SearchPage implements AppColors {
 
     private static final Path ATRACTII_JSON =
-        Paths.get("..", "hotelAPI", "output", "atractii_filtered.json");
+        Paths.get("output", "atractii_filtered.json");
     private static final Path HOTELS_JSON   =
-        Paths.get("..", "hotelAPI", "output", "hotels_filtered.json");
+        Paths.get("output", "hotels_filtered.json");
+
+    // Istoric cautari per sesiune (nu se salveaza in DB)
+    private static final java.util.List<String> searchHistory = new java.util.ArrayList<>();
 
     public static JPanel build(AppNavigator nav) {
         JPanel page = new JPanel(new BorderLayout());
@@ -67,7 +70,7 @@ public class SearchPage implements AppColors {
         lblHeader.setForeground(ALB);
         header.add(lblHeader, BorderLayout.CENTER);
 
-        // Search bar
+        // Search bar + istoric
         JPanel searchBar = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 8));
         searchBar.setBackground(new Color(0, 80, 30));
 
@@ -91,6 +94,35 @@ public class SearchPage implements AppColors {
         btnCauta.setFocusPainted(false);
         btnCauta.setBorder(new EmptyBorder(7, 20, 7, 20));
         btnCauta.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+
+        // Popup cu istoricul cautarilor (per sesiune)
+        JPopupMenu historyPopup = new JPopupMenu();
+
+        campOras.addFocusListener(new java.awt.event.FocusAdapter() {
+            @Override
+            public void focusGained(java.awt.event.FocusEvent e) {
+                if (!searchHistory.isEmpty()) {
+                    historyPopup.removeAll();
+                    JLabel header2 = new JLabel("  Cautari recente");
+                    header2.setFont(new Font("Segoe UI", Font.BOLD, 11));
+                    header2.setForeground(new Color(120, 120, 120));
+                    header2.setBorder(new EmptyBorder(4, 6, 4, 6));
+                    historyPopup.add(header2);
+                    historyPopup.addSeparator();
+                    // Afiseaza ultimele 5 cautari (cele mai recente primele)
+                    List<String> recent = new java.util.ArrayList<>(searchHistory);
+                    java.util.Collections.reverse(recent);
+                    for (String city : recent.subList(0, Math.min(5, recent.size()))) {
+                        JMenuItem item = new JMenuItem("🔍  " + city);
+                        item.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+                        item.addActionListener(ev -> campOras.setText(city));
+                        historyPopup.add(item);
+                    }
+                    historyPopup.show(campOras, 0, campOras.getHeight());
+                }
+            }
+        });
+
         btnCauta.addActionListener(e -> {
             String city = campOras.getText().trim();
             if (city.isEmpty()) {
@@ -98,10 +130,15 @@ public class SearchPage implements AppColors {
                     JOptionPane.WARNING_MESSAGE);
                 return;
             }
+            // Adauga in istoric daca nu e deja ultimul
+            if (searchHistory.isEmpty() || !searchHistory.get(searchHistory.size() - 1)
+                    .equalsIgnoreCase(city)) {
+                searchHistory.add(city);
+            }
+            historyPopup.setVisible(false);
             List<String> userTags2 = Session.isLoggedIn()
                 ? Session.getUser().getTags() : List.of("istorie", "natura", "cultura");
             String tags = String.join(",", userTags2);
-            // Actualizează și hotel_input.txt cu noul oraș (păstrând datele din sidebar)
             ScraperService.updateHotelCity(city);
             nav.runSearch(city, tags);
         });

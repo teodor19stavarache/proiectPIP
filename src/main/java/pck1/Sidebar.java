@@ -7,10 +7,11 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.time.format.DateTimeParseException;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
@@ -18,13 +19,12 @@ import javax.swing.border.MatteBorder;
 
 public class Sidebar extends JPanel implements AppColors {
 
-    private static final DateTimeFormatter FMT_ISO  = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-    private static final DateTimeFormatter FMT_SLASH = DateTimeFormatter.ofPattern("dd/MM/yyyy");
-    private static final Path HOTEL_INPUT = Paths.get("..", "hotelAPI", "input", "hotel_input.txt");
+    // hotel_input.txt este in input/ din radacina proiectului
+    private static final Path HOTEL_INPUT = Paths.get("input", "hotel_input.txt");
 
     private JTextField locatieField;
-    private JTextField dataInceput;
-    private JTextField dataFinal;
+    private JSpinner   dataInceput;
+    private JSpinner   dataFinal;
     private JSpinner   adulti;
     private JSpinner   copii;
     private JPanel     varstePanel;
@@ -53,15 +53,18 @@ public class Sidebar extends JPanel implements AppColors {
         searchSection.add(locatieField);
         searchSection.add(Box.createVerticalStrut(8));
 
+        // --- Date pickers ---
+        LocalDate today = LocalDate.now();
+        Date defaultIn  = toDate(today.plusDays(7));
+        Date defaultOut = toDate(today.plusDays(14));
+
         searchSection.add(buildFieldLabel("▾  Data inceput"));
-        dataInceput = buildTextField("AAAA-LL-ZZ");
-        dataInceput.setToolTipText("Format: AAAA-LL-ZZ, ex: 2026-07-15");
+        dataInceput = buildDateSpinner(defaultIn);
         searchSection.add(dataInceput);
         searchSection.add(Box.createVerticalStrut(8));
 
         searchSection.add(buildFieldLabel("▾  Data final"));
-        dataFinal = buildTextField("AAAA-LL-ZZ");
-        dataFinal.setToolTipText("Format: AAAA-LL-ZZ, ex: 2026-07-20");
+        dataFinal = buildDateSpinner(defaultOut);
         searchSection.add(dataFinal);
         searchSection.add(Box.createVerticalStrut(8));
 
@@ -101,14 +104,13 @@ public class Sidebar extends JPanel implements AppColors {
         copii.addChangeListener(e -> updateVarsteCopiiForms());
         updateVarsteCopiiForms();
 
-        // Campurile devin derulabile ca butonul sa fie mereu vizibil
         JScrollPane fieldsScroll = new JScrollPane(searchSection);
         fieldsScroll.setBorder(null);
         fieldsScroll.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         fieldsScroll.getViewport().setBackground(SIDEBAR_BG);
         fieldsScroll.getVerticalScrollBar().setUnitIncrement(10);
 
-        // Buton Cauta — fix sub campuri, mereu vizibil
+        // Buton Cauta
         JButton btnCauta = new JButton("  Cauta sejur  >");
         btnCauta.setFont(new Font("Segoe UI", Font.BOLD, 13));
         btnCauta.setBackground(GREEN_PRIMARY);
@@ -126,25 +128,10 @@ public class Sidebar extends JPanel implements AppColors {
                 return;
             }
 
-            // Valideaza si normalizeaza datele (accepta AAAA-LL-ZZ sau ZZ/LL/AAAA)
-            String checkIn  = parseDate(dataInceput.getText().trim());
-            String checkOut = parseDate(dataFinal.getText().trim());
+            LocalDate checkIn  = spinnerToLocalDate(dataInceput);
+            LocalDate checkOut = spinnerToLocalDate(dataFinal);
 
-            if (checkIn == null) {
-                JOptionPane.showMessageDialog(this,
-                    "Data de inceput invalida.\nFoloseste formatul: AAAA-LL-ZZ (ex: 2026-07-15)",
-                    "Data invalida", JOptionPane.WARNING_MESSAGE);
-                dataInceput.requestFocus();
-                return;
-            }
-            if (checkOut == null) {
-                JOptionPane.showMessageDialog(this,
-                    "Data de sfarsit invalida.\nFoloseste formatul: AAAA-LL-ZZ (ex: 2026-07-20)",
-                    "Data invalida", JOptionPane.WARNING_MESSAGE);
-                dataFinal.requestFocus();
-                return;
-            }
-            if (!LocalDate.parse(checkOut, FMT_ISO).isAfter(LocalDate.parse(checkIn, FMT_ISO))) {
+            if (!checkOut.isAfter(checkIn)) {
                 JOptionPane.showMessageDialog(this,
                     "Data de sfarsit trebuie sa fie dupa data de inceput.",
                     "Date invalide", JOptionPane.WARNING_MESSAGE);
@@ -155,8 +142,8 @@ public class Sidebar extends JPanel implements AppColors {
             int nrCopii  = (Integer) copii.getValue();
             String childrenAges = collectChildrenAges();
 
-            // Scrie hotel_input.txt pentru hotelAPI2.py
-            writeHotelInput(city, checkIn, checkOut, nrAdulti, nrCopii, childrenAges);
+            writeHotelInput(city, checkIn.toString(), checkOut.toString(),
+                            nrAdulti, nrCopii, childrenAges);
 
             String tags = "istorie,natura,cultura";
             if (Session.isLoggedIn()) {
@@ -202,21 +189,46 @@ public class Sidebar extends JPanel implements AppColors {
         add(rezSection, BorderLayout.SOUTH);
     }
 
-    private String parseDate(String input) {
-        if (input == null || input.isBlank() || input.equals("AAAA-LL-ZZ")) return null;
-        try {
-            // Accepta AAAA-LL-ZZ
-            LocalDate.parse(input, FMT_ISO);
-            return input;
-        } catch (DateTimeParseException e1) {
-            try {
-                // Accepta ZZ/LL/AAAA si converteste automat
-                return LocalDate.parse(input, FMT_SLASH).format(FMT_ISO);
-            } catch (DateTimeParseException e2) {
-                return null;
-            }
-        }
+    // ── Date spinner helpers ─────────────────────────────────────────────────
+
+    private JSpinner buildDateSpinner(Date initialValue) {
+        SpinnerDateModel model = new SpinnerDateModel(
+            initialValue, null, null, java.util.Calendar.DAY_OF_MONTH);
+        JSpinner spinner = new JSpinner(model);
+
+        JSpinner.DateEditor editor = new JSpinner.DateEditor(spinner, "dd/MM/yyyy");
+        spinner.setEditor(editor);
+
+        // Stilizare dark
+        spinner.setBackground(new Color(18, 42, 18));
+        spinner.setForeground(ALB);
+        spinner.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        spinner.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(new Color(40, 80, 40), 1),
+            new EmptyBorder(4, 4, 4, 4)));
+        spinner.setMaximumSize(new Dimension(Integer.MAX_VALUE, 34));
+        spinner.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JTextField tf = editor.getTextField();
+        tf.setBackground(new Color(18, 42, 18));
+        tf.setForeground(ALB);
+        tf.setCaretColor(ALB);
+        tf.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        tf.setBorder(new EmptyBorder(0, 4, 0, 0));
+
+        return spinner;
     }
+
+    private static Date toDate(LocalDate ld) {
+        return Date.from(ld.atStartOfDay(ZoneId.systemDefault()).toInstant());
+    }
+
+    private static LocalDate spinnerToLocalDate(JSpinner spinner) {
+        Date d = (Date) spinner.getValue();
+        return d.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+    }
+
+    // ── Restul metodelor ─────────────────────────────────────────────────────
 
     private String collectChildrenAges() {
         if (varsteSpinners.isEmpty()) return "";

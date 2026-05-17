@@ -3,503 +3,432 @@
     "version": 0.6,
     "generator": "Overpass API 0.7.62.11 87bfad18",
     "osm3s": {
-      "timestamp_osm_base": "2026-05-13T13:48:04Z",
+      "timestamp_osm_base": "2026-05-16T23:25:59Z",
       "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
     },
     "elements": [
       {
         "type": "node",
-        "id": 310644665,
-        "lat": 46.7747569,
-        "lon": 23.5901995,
+        "id": 96141530,
+        "lat": 48.871505,
+        "lon": 2.3852879,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "11",
-          "addr:postcode": "400151",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Piața Mihai Viteazu",
-          "amenity": "cinema",
-          "delivery": "no",
-          "name": "Cinema Florin Piersic",
-          "source": "survey",
-          "tiff2014": "yes",
+          "description": "sightseeing (panoramic view of paris)",
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 181805216,
+        "lat": 48.8925554,
+        "lon": 2.2358933,
+        "tags": {
+          "created_by": "JOSM",
+          "layer": "5",
+          "name": "Grande Arche",
+          "tourism": "viewpoint",
           "wheelchair": "yes"
         }
       },
       {
         "type": "node",
-        "id": 417207035,
-        "lat": 46.7751611,
-        "lon": 23.5792815,
+        "id": 252789263,
+        "lat": 48.834022,
+        "lon": 2.3834762,
         "tags": {
-          "alt_name": "Dealul Cetățuii",
-          "ele": "401",
-          "name": "Dealul Cetățuia",
-          "name:hu": "Fellegvár",
-          "natural": "peak"
+          "leisure": "garden",
+          "name": "Jardin Yitzhak Rabin",
+          "wikidata": "Q24932225"
         }
       },
       {
         "type": "node",
-        "id": 417207051,
-        "lat": 46.7736174,
-        "lon": 23.5821454,
+        "id": 283352094,
+        "lat": 48.8626842,
+        "lon": 2.3440139,
+        "tags": {
+          "addr:city": "Paris",
+          "addr:postcode": "75001",
+          "alt_name": "Piscine des Halles",
+          "check_date": "2026-01-30",
+          "contact:email": "contact@piscine-berlioux.fr",
+          "contact:phone": "+33 1 42 36 98 44",
+          "layer": "-1",
+          "leisure": "sports_centre",
+          "level": "-3",
+          "name": "Piscine Suzanne Berlioux",
+          "sport": "swimming",
+          "website": "https://www.paris.fr/lieux/piscine-suzanne-berlioux-les-halles-2916",
+          "wikidata": "Q3389222",
+          "wikipedia": "fr:Piscine Suzanne-Berlioux"
+        }
+      },
+      {
+        "type": "node",
+        "id": 308204328,
+        "lat": 48.8580287,
+        "lon": 2.3999426,
+        "tags": {
+          "amenity": "nightclub",
+          "check_date": "2023-05-13",
+          "name": "La Goguette"
+        }
+      },
+      {
+        "type": "node",
+        "id": 321830148,
+        "lat": 48.8787433,
+        "lon": 2.3802759,
+        "tags": {
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 321830153,
+        "lat": 48.8810863,
+        "lon": 2.3830748,
+        "tags": {
+          "name": "Belvédère de la Sibylle",
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 346628686,
+        "lat": 48.8773262,
+        "lon": 2.3756412,
+        "tags": {
+          "description": "Vue sur le sacré cœur",
+          "tourism": "viewpoint"
+        }
+      },
+      {
+        "type": "node",
+        "id": 429277814,
+        "lat": 48.81928,
+        "lon": 2.4461614,
         "tags": {
           "tourism": "viewpoint",
-          "wheelchair": "limited"
+          "wheelchair": "yes"
         }
       },
       {
         "type": "node",
-        "id": 704432402,
-        "lat": 46.7490855,
-        "lon": 23.5304495,
+        "id": 446099141,
+        "lat": 48.8174676,
+        "lon": 2.2552101,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "amenity": "cinema",
-          "brand": "Cinema City",
-          "brand:wikidata": "Q543651",
-          "brand:wikipedia": "en:Cinema City International",
-          "check_date": "2025-11-01",
-          "name": "Cinema City",
-          "name:ro": "Cinema City",
-          "payment:cash": "yes",
-          "payment:credit_cards": "yes",
-          "payment:debit_cards": "yes"
-        }
-      },
-      {
-        "type": "node",
-        "id": 828503502,
-        "lat": 46.7755038,
-        "lon": 23.5869138,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:street": "Strada Horea",
-          "amenity": "library",
-          "name": "Biblioteca Austria",
-          "name:de": "Österreich-Bibliothek",
-          "name:en": "Austrian Library",
-          "name:hu": "Osztrák Könyvtár",
-          "name:ro": "Biblioteca Austria",
-          "opening_hours": "Mo-Fr 09:00-13:00",
-          "operator": "Universitatea Babeș-Bolyai"
-        }
-      },
-      {
-        "type": "node",
-        "id": 963303445,
-        "lat": 46.7686289,
-        "lon": 23.5923722,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "amenity": "theatre",
-          "name": "Teatrul de Păpuși PUCK",
-          "name:de": "PUCK Puppentheater",
-          "name:en": "PUCK Puppet Theatre",
-          "name:hu": "PUCK Bábszínház",
-          "name:ro": "Teatrul de Păpuși PUCK",
-          "website": "https://teatrulpuck.ro/",
-          "wheelchair": "limited"
-        }
-      },
-      {
-        "type": "node",
-        "id": 963322996,
-        "lat": 46.7684573,
-        "lon": 23.5965135,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:street": "Strada Mihail Kogălniceanu",
-          "amenity": "arts_centre",
-          "name": "Breasla Barabás Miklós",
-          "name:de": "Barabás-Miklós-Vereinigung",
-          "name:en": "Barabás Miklós Guild",
-          "name:hu": "Barabás Miklós Céh",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 985682965,
-        "lat": 46.7687619,
-        "lon": 23.5895935,
-        "tags": {
-          "historic": "memorial",
-          "memorial": "obelisk",
-          "name": "Stâlpi Împușcați",
-          "wheelchair": "yes",
-          "wikidata": "Q26257320",
-          "wikipedia": "ro:Monumentul Stâlpii Împușcați"
-        }
-      },
-      {
-        "type": "node",
-        "id": 985683080,
-        "lat": 46.7697093,
-        "lon": 23.5922886,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:street": "Bulevardul Eroilor",
-          "historic": "monument",
-          "inscription": "Alla Citta di Cluj \nRoma Madre \nMCMXXI",
-          "name": "Lupa Capitolina",
-          "name:en": "Capitoline Wolf",
-          "name:ro": "Lupa Capitolina",
-          "wikidata": "Q6274572",
-          "wikipedia": "ro:Statuia Lupa Capitolina din Cluj-Napoca"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1177401687,
-        "lat": 46.7068023,
-        "lon": 23.6497736,
-        "tags": {
-          "ele": "760",
-          "natural": "peak"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1261905968,
-        "lat": 46.7676195,
-        "lon": 23.5921289,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "historic": "monument",
-          "name": "Școala Ardeleană",
-          "name:de": "Siebenbürgische Schule",
-          "name:en": "Transylvanian School",
-          "name:hu": "Erdélyi iskola"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1293194684,
-        "lat": 46.7730119,
-        "lon": 23.620332,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "amenity": "community_centre",
-          "name": "Centrul Cultural Polonez",
-          "name:de": "Polnisches Kulturinstitut",
-          "name:en": "Polish Cultural Centre",
-          "name:hu": "Lengyel Kulturális Intézet",
-          "name:ro": "Centrul Cultural Polonez",
-          "operator": "Universitatea Babeș-Bolyai"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1297291400,
-        "lat": 46.7707354,
-        "lon": 23.5890121,
-        "tags": {
-          "amenity": "community_centre",
-          "name": "Asociația Kolozsvár",
-          "name:de": "Kolozsvár-Gesellschaft",
-          "name:en": "Kolozsvár Society",
-          "name:hu": "Kolozsvár Társaság",
-          "name:ro": "Asociația Kolozsvár",
-          "official_name": "Asociația Kolozsvár Társaság"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1404864435,
-        "lat": 46.707115,
-        "lon": 23.6054913,
-        "tags": {
-          "ele": "754",
-          "name": "Dâmbul Mare",
-          "natural": "peak"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1585688249,
-        "lat": 46.7803515,
-        "lon": 23.5201079,
-        "tags": {
-          "historic": "archaeological_site",
-          "name": "Cheile Baciului",
-          "name:hu": "Bácsi-torok",
-          "name:ro": "Cheile Baciului",
-          "wikidata": "Q12723916",
-          "wikipedia": "ro:Cheile Baciului"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1599237742,
-        "lat": 46.7156054,
-        "lon": 23.5369501,
-        "tags": {
-          "name": "Brüll kilátó",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre ; mise à jour : 2009",
           "tourism": "viewpoint"
         }
       },
       {
         "type": "node",
-        "id": 1695003279,
-        "lat": 46.7555989,
-        "lon": 23.5957458,
+        "id": 463549966,
+        "lat": 48.8234134,
+        "lon": 2.2624384,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "1",
-          "addr:postcode": "400500",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Observatorului",
-          "amenity": "library",
-          "name": "Biblioteca Județeană Octavian Goga, filiala Zorilor",
-          "opening_hours": "Mo-Fr 08:00-20:00; Sa-Su off",
-          "operator": "Biblioteca Județeană Octavian Goga Cluj-Napoca",
-          "phone": "+4 0264 438 409;+4 0364 401 796",
-          "website": "http://www.bjc.ro/new/index.php?filiala-zorilor/"
+          "addr:city": "Issy-les-Moulineaux",
+          "addr:country": "FR",
+          "addr:housename": "Les Arches d'Issy",
+          "addr:housenumber": "1-6",
+          "addr:postcode": "92130",
+          "addr:street": "Boulevard Garibaldi",
+          "brand": "Arkose",
+          "climbing:boulder": "yes",
+          "climbing:length": "11,5",
+          "climbing:speed": "no",
+          "climbing:sport": "yes",
+          "climbing:toprope": "yes",
+          "climbing:traditional": "no",
+          "leisure": "sports_centre",
+          "name": "Arkose Issy-les-Moulineaux",
+          "name:en": "Arkose Issy-les-Moulineaux (ex MurMur)",
+          "name:fr": "Arkose Issy-les-Moulineaux (ex MurMur)",
+          "opening_hours": "Mo, Tu, Th, Fr 09:00-24:00; We, Sa, Su 08:00-24:00; PH 08:00-24:00",
+          "phone": "+33 1 58 88 00 22",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2009",
+          "sport": "climbing",
+          "website": "https://arkose.com/issy-les-moulineaux-voie"
         }
       },
       {
         "type": "node",
-        "id": 1802386923,
-        "lat": 46.7195635,
-        "lon": 23.4997335,
+        "id": 535950232,
+        "lat": 48.8463183,
+        "lon": 2.3713211,
         "tags": {
-          "name": "Vedere spre Florești și Tăuți",
+          "check_date": "2026-04-09",
+          "leisure": "sports_centre",
+          "name": "CSPSE",
+          "sport": "martial_arts",
+          "website": "https://cspse-teamcamp10.fr/"
+        }
+      },
+      {
+        "type": "node",
+        "id": 597416676,
+        "lat": 48.8732718,
+        "lon": 2.3058616,
+        "tags": {
+          "contact:city": "Paris",
+          "contact:housenumber": "26",
+          "contact:phone": "+33 1 43 59 04 58",
+          "contact:postcode": "75008",
+          "contact:street": "Rue de Berri",
+          "contact:website": "https://www.cmgsportsclub.com/",
+          "leisure": "sports_centre",
+          "name": "CMG Sports Club",
+          "sport": "fitness"
+        }
+      },
+      {
+        "type": "node",
+        "id": 672956260,
+        "lat": 48.8750963,
+        "lon": 2.3401853,
+        "tags": {
+          "contact:city": "Paris",
+          "contact:housenumber": "10",
+          "contact:phone": "+33 1 48 74 58 49",
+          "contact:postcode": "75009",
+          "contact:street": "Rue de la Victoire",
+          "contact:website": "https://www.cmgsportsclub.com/",
+          "leisure": "sports_centre",
+          "name": "CMG Sports Club",
+          "sport": "fitness"
+        }
+      },
+      {
+        "type": "node",
+        "id": 677967538,
+        "lat": 48.8598453,
+        "lon": 2.3478047,
+        "tags": {
+          "addr:city": "Paris",
+          "addr:country": "FR",
+          "addr:housenumber": "58",
+          "addr:street": "Rue des Lombards",
+          "amenity": "nightclub",
+          "check_date": "2026-02-20",
+          "name": "Le Baiser Salé",
+          "name:fr": "Le Baiser Salé",
+          "ref:FR:SIRET": "32505062300025",
+          "smoking": "no",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010",
+          "wheelchair": "limited",
+          "wikidata": "Q3220206"
+        }
+      },
+      {
+        "type": "node",
+        "id": 693733161,
+        "lat": 48.8699301,
+        "lon": 2.3484226,
+        "tags": {
+          "contact:city": "Paris",
+          "contact:housenumber": "37",
+          "contact:postcode": "75002",
+          "contact:street": "Rue de la Lune",
+          "contact:website": "http://www.happyhourescapegame.com/",
+          "leisure": "escape_game",
+          "name": "Happy Hour - Escape Game",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010"
+        }
+      },
+      {
+        "type": "node",
+        "id": 700449131,
+        "lat": 48.8589952,
+        "lon": 2.3527092,
+        "tags": {
+          "addr:city": "Paris",
+          "addr:housenumber": "16",
+          "addr:postcode": "75004",
+          "addr:street": "Rue du Renard",
+          "leisure": "sports_centre",
+          "name": "Centre sportif Saint-Merri",
+          "opening_hours": "Tu 07:00-08:30, 11:30-13:00; We, Fr 07:00-18:00; Th 07:00-08:30, 11:30-13:30, 16:30-22:00; Sa 07:00-08:00, 18:00-18:00",
+          "source": "survey",
+          "sport": "swimming",
+          "website": "http://equipement.paris.fr/Piscine%20Saint-Merri"
+        }
+      },
+      {
+        "type": "node",
+        "id": 739827687,
+        "lat": 48.8425973,
+        "lon": 2.3623815,
+        "tags": {
+          "check_date": "2025-10-03",
+          "description": "accès réservé aux clubs et associations",
+          "leisure": "sports_centre",
+          "name": "Gymnase Buffon",
+          "opening_hours": "\"Gymnase pas en accès libre\"",
+          "operator": "Ville de Paris",
+          "operator:type": "public",
+          "operator:wikidata": "Q3278478",
+          "phone": "+33 1 43 31 45 92",
+          "website": "https://www.paris.fr/lieux/gymnase-buffon-3188"
+        }
+      },
+      {
+        "type": "node",
+        "id": 905890543,
+        "lat": 48.8833055,
+        "lon": 2.3634273,
+        "tags": {
+          "contact:city": "Paris",
+          "contact:housenumber": "31",
+          "contact:postcode": "75010",
+          "contact:street": "Rue du Château Landon",
+          "leisure": "sports_centre",
+          "name": "Piscine Château Landon",
+          "sport": "swimming",
+          "wikidata": "Q86667427",
+          "wikipedia": "fr:Piscine Château-Landon"
+        }
+      },
+      {
+        "type": "node",
+        "id": 908823654,
+        "lat": 48.8212415,
+        "lon": 2.4686565,
+        "tags": {
+          "leisure": "sports_centre",
+          "name": "L'Aviron pour tous",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010",
+          "sport": "rowing"
+        }
+      },
+      {
+        "type": "node",
+        "id": 908823783,
+        "lat": 48.8222536,
+        "lon": 2.4675818,
+        "tags": {
+          "leisure": "sports_centre",
+          "name": "Joinville Eau Vive",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2010",
+          "sport": "canoe",
+          "website": "http://www.jevck.com"
+        }
+      },
+      {
+        "type": "node",
+        "id": 959829279,
+        "lat": 48.8912873,
+        "lon": 2.2484712,
+        "tags": {
+          "leisure": "sports_centre",
+          "name": "Gymnase des Renardières",
+          "source": "Microsoft Bing satellite 2012",
+          "sport": "multi"
+        }
+      },
+      {
+        "type": "node",
+        "id": 977195330,
+        "lat": 48.8431371,
+        "lon": 2.355922,
+        "tags": {
+          "mapillary": "586512742314550",
+          "name": "Butte de Coupeaux",
           "tourism": "viewpoint"
         }
       },
       {
         "type": "node",
-        "id": 1883218061,
-        "lat": 46.7717315,
-        "lon": 23.5871037,
+        "id": 985482319,
+        "lat": 48.881627,
+        "lon": 2.3990017,
         "tags": {
-          "historic": "memorial",
-          "material": "limestone",
-          "memorial": "obelisk",
-          "name": "Obeliscul Carolina",
-          "name:de": "Karolinenobelisk",
-          "name:en": "Caroline Obelisk",
-          "name:hu": "Karolina-oszlop",
-          "name:ro": "Obeliscul Carolina",
-          "wikidata": "Q1104948",
-          "wikipedia": "ro:Obeliscul Carolina din Cluj-Napoca"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2135926870,
-        "lat": 46.7675161,
-        "lon": 23.5887845,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "11",
-          "addr:postcode": "400088",
-          "addr:street": "Strada Napoca",
-          "amenity": "library",
-          "name": "Istorie Modernă",
-          "name:de": "Neuzeit",
-          "name:en": "Modern History",
-          "name:hu": "Újkor",
-          "opening_hours": "Mo-Fr 08:00-19:45; Sa 08:00-15:00",
-          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
-          "website": "https://www.bcucluj.ro/filiale/f-istm.php",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2135935620,
-        "lat": 46.7666125,
-        "lon": 23.5895422,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "11",
-          "addr:postcode": "400089",
-          "addr:street": "Strada Avram Iancu",
-          "amenity": "library",
-          "name": "Biblioteca Facultății de Drept",
-          "name:de": "Rechtswissenschaft",
-          "name:en": "Faculty of Law",
-          "name:hu": "Jogtudomány",
-          "opening_hours": "Mo-Fr 08:00-19:45",
-          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
-          "website": "https://www.bcucluj.ro/filiale/f-drept.php"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2135937764,
-        "lat": 46.7679322,
-        "lon": 23.5919115,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "1",
-          "addr:postcode": "400084",
-          "addr:street": "Strada Mihail Kogălniceanu",
-          "amenity": "library",
-          "name": "Biblioteca de Filosofie",
-          "name:de": "Philosophie",
-          "name:en": "Philosophy",
-          "name:hu": "Filozófia",
-          "opening_hours": "Mo-Fr 08:00-20:00; Sa 08:00-14:00",
-          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
-          "website": "https://www.bcucluj.ro/filiale/f-filos.php",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2135944644,
-        "lat": 46.7645934,
-        "lon": 23.5797146,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "5-7",
-          "addr:postcode": "400006",
-          "addr:street": "Strada Clinicilor",
-          "amenity": "library",
-          "name": "Geografie",
-          "name:de": "Geographie",
-          "name:en": "Geography",
-          "name:hu": "Földrajz",
-          "opening_hours": "Mo-Th 08:00-19:45; Fr 08:00-15:30",
-          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
-          "website": "https://www.bcucluj.ro/filiale/f-geogr.php",
-          "wheelchair": "limited"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2135944645,
-        "lat": 46.7677832,
-        "lon": 23.5919827,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "1",
-          "addr:postcode": "400084",
-          "addr:street": "Strada Mihail Kogălniceanu",
-          "amenity": "library",
-          "name": "Biblioteca de Fizică",
-          "name:de": "Physik",
-          "name:en": "Physics",
-          "name:hu": "Fizika",
-          "opening_hours": "Mo-Th 08:00-20:00; Fr 08:00-15:00; Sa 08:00-14:00",
-          "operator": "Biblioteca Centrală Universitară Lucian Blaga",
-          "website": "https://www.bcucluj.ro/filiale/f-fizica.php",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2152486048,
-        "lat": 46.7654271,
-        "lon": 23.5908467,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housename": "4",
-          "addr:postcode": "400090",
-          "addr:street": "Strada Mărului",
-          "amenity": "library",
-          "designation": "lawyer",
-          "name": "Iordăchescu & Asociații",
-          "website": "https://www.iordachescu-law.ro/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2341975442,
-        "lat": 46.7561779,
-        "lon": 23.5930936,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "34",
-          "addr:street": "Strada Observatorului",
-          "amenity": "library",
-          "name": "Biblioteca UTCN Observator",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 2398523152,
-        "lat": 46.6903309,
-        "lon": 23.5569164,
-        "tags": {
-          "designation": "Peana top",
-          "name": "Belvedere Peana",
-          "source": "survey GPS",
           "tourism": "viewpoint"
         }
       },
       {
         "type": "node",
-        "id": 2634043838,
-        "lat": 46.7705771,
-        "lon": 23.5921832,
+        "id": 996419560,
+        "lat": 48.8246156,
+        "lon": 2.309548,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "name": "Unic Art Gallery",
-          "tourism": "gallery",
-          "wheelchair": "no"
+          "leisure": "swimming_pool",
+          "name": "Piscine Didot",
+          "website": "https://www.paris.fr/lieux/piscine-didot-2932"
         }
       },
       {
         "type": "node",
-        "id": 2634044264,
-        "lat": 46.7705692,
-        "lon": 23.5926408,
+        "id": 996419571,
+        "lat": 48.8248825,
+        "lon": 2.3100642,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "name": "Artexpert Gallery",
-          "tourism": "gallery",
-          "wheelchair": "no"
+          "leisure": "sports_centre",
+          "name": "Gymnase Didot",
+          "sport": "multi"
         }
       },
       {
         "type": "node",
-        "id": 2634651859,
-        "lat": 46.7673522,
-        "lon": 23.5921614,
+        "id": 1020227152,
+        "lat": 48.871312,
+        "lon": 2.3736247,
         "tags": {
-          "SIRUTA:code": "54984",
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "4",
-          "addr:postcode": "400084",
-          "addr:street": "Strada Mihail Kogălniceanu",
-          "codul_entității_muzeale": "5.1620000169E10",
-          "description:en": "The Museum was inaugurated in April 2001, during the mandate of Professor Andrei Marga as president of the \"Babes-Bolyai\" University. The idea of such a Museum was first discussed in 1994 at the 75-th anniversary of the creation of the Cluj Romanian Univ",
-          "description:ro": "Muzeul a fost inaugurat in aprilie 2001, in timpul rectoratului profesorului Andrei Marga, dupa ce ideea aparitiei unei asemenea institutii a aparut odata cu aniversarea a 75 de ani de la infiintarea universitatii romanesti din Cluj (in 1994), ea fiind r",
-          "email": "amstan@staff.ubbcluj.ro",
-          "name": "Muzeul Universității Babeș-Bolyai",
-          "name:en": "\"Babes-Bolyai\" University Museum",
-          "opening_hours": "Mo-Fr 9:30-13:30",
-          "phone": "0264/591.471",
-          "short_name": "Muzeul UBB",
-          "source": "INP",
-          "source:link": "http://date.gov.ro/dataset/ghidul-muzeelor-din-romania",
-          "start_date": "2001",
-          "tourism": "museum",
-          "tourism_survey": "04.12.2013 15:09:14",
-          "website": "https://muzee.ubbcluj.ro/",
-          "wheelchair": "no"
+          "addr:housenumber": "150",
+          "addr:street": "Rue du Faubourg du Temple",
+          "amenity": "nightclub",
+          "contact:website": "http://www.la-java.fr/",
+          "name": "La Java",
+          "wikidata": "Q3209830",
+          "wikipedia": "fr:La Java"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1021084566,
+        "lat": 48.8446917,
+        "lon": 2.2574872,
+        "tags": {
+          "name": "Sport System",
+          "opening_hours": "Mo-Sa 10:00-13:30,14:30-19:00",
+          "shop": "sports",
+          "source": "survey 2019",
+          "sport": "tennis"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1107065565,
+        "lat": 48.8447366,
+        "lon": 2.3635126,
+        "tags": {
+          "leisure": "garden",
+          "name": "Jardin de Roches et de Pivoines"
+        }
+      },
+      {
+        "type": "node",
+        "id": 1108414671,
+        "lat": 48.8527871,
+        "lon": 2.3462981,
+        "tags": {
+          "addr:city": "Paris",
+          "addr:housenumber": "5",
+          "addr:postcode": "75005",
+          "addr:street": "Rue de la Huchette",
+          "amenity": "nightclub",
+          "check_date": "2024-03-16",
+          "email": "huchette@aol.com",
+          "image": "https://upload.wikimedia.org/wikipedia/commons/b/be/Le_Caveau_de_la_Huchette.jpg",
+          "musical_instrument:piano": "yes",
+          "name": "Caveau de la Huchette",
+          "phone": "+33143266505",
+          "source": "cadastre-dgi-fr source : Direction Générale des Impôts - Cadastre. Mise à jour : 2011",
+          "website": "http://www.caveaudelahuchette.fr/",
+          "wheelchair": "no",
+          "wikidata": "Q517995",
+          "wikipedia": "fr:Le Caveau de la Huchette"
         }
       }
     ]
@@ -508,611 +437,576 @@
     "version": 0.6,
     "generator": "Overpass API 0.7.62.11 87bfad18",
     "osm3s": {
-      "timestamp_osm_base": "2026-05-13T13:48:04Z",
+      "timestamp_osm_base": "2026-05-16T23:26:58Z",
       "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
     },
     "elements": [
       {
         "type": "node",
-        "id": 724318144,
-        "lat": 46.7659022,
-        "lon": 23.5823243,
+        "id": 158603712,
+        "lat": 48.8298338,
+        "lon": 2.3228991,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "14",
-          "addr:postcode": "400006",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Clinicilor",
           "amenity": "restaurant",
-          "cuisine": "regional",
-          "food": "yes",
-          "name": "Restaurant Livada",
-          "opening_hours": "Mo-Fr 10:00-24:00;Sa-Su 12:00-24:00",
-          "website": "http://www.restaurantlivada.ro/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 724318150,
-        "lat": 46.7657285,
-        "lon": 23.5854918,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "13",
-          "addr:postcode": "400012",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Victor Babeș",
-          "amenity": "restaurant",
-          "check_date:opening_hours": "2022-10-24",
-          "cuisine": "regional",
+          "cuisine": "caribbean",
+          "happy_hours": "16:00-20:00",
           "indoor_seating": "yes",
-          "name": "Restaurant UMF",
-          "name:de": "UMF Restaurant",
-          "name:it": "UMF",
-          "opening_hours": "Mo-Fr 12:00-16:00",
-          "operator": "Universitatea de Medicină și Farmacie „Iuliu Hațieganu”",
-          "outdoor_seating": "no"
+          "name": "Moulin Créole",
+          "opening_hours": "07:00-23:30",
+          "outdoor_seating": "yes",
+          "phone": "+33 1 45 39 31 31",
+          "website": "https://www.moulin-creole-paris.fr"
         }
       },
       {
         "type": "node",
-        "id": 724372323,
-        "lat": 46.76379,
-        "lon": 23.5847264,
+        "id": 165738645,
+        "lat": 48.8942633,
+        "lon": 2.2311932,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "12",
-          "addr:postcode": "400012",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Victor Babeș",
-          "amenity": "restaurant",
-          "cuisine": "pizza",
+          "addr:city": "Nanterre",
+          "addr:housenumber": "261",
+          "addr:postcode": "92000",
+          "addr:street": "Jardin de l'Arche",
+          "amenity": "fast_food",
+          "brand": "Big Fernand",
+          "brand:wikidata": "Q19521346",
+          "brand:wikipedia": "fr:Big Fernand",
+          "cuisine": "burger",
           "delivery": "yes",
-          "email": "rezervari@newcroco.ro",
-          "indoor_seating": "yes",
-          "name": "Pizzeria New Croco",
-          "opening_hours": "Mo-Su 08:00-24:00",
-          "outdoor_seating": "no",
-          "phone": "+40 754 605 001;+40 724 056 686",
-          "source": "local knowledge, website",
-          "website": "https://newcroco.ro/"
+          "drive_through": "no",
+          "name": "Big Fernand",
+          "opening_hours": "Mo-Su 12:00-15:00,19:00-22:30",
+          "phone": "+33 1 41 20 83 67",
+          "takeaway": "yes",
+          "website": "https://bigfernand.com/restaurants/nanterre-2/",
+          "wheelchair": "yes"
         }
       },
       {
         "type": "node",
-        "id": 724394649,
-        "lat": 46.7630339,
-        "lon": 23.5838731,
+        "id": 165749275,
+        "lat": 48.9004177,
+        "lon": 2.2243311,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "5",
-          "addr:postcode": "400337",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Profesor Gheorghe Marinescu",
-          "alt_name": "Tokyo Restaurant Cluj",
           "amenity": "restaurant",
-          "check_date:opening_hours": "2022-08-10",
-          "cuisine": "japanese",
-          "diet:vegan": "yes",
-          "diet:vegetarian": "yes",
-          "name": "Tokyo",
-          "name:en": "Tokyo Japanese Restaurant",
-          "opening_hours": "Mo-Su 12:00-23:00",
-          "phone": "+40 264 598 662;+40 753 070 000",
-          "smoking": "isolated",
-          "source": "website, local knowledge",
-          "website": "https://www.tokyorestaurant.ro/"
+          "brand": "Buffalo Grill",
+          "brand:wikidata": "Q944655",
+          "brand:wikipedia": "en:Buffalo Grill",
+          "contact:phone": "+33 9 74 64 10 89",
+          "cuisine": "steak_house",
+          "name": "Buffalo Grill"
         }
       },
       {
         "type": "node",
-        "id": 908391543,
-        "lat": 46.7741492,
-        "lon": 23.5927655,
+        "id": 165749285,
+        "lat": 48.9012749,
+        "lon": 2.2258409,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:postcode": "400036",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Piața Mihai Viteazu",
-          "alt_name": "McDonald's Mihai Viteazul Cluj",
+          "addr:postcode": "92000",
           "amenity": "fast_food",
           "brand": "McDonald's",
           "brand:wikidata": "Q38076",
           "brand:wikipedia": "en:McDonald's",
+          "check_date": "2025-08-13",
           "cuisine": "burger",
           "internet_access": "wlan",
           "name": "McDonald's",
-          "opening_hours": "Mo-Sa 07:00-24:00; Su 08:00-24:00",
-          "phone": "+40 264 406 355;+40 372 701 225",
-          "smoking": "no",
-          "source": "survey, website",
+          "opening_hours": "Mo-Th,Su 09:00-24:00; Fr-Sa 09:00-01:00",
+          "payment:cash": "yes",
+          "payment:credit_cards": "yes",
+          "payment:debit_cards": "yes",
+          "phone": "+33 1 81 93 12 78",
+          "source": "survey;knowledge",
           "takeaway": "yes",
-          "website": "https://mcdonalds.ro/",
-          "wheelchair": "no"
+          "website": "https://www.mcdonalds.fr/restaurants/mcdonalds-nanterre-prefecture/818"
         }
       },
       {
         "type": "node",
-        "id": 916370002,
-        "lat": 46.7575325,
-        "lon": 23.5669635,
+        "id": 175539450,
+        "lat": 48.8319911,
+        "lon": 2.3245334,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "27",
-          "addr:street": "Strada Govora",
-          "alt_name": "Restaurant Valachia",
+          "addr:housenumber": "8",
+          "addr:postcode": "75014",
+          "addr:street": "Rue des Plantes",
+          "air_conditioning": "yes",
           "amenity": "restaurant",
-          "cuisine": "regional",
-          "name": "Valahia",
-          "opening_hours": "Mo 00:00-23:00; Tu-Su 11:00-23:00"
-        }
-      },
-      {
-        "type": "node",
-        "id": 962211123,
-        "lat": 46.7729776,
-        "lon": 23.5908652,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "15",
-          "addr:postcode": "400102",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Dávid Ferenc",
-          "amenity": "restaurant",
-          "cuisine": "regional",
-          "description": "Hungarian food specialities.",
-          "name": "Spritz",
-          "opening_hours": "08:00-24:00",
-          "phone": "+40 0723183266",
-          "website": "https://spritzcafe.com",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 962217316,
-        "lat": 46.7695291,
-        "lon": 23.5888326,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "15",
-          "addr:postcode": "400113",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Piața Unirii",
-          "amenity": "restaurant",
-          "cuisine": "regional",
-          "email": "office@cafecorso.ro",
-          "name": "Bujolé",
-          "opening_hours": "Mo-Th 08:00-00:00; Fr 08:00-01:00; Sa 09:00-01:00; Su 09:00-00:00",
-          "phone": "+40 733 946 474",
-          "source": "local knowledge, website",
-          "website": "http://cafecorso.ro/",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 962251051,
-        "lat": 46.7646272,
-        "lon": 23.577451,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "23",
-          "addr:postcode": "400006",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Clinicilor",
-          "amenity": "restaurant",
-          "cuisine": "hungarian specialities",
-          "name": "Mikó",
-          "opening_hours": "8:00-11:00",
-          "wheelchair": "limited"
-        }
-      },
-      {
-        "type": "node",
-        "id": 962257719,
-        "lat": 46.7657681,
-        "lon": 23.5815745,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "18",
-          "addr:postcode": "400006",
-          "addr:street": "Strada Clinicilor",
-          "amenity": "restaurant",
-          "cuisine": "regional",
-          "name": "Heltai",
-          "opening_hours": "9:00-20:00",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 963706837,
-        "lat": 46.7718313,
-        "lon": 23.6023989,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "24",
-          "addr:street": "Calea Dorobanților",
-          "amenity": "restaurant",
-          "cuisine": "asian",
-          "name": "Wok'n Roll",
-          "smoking": "no",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 963706843,
-        "lat": 46.7681915,
-        "lon": 23.5883406,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "8A",
-          "addr:street": "Strada Napoca",
-          "amenity": "restaurant",
-          "cuisine": "european",
-          "name": "Baracca",
-          "opening_hours": "Mo-Su 12:00-23:00",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 963706846,
-        "lat": 46.7687136,
-        "lon": 23.589542,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "amenity": "cafe",
-          "cuisine": "tea",
-          "indoor_seating": "no",
-          "name": "Demmers Teehouse",
-          "opening_hours": "Mo-Fr 10:00-20:00; Sa 12:00-20:00",
-          "outdoor_seating": "no",
-          "phone": "0731307897",
-          "smoking": "no",
-          "takeaway": "only",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 984385577,
-        "lat": 46.7685648,
-        "lon": 23.5860101,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "7",
-          "addr:postcode": "400004",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Gheorghe Șincai",
-          "amenity": "fast_food",
-          "cuisine": "kebab",
+          "check_date": "2026-01-26",
+          "cuisine": "french",
           "indoor_seating": "yes",
-          "internet_access": "wlan",
-          "name": "Döner Maxx",
-          "opening_hours": "24/7",
+          "name": "Le Severo",
+          "opening_hours": "Mo-Fr 12:00-14:00,19:30-21:30",
           "outdoor_seating": "no",
-          "smoking": "no",
-          "wheelchair": "limited"
-        }
-      },
-      {
-        "type": "node",
-        "id": 986810154,
-        "lat": 46.777266,
-        "lon": 23.6104922,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "148",
-          "addr:postcode": "400604",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Bulevardul 21 Decembrie 1989",
-          "amenity": "restaurant",
-          "cuisine": "romanian",
-          "name": "Hera",
-          "opening_hours": "Mo-Fr 09:00-18:00",
-          "phone": "+40 264 444 112",
-          "smoking": "no",
-          "website": "http://artaculinaracluj.ro/website/restaurant-hera/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1003385071,
-        "lat": 46.7720611,
-        "lon": 23.5906338,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "1",
-          "addr:postcode": "400104",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Cotită",
-          "amenity": "fast_food",
-          "cuisine": "kebab",
-          "name": "Mc Lewy",
-          "opening_hours": "24/7",
+          "payment:credit_cards": "yes",
+          "payment:debit_cards": "yes",
           "smoking": "no",
           "wheelchair": "yes"
         }
       },
       {
         "type": "node",
-        "id": 1244306290,
-        "lat": 46.7638635,
-        "lon": 23.5768284,
+        "id": 176476540,
+        "lat": 48.896284,
+        "lon": 2.2250919,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "16",
-          "addr:street": "Strada Piezișă",
-          "amenity": "cafe",
-          "cuisine": "regional",
-          "name": "Solas Cafe",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1244306291,
-        "lat": 46.7639437,
-        "lon": 23.5767274,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:street": "Strada Piezișă",
-          "amenity": "cafe",
-          "cuisine": "regional",
-          "name": "Big Apple",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1288117728,
-        "lat": 46.7676519,
-        "lon": 23.5892979,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "6",
-          "addr:street": "Strada Inocențiu Micu Klein",
           "amenity": "restaurant",
-          "cuisine": "italian;regional",
-          "email": "contact@viarestaurant.ro",
-          "name": "Via Restaurant",
-          "opening_hours": "Mo-Su 12:00-24:00",
-          "smoking": "no",
-          "website": "http://www.viarestaurant.ro",
+          "check_date": "2023-10-24",
+          "name": "Le Sancerre",
+          "ref:FR:SIRET": "94975049100019",
+          "source": "survey",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 176476541,
+        "lat": 48.8965817,
+        "lon": 2.2241626,
+        "tags": {
+          "amenity": "restaurant",
+          "check_date": "2023-10-24",
+          "name": "La Terrasse",
+          "ref:FR:SIRET": "90304870000012"
+        }
+      },
+      {
+        "type": "node",
+        "id": 203123010,
+        "lat": 48.8948889,
+        "lon": 2.2387542,
+        "tags": {
+          "amenity": "restaurant",
+          "created_by": "JOSM",
+          "layer": "4",
+          "name": "Avant Seine"
+        }
+      },
+      {
+        "type": "node",
+        "id": 204128496,
+        "lat": 48.8907062,
+        "lon": 2.242646,
+        "tags": {
+          "addr:housenumber": "16",
+          "addr:street": "Place de La Défense",
+          "air_conditioning": "yes",
+          "amenity": "restaurant",
+          "bar": "no",
+          "check_date": "2026-01-29",
+          "cuisine": "french",
+          "internet_access": "no",
+          "layer": "4",
+          "name": "Tusk",
+          "opening_hours": "Mo-Fr 08:00-21:00",
+          "outdoor_seating": "yes",
+          "payment:mastercard": "yes",
+          "payment:visa": "yes",
+          "phone": "+33 1 47 75 00 10",
+          "reservation": "yes",
+          "website": "https://restauranttusk.com/",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 205462084,
+        "lat": 48.8964233,
+        "lon": 2.2372254,
+        "tags": {
+          "amenity": "restaurant",
+          "layer": "3",
+          "name": "Soleil d'Or",
+          "ref:FR:SIRET": "42467257400011"
+        }
+      },
+      {
+        "type": "node",
+        "id": 227450780,
+        "lat": 48.8907277,
+        "lon": 2.23561,
+        "tags": {
+          "amenity": "restaurant",
+          "created_by": "JOSM",
+          "name": "Boldère"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247439841,
+        "lat": 48.8618492,
+        "lon": 2.3434997,
+        "tags": {
+          "addr:city": "Paris",
+          "addr:housenumber": "37",
+          "addr:postcode": "75001",
+          "addr:street": "Rue Berger",
+          "amenity": "restaurant",
+          "check_date": "2025-06-04",
+          "contact:city": "Paris",
+          "contact:housenumber": "37",
+          "contact:phone": "+33 1 42 36 20 47",
+          "contact:postcode": "75001",
+          "contact:street": "Rue Berger",
+          "cuisine": "italian;pizza",
+          "indoor_seating": "yes",
+          "name": "Uno",
+          "opening_hours": "Mo-Su 12:00-00:00",
+          "outdoor_seating": "yes",
+          "ref:FR:SIRET": "84330345400014",
+          "smoking": "outside",
+          "toilets:wheelchair": "no",
+          "website": "https://unoparis.com/",
+          "wheelchair": "limited",
+          "wheelchair:description": "only parts of the restaurant are wheelchair accessible. The toilet is not accessible."
+        }
+      },
+      {
+        "type": "node",
+        "id": 247455916,
+        "lat": 48.8672925,
+        "lon": 2.3255509,
+        "tags": {
+          "amenity": "restaurant",
+          "name": "La Crypte Polska",
+          "source": "survey"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247455918,
+        "lat": 48.8616428,
+        "lon": 2.3359304,
+        "tags": {
+          "addr:city": "Paris",
+          "addr:housenumber": "93",
+          "addr:postcode": "75001",
+          "addr:street": "Rue de Rivoli",
+          "air_conditioning": "yes",
+          "amenity": "cafe",
+          "check_date": "2026-04-12",
+          "indoor_seating": "yes",
+          "internet_access": "yes",
+          "layer": "4",
+          "name": "Le Café Marly",
+          "name:fr": "Le Café Marly",
+          "name:ru": "Кафе Марли",
+          "opening_hours": "Mo-Su 08:00-02:00",
+          "outdoor_seating": "yes",
+          "phone": "+33149260660",
+          "website": "https://cafe-marly.com/",
+          "wheelchair": "yes",
+          "wikidata": "Q17305044"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247455920,
+        "lat": 48.865893,
+        "lon": 2.3372573,
+        "tags": {
+          "amenity": "restaurant",
+          "contact:city": "Paris",
+          "contact:housenumber": "37bis",
+          "contact:phone": "+33 1 40 20 03 02",
+          "contact:postcode": "75001",
+          "contact:street": "Rue de Montpensier",
+          "level": "-1",
+          "name": "Mystery Cuisine",
+          "opening_hours": "Tu-Sa 20:00-21:00",
+          "ref:FR:SIRET": "44866790700019",
+          "self_service": "yes",
+          "website": "https://mysterycuisine.fr"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247455923,
+        "lat": 48.8615239,
+        "lon": 2.3440891,
+        "tags": {
+          "amenity": "restaurant",
+          "contact:city": "Paris",
+          "contact:housenumber": "5",
+          "contact:phone": "+33 1 42 36 21 82",
+          "contact:postcode": "75001",
+          "contact:street": "Rue des Prouvaires",
+          "cuisine": "french",
+          "indoor_seating": "yes",
+          "name": "Chez Denise",
+          "opening_hours": "Mo-Su 12:00-24:00; Mo-Su 00:00-02:00",
+          "outdoor_seating": "yes",
+          "ref:FR:SIRET": "87883911700024",
+          "smoking": "outside",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247455924,
+        "lat": 48.8586437,
+        "lon": 2.3458501,
+        "tags": {
+          "amenity": "restaurant",
+          "cuisine": "bistro;french",
+          "indoor_seating": "yes",
+          "name": "La Robe et le Palais",
+          "outdoor_seating": "yes",
+          "phone": "+33 1 45 08 07 41",
+          "ref:FR:SIRET": "80982629000029",
+          "website": "https://www.robe-et-palais.com/",
           "wheelchair": "limited"
         }
       },
       {
         "type": "node",
-        "id": 1288196328,
-        "lat": 46.7699081,
-        "lon": 23.5926891,
+        "id": 247467738,
+        "lat": 48.8664042,
+        "lon": 2.3380601,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:street": "Bulevardul Eroilor",
+          "addr:housenumber": "15",
+          "addr:street": "Rue des Petits Champs",
           "amenity": "restaurant",
-          "cuisine": "regional",
-          "name": "Tramvay",
-          "opening_hours": "Mo-Sa 09:00-21:00; Su off",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1288196335,
-        "lat": 46.7699412,
-        "lon": 23.587283,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "10",
-          "addr:postcode": "400114",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Memorandumului",
-          "amenity": "restaurant",
-          "contact:facebook": "https://www.facebook.com/LikeMemo10",
-          "cuisine": "international",
-          "name": "Memo 10",
-          "opening_hours": "Mo-Fr 11:00-18:00",
-          "phone": "+40 727 892 831",
-          "smoking": "no",
-          "source": "survey, website",
-          "website": "http://cantina-primariei.ro/",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1288196360,
-        "lat": 46.76995,
-        "lon": 23.5884895,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "16",
-          "addr:street": "Piața Unirii",
-          "alt_name": "Storia Cucina Centrale",
-          "amenity": "restaurant",
-          "contact:facebook": "https://www.facebook.com/Storia-Cluj-Napoca-882727991929614/",
-          "cuisine": "pizza",
-          "name": "Storia",
-          "opening_hours": "Mo-Su 09:00-23:00",
-          "phone": "0757 900 987",
-          "wheelchair": "no"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1300729354,
-        "lat": 46.7735691,
-        "lon": 23.5934749,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "16",
-          "addr:postcode": "400107",
-          "addr:street": "Strada Cuza Vodă",
-          "amenity": "restaurant",
-          "delivery": "yes",
+          "check_date": "2025-10-01",
+          "contact:facebook": "https://fr-fr.facebook.com/MaceoRestaurant.Paris/",
+          "contact:instagram": "https://www.instagram.com/restaurantmaceo/",
+          "contact:phone": "+33 1 42 97 53 85",
           "diet:vegan": "yes",
-          "name": "Bistro Lovegan",
-          "opening_hours": "Mo-Fr 12:00-17:00",
-          "phone": "+40723698654",
-          "website": "https://www.meniudigital.ro/bistrolovegan"
+          "diet:vegetarian": "yes",
+          "email": "info@maceorestaurant.com",
+          "name": "Macéo",
+          "opening_hours:kitchen": "Mo-Sa 12:00-14:30, 19:15-23:15; Su 19:30-22:30",
+          "payment:cash": "yes",
+          "payment:credit_cards": "yes",
+          "payment:debit_cards": "yes",
+          "payment:visa": "yes",
+          "ref:FR:SIRET": "56210368900013",
+          "source:opening_hours": "website",
+          "website": "https://www.maceorestaurant.com",
+          "website:menu": "https://www.maceorestaurant.com/menu-carte/fr",
+          "wheelchair": "limited"
         }
       },
       {
         "type": "node",
-        "id": 1320496945,
-        "lat": 46.7675617,
-        "lon": 23.6022026,
+        "id": 247696089,
+        "lat": 48.8572887,
+        "lon": 2.3660498,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
+          "addr:city": "Paris",
+          "addr:housenumber": "9",
+          "addr:street": "Rue de Béarn",
           "amenity": "restaurant",
-          "cuisine": "regional",
-          "name": "Bolero",
-          "opening_hours": "Mo-Sa 08:00-01:00; Su 12:00-01:00",
-          "website": "http://www.restaurant-bolero.ro/"
+          "cuisine": "french",
+          "indoor_seating": "yes",
+          "name": "Le Petit Marché",
+          "outdoor_seating": "yes"
         }
       },
       {
         "type": "node",
-        "id": 1320496948,
-        "lat": 46.7671262,
-        "lon": 23.6026188,
+        "id": 247696090,
+        "lat": 48.8580708,
+        "lon": 2.3643313,
         "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "1",
-          "addr:postcode": "400485",
-          "addr:street": "Strada Constantin Brâncuși",
           "amenity": "restaurant",
-          "contact:facebook": "https://www.facebook.com/Trattoria-Pineta-228288607305491/",
-          "cuisine": "pizza;italian",
-          "email": "trattoriapineta@yahoo.ro",
-          "name": "Trattoria Pineta",
-          "opening_hours": "Mo-Su 10:00-23:00",
-          "phone": "+40 264 414 820;+40 743 087 251",
-          "website": "http://www.trattoriapineta.ro/"
+          "check_date": "2025-06-21",
+          "cuisine": "french",
+          "name": "Café des Musées",
+          "opening_hours": "Mo-Su 12:00-15:00,19:00-23:30",
+          "phone": "+33 1 42 72 96 17",
+          "wheelchair": "no"
         }
       },
       {
         "type": "node",
-        "id": 1320496952,
-        "lat": 46.7632967,
-        "lon": 23.6085299,
+        "id": 247696091,
+        "lat": 48.865451,
+        "lon": 2.3553243,
         "tags": {
-          "addr:housenumber": "86A",
-          "addr:street": "Strada Constantin Brâncuși",
-          "alt_name": "Casa Dacilor Brâncuși",
-          "amenity": "restaurant",
-          "cuisine": "regional",
-          "name": "Casa Dacilor",
-          "outdoor_seating": "yes",
-          "website": "https://www.casa-dacilor.ro/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1376263505,
-        "lat": 46.7618147,
-        "lon": 23.6056653,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "1",
-          "addr:street": "Strada Amos Frâncu",
-          "amenity": "restaurant",
-          "cuisine": "regional",
-          "email": "info@engelsbistro.ro",
-          "internet_access": "wlan",
-          "name": "Engels Bistro",
-          "opening_hours": "Mo-Sa 07:30-00:30; Su 10:00-00:30",
-          "outdoor_seating": "yes",
-          "phone": "+40 749 201 000",
-          "smoking": "yes",
-          "website": "https://www.engelsbistro.ro/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1376265303,
-        "lat": 46.7667634,
-        "lon": 23.602472,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "12A",
-          "addr:street": "Strada Constantin Brâncuși",
           "amenity": "cafe",
-          "cuisine": "regional;coffee_shop",
-          "name": "Il caffe",
-          "opening_hours": "Mo-Fr 07:30-16:00; Sa 08:00-14:00; Su 09:00-14:00",
-          "website": "https://ilcaffe.ro/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1491994437,
-        "lat": 46.7774066,
-        "lon": 23.5873855,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:country": "RO",
-          "addr:housenumber": "32",
-          "addr:postcode": "400038",
-          "addr:postcode:source": "Date de la Poșta Română, publicate sub Licența pentru Guvernare Deschisă v1.0 la http://date.gov.ro/organization/posta-romana",
-          "addr:street": "Strada Horea",
-          "amenity": "restaurant",
-          "cuisine": "italian",
-          "internet_access": "wlan",
-          "name": "Capriccio",
-          "operator": "SC Fenega Import Export SRL",
-          "phone": "+40 364 566 713;+40 731 304 314",
-          "website": "https://www.capricciobistro.ro/"
-        }
-      },
-      {
-        "type": "node",
-        "id": 1544998859,
-        "lat": 46.7618146,
-        "lon": 23.6070876,
-        "tags": {
-          "addr:city": "Cluj-Napoca",
-          "addr:housenumber": "1",
-          "addr:postcode": "400474",
-          "addr:street": "Strada Moise Nicoară",
-          "amenity": "restaurant",
-          "capacity": "60",
-          "contact:email": "office@restaurantul-hora.ro",
-          "contact:facebook": "https://www.facebook.com/restaurantulhora",
-          "contact:phone": "+40 264 442 422;+40 723 249 889;+40 744 516 588",
-          "contact:website": "http://www.restaurantul-hora.ro/",
-          "cuisine": "romanian,international",
-          "email": "office@restaurantul-hora.ro",
-          "name": "Hora",
+          "check_date": "2026-05-05",
+          "check_date:opening_hours": "2026-05-05",
+          "contact:phone": "+33 1 48 87 83 25",
+          "diet:vegan": "no",
+          "diet:vegetarian": "yes",
+          "indoor_seating": "yes",
+          "level": "0",
+          "name": "Les Arts et Métiers",
+          "name:fr": "Les Arts et Métiers",
+          "opening_hours": "Mo-Su 07:00-02:00",
           "outdoor_seating": "yes",
-          "phone": "+40 264 442 422;+40 723 249 889;+40 744 516 588",
-          "website": "http://www.restaurantul-hora.ro/"
+          "payment:cash": "yes",
+          "payment:credit_cards": "yes",
+          "payment:debit_cards": "yes",
+          "smoking": "outside",
+          "toilets": "yes",
+          "toilets:wheelchair": "yes",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247696092,
+        "lat": 48.8577772,
+        "lon": 2.3607273,
+        "tags": {
+          "addr:housenumber": "24",
+          "addr:street": "Rue des Francs Bourgeois",
+          "amenity": "restaurant",
+          "check_date": "2025-06-12",
+          "cuisine": "french",
+          "indoor_seating": "yes",
+          "name": "Camille",
+          "outdoor_seating": "sidewalk",
+          "source": "survey 2013",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247696094,
+        "lat": 48.8630297,
+        "lon": 2.3612527,
+        "tags": {
+          "amenity": "restaurant",
+          "contact:tripadvisor": "https://www.tripadvisor.com/Restaurant_Review-g187147-d1175069-Reviews-Les_Enfants_Rouges-Paris_Ile_de_France.html",
+          "contact:yelp": "https://www.yelp.co.uk/biz/les-enfants-rouges-paris-3",
+          "diet:vegetarian": "no",
+          "name": "Les Enfants Rouges",
+          "phone": "+33 1 48 87 80 61"
+        }
+      },
+      {
+        "type": "node",
+        "id": 247696096,
+        "lat": 48.864464,
+        "lon": 2.3543053,
+        "tags": {
+          "addr:housenumber": "69",
+          "addr:postcode": "75003",
+          "addr:street": "Rue des Gravilliers",
+          "amenity": "restaurant",
+          "check_date": "2025-08-12",
+          "cuisine": "moroccan",
+          "indoor_seating": "yes",
+          "name": "404",
+          "opening_hours": "Mo-Fr 12:00-14:30,19:30-22:30; Sa-Su 12:00-16:00,19:30-22:30",
+          "outdoor_seating": "no",
+          "phone": "+33 1 42 74 57 81",
+          "reservation": "yes",
+          "smoking": "no",
+          "website": "https://www.404-resto.com",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 248493877,
+        "lat": 48.8483768,
+        "lon": 2.3739692,
+        "tags": {
+          "amenity": "restaurant",
+          "contact:city": "Paris",
+          "contact:housenumber": "55",
+          "contact:postcode": "75012",
+          "contact:street": "Rue Traversière",
+          "cuisine": "vietnamese",
+          "name": "Onhà Dô",
+          "opening_hours": "Mo-Fr 12:00-14:30,19:00-22:30; Sa 12:00-15:00,19:00-23:00"
+        }
+      },
+      {
+        "type": "node",
+        "id": 248494308,
+        "lat": 48.8491606,
+        "lon": 2.4165683,
+        "tags": {
+          "amenity": "restaurant",
+          "cuisine": "indian",
+          "name": "Le Mumtaz",
+          "wheelchair": "no"
+        }
+      },
+      {
+        "type": "node",
+        "id": 250657148,
+        "lat": 48.8647973,
+        "lon": 2.3411779,
+        "tags": {
+          "amenity": "restaurant",
+          "contact:facebook": "https://www.facebook.com/L%C3%A9moni-Paris-R%C3%A9gime-Cr%C3%A9tois-v%C3%A9g%C3%A9tarien-Healthy-175006572518111",
+          "contact:instagram": "https://www.instagram.com/lemonicafeparis/",
+          "delivery": "yes",
+          "delivery:email": "laurent@lemonicafe.fr",
+          "delivery:phone": "+33662113728",
+          "delivery:website": "https://lemonicafe.fr/livraison/",
+          "email": "contact@lemonicafe.fr",
+          "name": "Lémoni Café",
+          "opening_hours": "Mo-Fr 11:30-15:00",
+          "phone": "+33 1 45 08 49 84",
+          "ref:FR:SIRET": "45337675800018",
+          "website": "https://www.lemonicafe.fr"
+        }
+      },
+      {
+        "type": "node",
+        "id": 250861677,
+        "lat": 48.8687993,
+        "lon": 2.3373273,
+        "tags": {
+          "amenity": "restaurant",
+          "check_date": "2025-10-01",
+          "cuisine": "indian",
+          "diet:vegetarian": "yes",
+          "name": "Rani Mahal"
+        }
+      },
+      {
+        "type": "node",
+        "id": 250861679,
+        "lat": 48.864878,
+        "lon": 2.3475212,
+        "tags": {
+          "amenity": "restaurant",
+          "check_date": "2026-03-26",
+          "contact:city": "Paris",
+          "contact:housenumber": "42",
+          "contact:postcode": "75002",
+          "contact:street": "Rue Tiquetonne",
+          "cuisine": "pizza;italian",
+          "indoor_seating": "yes",
+          "name": "O' Scià",
+          "opening_hours": "Mo-Sa 12:00-14:30, 19:15-23:15; Su 19:30-22:30",
+          "outdoor_seating": "no",
+          "payment:cash": "yes",
+          "payment:credit_cards": "yes",
+          "payment:debit_cards": "yes",
+          "payment:visa": "yes",
+          "phone": "+331 75 77 23 18",
+          "smoking": "no",
+          "source:opening_hours": "website",
+          "website": "https://www.pizzeriaoscia.fr/",
+          "wheelchair": "yes"
+        }
+      },
+      {
+        "type": "node",
+        "id": 250861680,
+        "lat": 48.8689038,
+        "lon": 2.3422059,
+        "tags": {
+          "amenity": "restaurant",
+          "contact:city": "Paris",
+          "contact:housenumber": "40",
+          "contact:postcode": "75002",
+          "contact:street": "Rue Notre-Dame-des-Victoires",
+          "cuisine": "french",
+          "name": "Café Moderne",
+          "toilets:wheelchair": "yes",
+          "wheelchair": "no"
         }
       }
     ]

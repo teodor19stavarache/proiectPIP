@@ -1,0 +1,6 @@
+city=paris
+check_in=2026-05-20
+check_out=2026-05-31
+adults=2
+children=0
+currency=EUR
