@@ -38,6 +38,7 @@ public class Gui_Aplicatie extends JFrame implements AppNavigator {
         setTitle("TravaleRo - Travel Planner");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(1100, 700);
+        setMinimumSize(new Dimension(860, 560));
         setLocationRelativeTo(null);
 
         rootLayout = new CardLayout();

@@ -79,11 +79,11 @@ public class RegisterPage implements AppColors {
         formCard.add(numeRow);
         formCard.add(Box.createVerticalStrut(12));
 
-        formCard.add(wrapField("Adresa de email",  campEmail));
+        formCard.add(wrapField("Adresa de email",      campEmail));
         formCard.add(Box.createVerticalStrut(12));
-        formCard.add(wrapField("Parola",           campParola));
+        formCard.add(wrapPasswordField("Parola",       campParola));
         formCard.add(Box.createVerticalStrut(12));
-        formCard.add(wrapField("Numar de telefon", campTelefon));
+        formCard.add(wrapField("Numar de telefon",     campTelefon));
         formCard.add(Box.createVerticalStrut(22));
 
         JButton btnNext = new JButton("Continua  >");
@@ -105,7 +105,16 @@ public class RegisterPage implements AppColors {
 
         formCard.add(buildBottomLoginLink(nav));
 
-        formCard.setPreferredSize(new Dimension(400, 540));
+        formCard.setPreferredSize(new Dimension(400, 560));
+        rightSide.addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override public void componentResized(java.awt.event.ComponentEvent e) {
+                int w = rightSide.getWidth();
+                if (w <= 0) return;
+                int cardW = Math.min(500, Math.max(360, w - 100));
+                formCard.setPreferredSize(new Dimension(cardW, formCard.getPreferredSize().height));
+                rightSide.revalidate();
+            }
+        });
         rightSide.add(formCard);
         page.add(rightSide);
         return page;
@@ -282,6 +291,47 @@ public class RegisterPage implements AppColors {
         panel.add(lbl);
         panel.add(Box.createVerticalStrut(4));
         panel.add(field);
+        return panel;
+    }
+
+    /** Ca wrapField, dar adauga buton ochi pentru parola */
+    private static JPanel wrapPasswordField(String labelText, JPasswordField field) {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        panel.setBackground(ALB);
+        panel.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JLabel lbl = new JLabel(labelText);
+        lbl.setFont(new Font("Segoe UI", Font.PLAIN, 12));
+        lbl.setForeground(GRI_TEXT);
+        lbl.setAlignmentX(Component.LEFT_ALIGNMENT);
+
+        JButton btnEye = new JButton("👁");
+        btnEye.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 14));
+        btnEye.setBackground(new Color(245, 245, 245));
+        btnEye.setForeground(new Color(100, 100, 100));
+        btnEye.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(BORDER_C, 1),
+            new EmptyBorder(8, 10, 8, 10)));
+        btnEye.setFocusPainted(false);
+        btnEye.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        boolean[] vis = {false};
+        btnEye.addActionListener(e -> {
+            vis[0] = !vis[0];
+            field.setEchoChar(vis[0] ? (char) 0 : (char) 8226);
+            btnEye.setText(vis[0] ? "🙈" : "👁");
+        });
+
+        JPanel fieldRow = new JPanel(new BorderLayout(0, 0));
+        fieldRow.setBackground(ALB);
+        fieldRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 40));
+        fieldRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        fieldRow.add(field,   BorderLayout.CENTER);
+        fieldRow.add(btnEye,  BorderLayout.EAST);
+
+        panel.add(lbl);
+        panel.add(Box.createVerticalStrut(4));
+        panel.add(fieldRow);
         return panel;
     }
 

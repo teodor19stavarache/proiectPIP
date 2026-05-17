@@ -24,6 +24,8 @@ public class TopBar implements AppColors {
 
         JPanel logoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         logoPanel.setOpaque(false);
+        logoPanel.setPreferredSize(new Dimension(250, 48));
+        logoPanel.setMinimumSize(new Dimension(250, 48));
         logoPanel.add(logoText);
         logoPanel.add(logoEmoji);
         top.add(logoPanel, BorderLayout.WEST);

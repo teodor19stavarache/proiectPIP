@@ -96,7 +96,7 @@ public class LoginPage implements AppColors {
         formCard.add(campEmail);
         formCard.add(Box.createVerticalStrut(18));
 
-        // Camp parola
+        // Camp parola + buton arata/ascunde
         JLabel lblParola = new JLabel("Parola");
         lblParola.setFont(new Font("Segoe UI", Font.PLAIN, 12));
         lblParola.setForeground(GRI_TEXT);
@@ -110,9 +110,30 @@ public class LoginPage implements AppColors {
             BorderFactory.createLineBorder(BORDER_C, 1),
             new EmptyBorder(10, 12, 10, 12)
         ));
-        campParola.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
-        campParola.setAlignmentX(Component.LEFT_ALIGNMENT);
-        formCard.add(campParola);
+
+        JButton btnEye = new JButton("👁");
+        btnEye.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 15));
+        btnEye.setBackground(new Color(245, 245, 245));
+        btnEye.setForeground(new Color(100, 100, 100));
+        btnEye.setBorder(BorderFactory.createCompoundBorder(
+            BorderFactory.createLineBorder(BORDER_C, 1),
+            new EmptyBorder(10, 11, 10, 11)));
+        btnEye.setFocusPainted(false);
+        btnEye.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
+        boolean[] pwVis = {false};
+        btnEye.addActionListener(ev -> {
+            pwVis[0] = !pwVis[0];
+            campParola.setEchoChar(pwVis[0] ? (char) 0 : (char) 8226);
+            btnEye.setText(pwVis[0] ? "🙈" : "👁");
+        });
+
+        JPanel parolaRow = new JPanel(new BorderLayout(0, 0));
+        parolaRow.setBackground(ALB);
+        parolaRow.setMaximumSize(new Dimension(Integer.MAX_VALUE, 42));
+        parolaRow.setAlignmentX(Component.LEFT_ALIGNMENT);
+        parolaRow.add(campParola, BorderLayout.CENTER);
+        parolaRow.add(btnEye,     BorderLayout.EAST);
+        formCard.add(parolaRow);
         formCard.add(Box.createVerticalStrut(28));
 
         // Buton login
@@ -194,7 +215,17 @@ public class LoginPage implements AppColors {
         bottomRow.add(btnForgot,   BorderLayout.EAST);
         formCard.add(bottomRow);
 
-        formCard.setPreferredSize(new Dimension(380, 420));
+        formCard.setPreferredSize(new Dimension(380, 440));
+        // Redimensioneaza cardul la schimbarea ferestrei
+        rightSide.addComponentListener(new java.awt.event.ComponentAdapter() {
+            @Override public void componentResized(java.awt.event.ComponentEvent e) {
+                int w = rightSide.getWidth();
+                if (w <= 0) return;
+                int cardW = Math.min(480, Math.max(340, w - 100));
+                formCard.setPreferredSize(new Dimension(cardW, formCard.getPreferredSize().height));
+                rightSide.revalidate();
+            }
+        });
         rightSide.add(formCard);
         page.add(rightSide);
         return page;
