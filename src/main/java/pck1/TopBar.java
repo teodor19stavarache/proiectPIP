@@ -12,24 +12,19 @@ public class TopBar implements AppColors {
         top.setBorder(new EmptyBorder(10, 18, 10, 18));
 
         // Logo — text HTML + emoji separat cu font explicit
-        // BoxLayout X_AXIS sumeaza corect latimile si nu taie emoji-ul
         JLabel logoText = new JLabel(
             "<html><span style='color:white;font-size:17pt;font-weight:bold;'>" +
             "Travale</span><span style='color:#FFCC00;font-size:17pt;font-weight:bold;'>" +
             "Ro</span></html>"
         );
-        logoText.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        JLabel logoEmoji = new JLabel("✈");
-        logoEmoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 22));
+        JLabel logoEmoji = new JLabel(" ✈");
+        logoEmoji.setFont(new Font("Segoe UI Emoji", Font.PLAIN, 18));
         logoEmoji.setForeground(new Color(255, 204, 0));
-        logoEmoji.setAlignmentY(Component.CENTER_ALIGNMENT);
 
-        JPanel logoPanel = new JPanel();
-        logoPanel.setLayout(new BoxLayout(logoPanel, BoxLayout.X_AXIS));
+        JPanel logoPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         logoPanel.setOpaque(false);
         logoPanel.add(logoText);
-        logoPanel.add(Box.createHorizontalStrut(6));
         logoPanel.add(logoEmoji);
         top.add(logoPanel, BorderLayout.WEST);
 
